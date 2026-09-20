@@ -1,0 +1,65 @@
+number: 15
+title: "The Voltage as a Whole"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 3V so that it measures a voltage."
+  - "Switch on. Both bulbs light and the needle swings up to about 3 volts."
+whatHappens:
+  - "Here you are measuring the voltage right at the batteries, and it comes to about 3 volts."
+  - "That is exactly the sum of the two voltages you measured across the bulbs in the last two experiments: 1.5 plus 1.5."
+  - "So two electrically identical bulbs share the 3 volts of the battery equally between them."
+boards:
+  - caption: "The meter reads the voltage across the battery"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link3"
+        from: "D5"
+        to: "F5"
+        level: 2
+      - type: "switch"
+        from: "F3"
+        to: "F5"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 2
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 3
+      - type: "meter"
+        from: "B2"
+        to: "B4"
+        level: 1
+      - type: "link5"
+        from: "B4"
+        to: "B8"
+        level: 2
+      - type: "link4"
+        from: "B8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "E8"
+        to: "G8"
+        level: 2
+      - type: "link7"
+        from: "G2"
+        to: "G8"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 3

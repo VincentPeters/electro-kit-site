@@ -1,0 +1,85 @@
+number: 29
+title: "Short Circuits at the Push of a Button"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 3V."
+  - "Close the circuit at the battery compartment. The single bulb lights and the meter reads about 0.5 volts."
+  - "Press the button that bridges the single bulb. It goes out, the two parallel bulbs light up, and the meter reads about 3 volts."
+  - "Press the other button instead. The meter shows no voltage at all and the single bulb glows a little brighter."
+  - "Now unscrew one of the two parallel bulbs. The others keep shining, with about 1.5 volts each."
+whatHappens:
+  - "The meter shows the voltage available to the two bulbs that are wired in parallel."
+  - "Press the button underneath the single bulb and you effectively replace that bulb with a plain connector strip. It has almost no resistance, so the parallel bulbs receive the full battery voltage."
+  - "Press the button that sits across the parallel pair and you replace both of those bulbs with a connector strip instead. That connection has hardly any resistance, so no voltage can build up across it and the meter reads nothing."
+note: "Never press both buttons at once. That would join one battery terminal straight to the other through the two buttons, which is a short circuit."
+boards:
+  - caption: "One bulb in series with two in parallel, and a button across each"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "link3"
+        from: "D4"
+        to: "D6"
+        level: 3
+      - type: "lamp"
+        from: "D5"
+        to: "E5"
+        level: 3
+      - type: "link2"
+        from: "E5"
+        to: "F5"
+        level: 1
+      - type: "lamp"
+        from: "D6"
+        to: "E6"
+        level: 3
+      - type: "link2"
+        from: "E6"
+        to: "F6"
+        level: 1
+      - type: "link2"
+        from: "F5"
+        to: "F6"
+        level: 2
+      - type: "link2"
+        from: "F4"
+        to: "F5"
+        level: 1
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 2
+      - type: "button"
+        from: "B2"
+        to: "B4"
+        level: 1
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 2
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 2
+      - type: "button"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "link5"
+        from: "D4"
+        to: "D8"
+        level: 1
+      - type: "meter"
+        from: "D8"
+        to: "F8"
+        level: 1
+      - type: "link4"
+        from: "F5"
+        to: "F8"
+        level: 2

@@ -1,0 +1,73 @@
+number: 27
+title: "Three Bulbs Side by Side"
+chapter: "series-parallel-mixed"
+steps:
+  - "Push the switch to ON. All three bulbs light up."
+  - "Push it to OFF and all three go out."
+whatHappens:
+  - "In this circuit all three bulbs are connected in parallel across the battery."
+  - "They shine much brighter here than they did in the series circuit back in experiment 16."
+  - "That is because in a parallel circuit every single bulb has the full voltage available to it."
+boards:
+  - caption: "Three bulbs in parallel"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "switch"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link5"
+        from: "C4"
+        to: "C8"
+        level: 2
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "D6"
+        to: "G6"
+        level: 1
+      - type: "lamp"
+        from: "C7"
+        to: "D7"
+        level: 3
+      - type: "link2"
+        from: "D7"
+        to: "E7"
+        level: 1
+      - type: "link3"
+        from: "E7"
+        to: "G7"
+        level: 1
+      - type: "lamp"
+        from: "C8"
+        to: "D8"
+        level: 3
+      - type: "link2"
+        from: "D8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "E8"
+        to: "G8"
+        level: 1
+      - type: "link3"
+        from: "G6"
+        to: "G8"
+        level: 2
+      - type: "link4"
+        from: "G3"
+        to: "G6"
+        level: 1
+      - type: "link2"
+        from: "G2"
+        to: "G3"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1

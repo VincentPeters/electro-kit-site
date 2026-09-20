@@ -19,6 +19,7 @@ sidebar:
     - "Glass, porcelain and most plastics are insulators. That is why the wires in your house are wrapped in plastic."
 boards:
   - caption: "Build plan: leave the gap between F2 and F3"
+    openGap: true
     parts:
       - type: "lamp"
         from: "D2"

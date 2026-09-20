@@ -1,0 +1,158 @@
+number: 17
+title: "Voltage at One Bulb"
+chapter: "series-parallel-mixed"
+steps:
+  - "Before you switch on, set the meter to 3V."
+  - "Switch on. All three bulbs light and the needle swings to about 1 volt."
+  - "Now measure the voltage across two bulbs, and then across all three, by rebuilding the circuit to build plans 2 and 3. Write down each reading."
+whatHappens:
+  - "First you measure the voltage available to one bulb. It is about 1 volt."
+  - "Because the three bulbs are electrically almost identical, the 3 volts from the battery splits equally between them."
+  - "Across two bulbs you should read about 2 volts, and across all three about 3 volts, which is the full battery voltage."
+boards:
+  - caption: "Build plan 1: across one bulb"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 2
+      - type: "lamp"
+        from: "D6"
+        to: "D7"
+        level: 1
+      - type: "link3"
+        from: "D7"
+        to: "F7"
+        level: 2
+      - type: "switch"
+        from: "F5"
+        to: "F7"
+        level: 1
+      - type: "link4"
+        from: "F2"
+        to: "F5"
+        level: 2
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 3
+      - type: "meter"
+        from: "B2"
+        to: "B4"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 3
+  - caption: "Build plan 2: across two bulbs"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 2
+      - type: "lamp"
+        from: "D6"
+        to: "D7"
+        level: 1
+      - type: "link3"
+        from: "D7"
+        to: "F7"
+        level: 2
+      - type: "switch"
+        from: "F5"
+        to: "F7"
+        level: 1
+      - type: "link4"
+        from: "F2"
+        to: "F5"
+        level: 2
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 3
+      - type: "meter"
+        from: "B2"
+        to: "B4"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "B6"
+        level: 2
+      - type: "link3"
+        from: "B6"
+        to: "D6"
+        level: 3
+  - caption: "Build plan 3: across all three bulbs"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 2
+      - type: "lamp"
+        from: "D6"
+        to: "D7"
+        level: 1
+      - type: "link3"
+        from: "D7"
+        to: "F7"
+        level: 2
+      - type: "switch"
+        from: "F5"
+        to: "F7"
+        level: 1
+      - type: "link4"
+        from: "F2"
+        to: "F5"
+        level: 2
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 3
+      - type: "meter"
+        from: "B2"
+        to: "B4"
+        level: 1
+      - type: "link4"
+        from: "B4"
+        to: "B7"
+        level: 2
+      - type: "link3"
+        from: "B7"
+        to: "D7"
+        level: 3

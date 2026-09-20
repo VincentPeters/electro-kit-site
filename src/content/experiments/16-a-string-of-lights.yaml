@@ -1,0 +1,38 @@
+number: 16
+title: "A String of Lights"
+chapter: "series-parallel-mixed"
+steps:
+  - "Switch on and all three bulbs light up."
+  - "Switch off and all three go out together."
+  - "You have built a string of Christmas tree lights. Only yours has three lights rather than the fifteen or more on a real one."
+whatHappens:
+  - "In this series circuit three bulbs have to share the 3 volts between them."
+  - "How much voltage do you think each one gets? Remember that all three bulbs are electrically almost identical."
+  - "You can find out whether you guessed right in the next experiment."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "lamp"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link3"
+        from: "D5"
+        to: "F5"
+        level: 2
+      - type: "switch"
+        from: "F3"
+        to: "F5"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 2

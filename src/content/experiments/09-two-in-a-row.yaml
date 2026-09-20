@@ -1,0 +1,30 @@
+number: 9
+title: "Two in a Row"
+chapter: "series-parallel-mixed"
+steps:
+  - "Push the switch to ON and both bulbs light up."
+  - "Push the switch to OFF and both lights go out together."
+  - "Now try unscrewing one bulb from its holder while the switch is still on."
+whatHappens:
+  - "Here the bulbs are connected one after another with the battery. A circuit like that is called a series circuit, and the same current flows through every bulb in it."
+  - "The voltage, though, can be split up differently between them."
+  - "Unscrew one bulb and the other goes out too. In a series circuit there is only one path, so breaking it anywhere stops everything. Like soldiers, the bulbs do everything together on your command."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "lamp"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "link3"
+        from: "D4"
+        to: "F4"
+        level: 1
+      - type: "switch"
+        from: "F2"
+        to: "F4"
+        level: 2

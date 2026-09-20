@@ -1,0 +1,58 @@
+number: 25
+title: "It Flows through Bulb and Coil"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 1A."
+  - "Switch on and the bulb lights."
+  - "At the same time the meter shows the current flowing in the whole circuit: about 0.39 amperes."
+whatHappens:
+  - "Once again you are measuring the total current, and once again it is as large as the two branch currents added together, this time through the bulb and through the coil."
+  - "Check it against your notes from experiment 23. Add the bulb current to the coil current."
+  - "The answer should match the reading you get here."
+boards:
+  - caption: "The meter measures the total current"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "meter"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "D6"
+        to: "G6"
+        level: 1
+      - type: "coil"
+        from: "C7"
+        to: "E7"
+        level: 3
+      - type: "link3"
+        from: "E7"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G6"
+        to: "G7"
+        level: 1
+      - type: "link3"
+        from: "G4"
+        to: "G6"
+        level: 2
+      - type: "switch"
+        from: "G2"
+        to: "G4"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 2

@@ -1,0 +1,58 @@
+number: 26
+title: "The Motor Makes a Difference"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 1A, because here too it is measuring a current."
+  - "Switch on. The bulb lights and the motor turns."
+  - "The meter shows the total current: about 0.40 amperes."
+whatHappens:
+  - "Here again the total current is the sum of the currents through the bulb and through the motor."
+  - "You can work out the motor current by taking the bulb current away from the total."
+  - "The answer should come to about 0.21 amperes."
+boards:
+  - caption: "The meter measures the total current"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "meter"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "D6"
+        to: "G6"
+        level: 1
+      - type: "motor"
+        from: "C7"
+        to: "E7"
+        level: 3
+      - type: "link3"
+        from: "E7"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G6"
+        to: "G7"
+        level: 1
+      - type: "link3"
+        from: "G4"
+        to: "G6"
+        level: 2
+      - type: "switch"
+        from: "G2"
+        to: "G4"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 2

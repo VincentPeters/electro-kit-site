@@ -1,0 +1,105 @@
+number: 22
+title: "Parallel Currents"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 1A before you switch on."
+  - "Switch on. Both bulbs light and the needle swings to about 0.19 amperes. Write the reading down."
+  - "Now rebuild the circuit to build plan 2, which measures the current through the second bulb instead."
+  - "Switch on again, note the second reading, and compare it with the first."
+whatHappens:
+  - "In this experiment you measure the current flowing through each bulb in turn. The two values are almost the same."
+  - "That is because the two bulbs are electrically identical, so each branch takes an equal share."
+  - "Keep your notes. You will want to compare these numbers with the ones from the next few experiments."
+boards:
+  - caption: "Build plan 1: the current through the first bulb"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "switch"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "meter"
+        from: "D6"
+        to: "F6"
+        level: 1
+      - type: "link2"
+        from: "F6"
+        to: "G6"
+        level: 2
+      - type: "lamp"
+        from: "C7"
+        to: "D7"
+        level: 3
+      - type: "link4"
+        from: "D7"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G6"
+        to: "G7"
+        level: 1
+      - type: "link5"
+        from: "G2"
+        to: "G6"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+  - caption: "Build plan 2: the current through the second bulb"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "switch"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "D6"
+        to: "G6"
+        level: 1
+      - type: "lamp"
+        from: "C7"
+        to: "D7"
+        level: 3
+      - type: "meter"
+        from: "D7"
+        to: "F7"
+        level: 1
+      - type: "link2"
+        from: "F7"
+        to: "G7"
+        level: 2
+      - type: "link2"
+        from: "G6"
+        to: "G7"
+        level: 1
+      - type: "link5"
+        from: "G2"
+        to: "G6"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1

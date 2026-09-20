@@ -1,0 +1,34 @@
+number: 10
+title: "An Odd Pair: Bulb and Motor"
+chapter: "series-parallel-mixed"
+steps:
+  - "Push the switch to ON. The bulb lights up and the motor turns."
+  - "Switch off and the bulb goes out and the motor stops."
+  - "Do you know what happens if you unscrew the bulb from its holder? Try it."
+whatHappens:
+  - "In this series circuit the current flows out of the battery, through the bulb, and on through the motor."
+  - "Because the motor and the bulb have to share the voltage between them, the bulb does not glow as brightly as it would if it were connected straight to the battery."
+  - "And if you unscrew the bulb, the motor stops. One path, one break, everything stops."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "motor"
+        from: "D3"
+        to: "D5"
+        level: 2
+      - type: "link3"
+        from: "D5"
+        to: "F5"
+        level: 1
+      - type: "switch"
+        from: "F3"
+        to: "F5"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 1

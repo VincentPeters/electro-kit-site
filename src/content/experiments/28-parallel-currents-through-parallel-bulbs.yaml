@@ -1,0 +1,265 @@
+number: 28
+title: "Parallel Currents through Parallel Bulbs"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter up to measure current, with its switch at 1A."
+  - "Switch on. All three bulbs light and the meter shows the total current, about 0.57 amperes. Write it down."
+  - "Now rebuild the circuit to build plans 2, 3 and 4 in turn, so that you measure the current through each bulb separately."
+  - "Write down the current each time."
+whatHappens:
+  - "After the experiments you have already done, you probably know what is coming: in a parallel circuit the total current is as big as all the branch currents added together."
+  - "You can check it. Add up the three currents you measured for the separate bulbs."
+  - "The answer has to match the total current you measured first."
+boards:
+  - caption: "Build plan 1: the total current"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "meter"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "link2"
+        from: "C7"
+        to: "C8"
+        level: 3
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "D6"
+        to: "G6"
+        level: 1
+      - type: "lamp"
+        from: "C7"
+        to: "D7"
+        level: 3
+      - type: "link2"
+        from: "D7"
+        to: "E7"
+        level: 1
+      - type: "link3"
+        from: "E7"
+        to: "G7"
+        level: 1
+      - type: "lamp"
+        from: "C8"
+        to: "D8"
+        level: 3
+      - type: "link2"
+        from: "D8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "E8"
+        to: "G8"
+        level: 1
+      - type: "link3"
+        from: "G6"
+        to: "G8"
+        level: 2
+      - type: "link5"
+        from: "G2"
+        to: "G6"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 2
+  - caption: "Build plan 2: the current through the first bulb"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "switch"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "link2"
+        from: "C7"
+        to: "C8"
+        level: 3
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "meter"
+        from: "D6"
+        to: "F6"
+        level: 1
+      - type: "link2"
+        from: "F6"
+        to: "G6"
+        level: 2
+      - type: "lamp"
+        from: "C7"
+        to: "D7"
+        level: 3
+      - type: "link2"
+        from: "D7"
+        to: "E7"
+        level: 1
+      - type: "link3"
+        from: "E7"
+        to: "G7"
+        level: 1
+      - type: "lamp"
+        from: "C8"
+        to: "D8"
+        level: 3
+      - type: "link2"
+        from: "D8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "E8"
+        to: "G8"
+        level: 1
+      - type: "link3"
+        from: "G6"
+        to: "G8"
+        level: 2
+      - type: "link5"
+        from: "G2"
+        to: "G6"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 2
+  - caption: "Build plan 3: the current through the second bulb"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "switch"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "link2"
+        from: "C7"
+        to: "C8"
+        level: 3
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "D6"
+        to: "G6"
+        level: 1
+      - type: "lamp"
+        from: "C7"
+        to: "D7"
+        level: 3
+      - type: "meter"
+        from: "D7"
+        to: "F7"
+        level: 1
+      - type: "link2"
+        from: "F7"
+        to: "G7"
+        level: 2
+      - type: "lamp"
+        from: "C8"
+        to: "D8"
+        level: 3
+      - type: "link2"
+        from: "D8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "E8"
+        to: "G8"
+        level: 1
+      - type: "link3"
+        from: "G6"
+        to: "G8"
+        level: 2
+      - type: "link5"
+        from: "G2"
+        to: "G6"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 2
+  - caption: "Build plan 4: the current through the third bulb"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "switch"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "link2"
+        from: "C7"
+        to: "C8"
+        level: 3
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "D6"
+        to: "G6"
+        level: 1
+      - type: "lamp"
+        from: "C7"
+        to: "D7"
+        level: 3
+      - type: "link2"
+        from: "D7"
+        to: "E7"
+        level: 1
+      - type: "link3"
+        from: "E7"
+        to: "G7"
+        level: 1
+      - type: "lamp"
+        from: "C8"
+        to: "D8"
+        level: 3
+      - type: "meter"
+        from: "D8"
+        to: "F8"
+        level: 1
+      - type: "link2"
+        from: "F8"
+        to: "G8"
+        level: 2
+      - type: "link3"
+        from: "G6"
+        to: "G8"
+        level: 2
+      - type: "link5"
+        from: "G2"
+        to: "G6"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 2

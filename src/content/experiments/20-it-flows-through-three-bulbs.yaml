@@ -1,0 +1,80 @@
+number: 20
+title: "It Flows through Three Bulbs"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 1A."
+  - "Switch on. All three bulbs light and the meter reads about 0.12 amperes."
+  - "Press the left-hand button. That bulb goes out and the meter shows a higher current."
+  - "Press the other button and the current rises a little again while that bulb goes out."
+  - "Press both buttons at once: the meter reads about 0.19 amperes and one bulb glows brightly."
+whatHappens:
+  - "While the bulbs are lit the same current flows through all of them. Bridge one or both with a button and the current only rises a little, because its size depends on the resistance of the bulbs."
+  - "That resistance depends on how many bulbs there are. In a series circuit the separate resistances add up into one total resistance, and that total decides the current."
+  - "Pressing a button takes a bulb out of the chain, which lowers the total resistance, so a larger current flows."
+boards:
+  - caption: "The meter measures the current through the chain"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 2
+      - type: "lamp"
+        from: "D6"
+        to: "D7"
+        level: 1
+      - type: "link2"
+        from: "D7"
+        to: "D8"
+        level: 2
+      - type: "link3"
+        from: "D8"
+        to: "F8"
+        level: 1
+      - type: "meter"
+        from: "F6"
+        to: "F8"
+        level: 2
+      - type: "link2"
+        from: "F5"
+        to: "F6"
+        level: 1
+      - type: "switch"
+        from: "F3"
+        to: "F5"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 1
+      - type: "button"
+        from: "B4"
+        to: "B6"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 2
+      - type: "link3"
+        from: "B6"
+        to: "D6"
+        level: 2
+      - type: "button"
+        from: "B6"
+        to: "B8"
+        level: 2
+      - type: "link3"
+        from: "B8"
+        to: "D8"
+        level: 2

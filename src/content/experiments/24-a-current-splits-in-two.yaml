@@ -1,0 +1,62 @@
+number: 24
+title: "A Current Splits in Two"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter up to measure current, with its switch at 1A."
+  - "Switch on. Both bulbs light."
+  - "The meter shows the current flowing in the whole circuit: about 0.38 amperes."
+whatHappens:
+  - "Here you are measuring the total current, meaning everything the batteries have to supply so that both bulbs can light."
+  - "It is exactly as large as the two branch currents added together."
+  - "You can check that for yourself by adding up the two readings you noted in experiment 22."
+boards:
+  - caption: "The meter measures the total current"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 2
+      - type: "meter"
+        from: "C2"
+        to: "C4"
+        level: 1
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 2
+      - type: "lamp"
+        from: "C6"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "D6"
+        to: "G6"
+        level: 1
+      - type: "lamp"
+        from: "C7"
+        to: "D7"
+        level: 3
+      - type: "link2"
+        from: "D7"
+        to: "E7"
+        level: 1
+      - type: "link3"
+        from: "E7"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G6"
+        to: "G7"
+        level: 1
+      - type: "link3"
+        from: "G4"
+        to: "G6"
+        level: 2
+      - type: "switch"
+        from: "G2"
+        to: "G4"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 2

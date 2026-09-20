@@ -1,0 +1,33 @@
+number: 11
+title: "Swapping Partners: Bulb and Coil"
+chapter: "series-parallel-mixed"
+steps:
+  - "Push the switch to ON. The bulb lights, but only faintly."
+  - "Push the switch to OFF and it goes out again."
+whatHappens:
+  - "With the bulb and the coil in series, the bulb only glows weakly."
+  - "That is down to the coil, which puts up a large resistance to the current."
+  - "So there is less voltage left over for the bulb, and less voltage means a dimmer light."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "coil"
+        from: "D3"
+        to: "D5"
+        level: 2
+      - type: "link3"
+        from: "D5"
+        to: "F5"
+        level: 1
+      - type: "switch"
+        from: "F3"
+        to: "F5"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 1

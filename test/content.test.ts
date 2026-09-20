@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parse } from 'yaml';
 import { chapterSchema, experimentSchema } from '../src/content/schema';
-import { parseCell } from '../src/board/geometry';
+import { ROWS, parseCell } from '../src/board/geometry';
 import { PARTS, type PartType } from '../src/parts/registry';
 
 const CHAPTER_DIR = 'src/content/chapters';
@@ -124,5 +124,72 @@ describe('experiment content', () => {
         }
       }
     }
+  });
+
+  it('never uses more of a part than the kit contains', () => {
+    for (const { file, data } of loadYaml(EXPERIMENT_DIR)) {
+      for (const [i, board] of (data.boards ?? []).entries()) {
+        const used = new Map<string, number>();
+        for (const part of board.parts ?? []) {
+          used.set(part.type, (used.get(part.type) ?? 0) + 1);
+        }
+        for (const [type, count] of used) {
+          expect(
+            count,
+            `${file} board ${i + 1} uses ${count} x ${type}, kit has ${PARTS[type as PartType].count}`,
+          ).toBeLessThanOrEqual(PARTS[type as PartType].count);
+        }
+      }
+    }
+  });
+
+  it('closes the loop between the two battery terminals on every board', () => {
+    // The commonest way to draw a broken circuit is to leave a terminal
+    // stranded. Union the cells each part joins, then check that the minus
+    // terminal at D2 and the plus terminal at F2 end up in one component.
+    const parent = new Map<string, string>();
+    const find = (a: string): string => {
+      if (!parent.has(a)) parent.set(a, a);
+      const up = parent.get(a)!;
+      if (up === a) return a;
+      const root = find(up);
+      parent.set(a, root);
+      return root;
+    };
+    const union = (a: string, b: string) => {
+      parent.set(find(a), find(b));
+    };
+
+    const broken: string[] = [];
+    for (const { file, data } of loadYaml(EXPERIMENT_DIR)) {
+      for (const [i, board] of (data.boards ?? []).entries()) {
+        parent.clear();
+        for (const part of board.parts ?? []) {
+          if (!part.from || !part.to) continue;
+          const from = parseCell(part.from);
+          const to = parseCell(part.to);
+          const steps =
+            Math.abs(to.row - from.row) + Math.abs(to.col - from.col);
+          const dRow = Math.sign(to.row - from.row);
+          const dCol = Math.sign(to.col - from.col);
+          // A connector strip has a contact at every hole it covers; a
+          // component only at its two ends. Either way the ends are joined.
+          for (let s = 0; s < steps; s += 1) {
+            const a = `${ROWS[from.row + dRow * s]}${from.col + dCol * s + 1}`;
+            const b = `${ROWS[from.row + dRow * (s + 1)]}${from.col + dCol * (s + 1) + 1}`;
+            union(a, b);
+          }
+        }
+        if (board.openGap) continue;
+        if (find('D2') !== find('F2')) {
+          broken.push(`${file} board ${i + 1}`);
+        }
+      }
+    }
+
+    expect(
+      broken,
+      `these boards have no complete path from the battery minus terminal at D2 to the plus terminal at F2`,
+    ).toEqual([]);
   });
 });

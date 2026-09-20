@@ -1,0 +1,21 @@
+order: 2
+title: "Series, Parallel and Mixed Circuits"
+colour: "green"
+intro:
+  - "Have you ever wondered why one dead bulb can kill a whole string of fairy lights, while the headlamp on your bike keeps working even when the rear light has burnt out?"
+  - "That is the difference between wiring things one after another and wiring them side by side. In this chapter you build both, measure what each one does, and find out where the voltage and the current actually go."
+deepDive:
+  - heading: "Series circuits"
+    body:
+      - "When several things that use current sit one after another in a circuit, that is a series circuit. The same current flows through every one of them."
+      - "The voltage, though, can be different at each one. It depends on that part resistance and on the current flowing through it."
+      - "How much current flows through the whole chain depends on the voltage and on the total resistance of everything in it. In a series circuit the total resistance is simply all the separate resistances added together."
+  - heading: "Parallel circuits"
+    body:
+      - "In a parallel circuit every part is connected straight across the voltage source. So each one gets the same voltage, which in these experiments is the full 3 volts from the batteries."
+      - "The current is a different story. How much flows through each part is decided by that part resistance, so different branches can carry very different currents."
+      - "The total current is the sum of all the branch currents. And the total resistance of a parallel circuit is always smaller than the smallest single resistance in it."
+  - heading: "Why one dead bulb matters"
+    body:
+      - "Break any part of a series circuit and the whole chain goes out, because there is only one path for the current to take."
+      - "Break one branch of a parallel circuit and the others carry on, because each of them still has its own complete path back to the battery."

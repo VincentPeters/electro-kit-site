@@ -1,0 +1,53 @@
+number: 13
+title: "The Voltage Takes Its Turn"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 3V before you switch on."
+  - "Switch on. Both bulbs light and the meter reads about 1.5 volts on the upper scale."
+whatHappens:
+  - "In experiment 6 you measured the battery voltage and got about 3 volts. Here you are measuring the voltage available to just one bulb in the series circuit."
+  - "It is about half the battery voltage."
+  - "That is why the bulb cannot shine as brightly as it would if it had the whole voltage to itself."
+boards:
+  - caption: "The meter reads the voltage across the second bulb"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 2
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 1
+      - type: "switch"
+        from: "F4"
+        to: "F6"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 2
+      - type: "meter"
+        from: "B4"
+        to: "B6"
+        level: 1
+      - type: "link3"
+        from: "B6"
+        to: "D6"
+        level: 2

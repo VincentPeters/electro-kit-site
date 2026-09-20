@@ -23,6 +23,8 @@ export const placedPartSchema = z
 
 export const boardSchema = z.object({
   caption: z.string().optional(),
+  /** Set when the build plan deliberately leaves a gap for the reader to bridge. */
+  openGap: z.boolean().default(false),
   parts: z.array(placedPartSchema).min(1),
 });
 
@@ -52,7 +54,7 @@ export const experimentSchema = z.object({
   note: z.string().min(1).optional(),
   sidebar: sidebarSchema.optional(),
   tables: z.array(tableSchema).default([]),
-  boards: z.array(boardSchema).min(1).max(3),
+  boards: z.array(boardSchema).min(1).max(4),
 });
 
 export const chapterSchema = z.object({

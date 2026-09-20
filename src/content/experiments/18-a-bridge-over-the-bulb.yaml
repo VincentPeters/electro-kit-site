@@ -1,0 +1,67 @@
+number: 18
+title: "A Bridge over the Bulb"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 3V."
+  - "Switch on. Both bulbs light and the needle swings to about 1.5 volts."
+  - "Press the button. One bulb goes out, the other glows brighter, and the meter climbs to about 3 volts."
+  - "Let the button go and the needle drops back to 1.5 volts with both bulbs lit again."
+whatHappens:
+  - "While both bulbs are lit, the battery voltage is shared equally between them."
+  - "The button lets you build a bridge over one bulb, short-circuiting it. Current takes the easy path through the button instead of through the bulb, so that bulb goes dark."
+  - "Now the remaining bulb has the full 3 volts to itself, which is exactly why it glows so much brighter."
+boards:
+  - caption: "The button bridges the second bulb"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 2
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 1
+      - type: "switch"
+        from: "F4"
+        to: "F6"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "button"
+        from: "B4"
+        to: "B6"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 2
+      - type: "link3"
+        from: "B6"
+        to: "D6"
+        level: 2
+      - type: "meter"
+        from: "C2"
+        to: "C4"
+        level: 3
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 3
+      - type: "link2"
+        from: "C4"
+        to: "D4"
+        level: 3

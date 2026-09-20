@@ -1,0 +1,53 @@
+number: 14
+title: "Nothing New at the Second Bulb?"
+chapter: "series-parallel-mixed"
+steps:
+  - "Set the meter to 3V before you switch on."
+  - "Switch on. Both bulbs light and the needle swings to about 1.5 volts again, just as it did last time."
+whatHappens:
+  - "Just as in the previous experiment, you are measuring the voltage across one bulb in a series circuit. This time it is the other bulb."
+  - "The reading is almost exactly the same as in experiment 13, because the two bulbs in your kit are electrically identical."
+  - "So the two bulbs share the voltage out fairly between them."
+boards:
+  - caption: "The meter reads the voltage across the first bulb"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "lamp"
+        from: "D4"
+        to: "D5"
+        level: 1
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 2
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 1
+      - type: "switch"
+        from: "F4"
+        to: "F6"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 2
+      - type: "meter"
+        from: "B2"
+        to: "B4"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 3

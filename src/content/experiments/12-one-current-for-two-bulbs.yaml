@@ -1,0 +1,38 @@
+number: 12
+title: "One Current for Two Bulbs"
+chapter: "series-parallel-mixed"
+steps:
+  - "Before you switch on, set the meter to 1A."
+  - "Push the switch to ON. Both bulbs light and the needle swings to about 0.14 amperes on the lower scale."
+  - "Switch off and both bulbs go out while the needle drops back to rest."
+whatHappens:
+  - "Compare this current with the one you measured in experiment 7, where it flowed through a single bulb. It is lower now."
+  - "That is because two bulbs put up more resistance to the current than one does."
+  - "In a series circuit the separate resistances add up into one bigger resistance, and a bigger resistance means a smaller current."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "lamp"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "meter"
+        from: "D4"
+        to: "D6"
+        level: 1
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 2
+      - type: "switch"
+        from: "F4"
+        to: "F6"
+        level: 1
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 2

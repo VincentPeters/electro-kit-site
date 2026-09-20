@@ -1,0 +1,49 @@
+number: 21
+title: "Independent in Parallel"
+chapter: "series-parallel-mixed"
+steps:
+  - "Switch on and both bulbs light up."
+  - "Now try unscrewing one bulb from its holder while the circuit is still switched on."
+whatHappens:
+  - "When one part of a parallel circuit fails, current can still flow through the other one, so it carries on working."
+  - "Unlike the series circuit, the second bulb keeps shining when you unscrew the first."
+  - "That is why your bike headlamp still works when the rear light has burnt out."
+boards:
+  - caption: "Two bulbs side by side"
+    parts:
+      - type: "switch"
+        from: "D2"
+        to: "D4"
+        level: 1
+      - type: "link4"
+        from: "D4"
+        to: "D7"
+        level: 2
+      - type: "lamp"
+        from: "D6"
+        to: "E6"
+        level: 3
+      - type: "link2"
+        from: "E6"
+        to: "F6"
+        level: 1
+      - type: "lamp"
+        from: "D7"
+        to: "E7"
+        level: 3
+      - type: "link2"
+        from: "E7"
+        to: "F7"
+        level: 1
+      - type: "link2"
+        from: "F6"
+        to: "F7"
+        level: 2
+      - type: "link4"
+        from: "F3"
+        to: "F6"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 2
