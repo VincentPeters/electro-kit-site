@@ -44,7 +44,7 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
     </div>
   </div>
 
-  <div class="columns">
+  <div class:list={['explain-row', { 'has-sidebar': sidebar }]}>
     <section class="explain">
       <h2>What happens?</h2>
       {whatHappens.map((para) => <p>{para}</p>)}
@@ -140,6 +140,20 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
   .boards {
     display: grid;
     gap: 1.5rem;
+  }
+  /* Without a sidebar the explanation gets the full width rather than
+     sitting in a narrow column beside empty space. */
+  .explain-row {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 2rem;
+    align-items: start;
+  }
+  @media (min-width: 58rem) {
+    .explain-row.has-sidebar {
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    }
   }
   .note {
     padding: 0.9rem 1.1rem;

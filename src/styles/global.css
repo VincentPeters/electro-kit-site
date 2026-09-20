@@ -97,3 +97,18 @@ button:focus-visible {
     font-size: 11pt;
   }
 }
+
+@media print {
+  .board,
+  .explain,
+  .sidebar {
+    break-inside: avoid;
+  }
+  .pager {
+    display: none;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
