@@ -1,11 +1,176 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ChapterCard from '../components/ChapterCard.astro';
+import Board from '../components/Board.astro';
+import { url } from '../lib/url';
+import type { PlacedPart } from '../board/describe';
+
+const chapters = (await getCollection('chapters')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const experiments = await getCollection('experiments');
+const countFor = (slug: string) =>
+  experiments.filter((e) => e.data.chapter.id === slug).length;
+
+// The very first circuit in the book, as a taste of what a build plan looks like.
+const firstCircuit: PlacedPart[] = [
+  { type: 'lamp', from: 'D2', to: 'D3', level: 1 },
+  { type: 'link3', from: 'D3', to: 'F3', level: 1 },
+  { type: 'link2', from: 'F2', to: 'F3', level: 2 },
+];
 ---
 
 <BaseLayout
   title="Home"
-  description="An English companion to the KOSMOS Easy Elektro Start electronics kit."
+  description="All 60 experiments from the KOSMOS Easy Elektro Start electronics kit, written in English."
 >
   <h1>Easy Elektro Start</h1>
-  <p>Sixty experiments with the KOSMOS Easy Elektro Start kit, in English.</p>
+  <p class="lede">
+    Sixty experiments with the KOSMOS Easy Elektro Start kit, written in English.
+    Build a circuit, switch it on, and find out what is really going on inside it.
+  </p>
+
+  <div class="intro">
+    <div>
+      <h2>How this works</h2>
+      <p>
+        Every experiment shows you a picture of the finished circuit, tells you
+        what to do, and then explains what just happened.
+      </p>
+      <p>
+        New to the kit? Start with <a href={url('/parts/')}>what is in the box</a>,
+        then learn <a href={url('/build-tips/')}>how to read a build plan</a>.
+        After that, work straight through from experiment 1.
+      </p>
+      <p>
+        <a class="cta" href={url('/experiments/going-round-in-circles/')}>
+          Start at experiment 1
+        </a>
+      </p>
+    </div>
+    <div>
+      <Board parts={firstCircuit} caption="Experiment 1: a bulb, and a complete loop" />
+    </div>
+  </div>
+
+  <h2>The five chapters</h2>
+  <div class="chapters">
+    {
+      chapters.map((chapter) => (
+        <ChapterCard
+          slug={chapter.id}
+          order={chapter.data.order}
+          title={chapter.data.title}
+          blurb={chapter.data.intro[0]}
+          colour={chapter.data.colour}
+          count={countFor(chapter.id)}
+        />
+      ))
+    }
+  </div>
+
+  <section class="safety">
+    <h2>Before you start</h2>
+    <p>
+      The kit is for children of 8 and over, because the electrical parts are
+      out in the open. It is not suitable for under-3s: there are small parts
+      that could be swallowed or breathed in.
+    </p>
+    <ul>
+      <li>
+        <strong>Small magnets.</strong> Swallowed magnets can pull towards each
+        other inside the body and cause serious injury. If that ever happens,
+        see a doctor straight away.
+      </li>
+      <li>
+        <strong>Never experiment with wall sockets.</strong> The 230 volts in
+        the mains is lethal. This kit runs on 3 volts and nothing else.
+      </li>
+      <li>
+        <strong>Never short-circuit the terminals.</strong> Joining the two
+        battery terminals with nothing in between makes the wires hot and can
+        make the batteries burst.
+      </li>
+      <li>
+        <strong>Two AA batteries</strong> (LR6) are needed and are not included.
+        Put them in the right way round, matching the plus and minus marks.
+      </li>
+      <li>
+        <strong>Do not mix batteries.</strong> Old with new, or rechargeable
+        with ordinary, is not safe. Ordinary batteries must never be charged.
+        Rechargeables come out of the toy first and are charged by an adult.
+      </li>
+      <li>
+        <strong>Take the batteries out</strong> when they are flat or when you
+        have finished for the day, and do not bend or squash them.
+      </li>
+      <li>
+        <strong>Leave the battery compartment alone.</strong> It has a built-in
+        protection device, and tampering with it can cause overheating.
+      </li>
+      <li>
+        <strong>Keep the spinning propeller</strong> away from faces, people and
+        animals. It can fly five metres into the air.
+      </li>
+    </ul>
+    <p class="parents">
+      <strong>A note for parents:</strong> the safety rules above are a summary.
+      The printed manual that came with the kit is the authority, and it is
+      worth reading it with your child before the first experiment.
+    </p>
+  </section>
 </BaseLayout>
+
+<style>
+  .lede {
+    font-size: var(--step-1);
+    max-width: 40rem;
+  }
+  .intro {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    margin-block: 2.5rem;
+  }
+  @media (min-width: 52rem) {
+    .intro {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+  .cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    background: var(--theme);
+    color: #fff;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .cta:hover {
+    text-decoration: underline;
+  }
+  .chapters {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+  }
+  .safety {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--colour-surface);
+    border-radius: var(--radius);
+  }
+  .safety h2 {
+    margin-top: 0;
+  }
+  .safety li {
+    margin-bottom: 0.6rem;
+  }
+  .parents {
+    margin-bottom: 0;
+    color: var(--colour-muted);
+  }
+</style>

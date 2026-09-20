@@ -1,0 +1,52 @@
+---
+import { url } from '../lib/url';
+
+interface Props {
+  slug: string;
+  order: number;
+  title: string;
+  blurb: string;
+  colour: 'red' | 'green' | 'orange' | 'blue' | 'purple';
+  count: number;
+}
+
+const { slug, order, title, blurb, colour, count } = Astro.props;
+---
+
+<a class="chapter-card" href={url(`/chapters/${slug}/`)} data-theme={colour}>
+  <span class="eyebrow">Chapter {order} · {count} experiments</span>
+  <h3>{title}</h3>
+  <p>{blurb}</p>
+</a>
+
+<style>
+  .chapter-card {
+    display: block;
+    padding: 1.5rem;
+    border: 2px solid var(--colour-line);
+    border-top: 8px solid var(--theme);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: inherit;
+  }
+  .chapter-card:hover {
+    background: var(--theme-wash);
+  }
+  .chapter-card h3 {
+    margin: 0.35rem 0 0.5rem;
+    font-size: var(--step-1);
+    color: var(--theme);
+  }
+  .chapter-card p {
+    margin: 0;
+    max-width: none;
+  }
+  .eyebrow {
+    display: block;
+    font-size: var(--step--1);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--colour-muted);
+  }
+</style>
