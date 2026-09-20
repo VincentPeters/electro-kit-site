@@ -1,0 +1,36 @@
+number: 48
+title: "Current out of the Coil"
+chapter: "magnetism"
+steps:
+  - "Set the switch on the meter to 3V."
+  - "Push the bar magnet north pole first into the coil, far enough that you can still just grip the other end."
+  - "Watch the meter needle and pull the magnet quickly back out of the coil, without shaking the meter."
+  - "The needle gives a tiny flick, and that flick is telling you that you have made a voltage."
+whatHappens:
+  - "The magnet sets the electrons inside the coil moving, because they sit in its field."
+  - "When the magnetic field changes quickly, a voltage appears at the ends of the coil. It is called an induced voltage."
+  - "Something very similar happens in the dynamo on a bicycle."
+note: "The voltage you make is very small. You will probably have to try a few times to see the flick, and it matters that the meter does not wobble."
+boards:
+  - caption: "The coil and the meter, with no battery at all"
+    noBattery: true
+    parts:
+      - type: "meter"
+        from: "B4"
+        to: "B6"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 2
+      - type: "link3"
+        from: "B6"
+        to: "D6"
+        level: 2
+      - type: "coil"
+        from: "D4"
+        to: "D6"
+        level: 3
+      - type: "magnet"
+        at: "E5"
+        level: 3

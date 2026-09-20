@@ -16,9 +16,11 @@ import Part from './Part.astro';
 interface Props {
   parts: PlacedPart[];
   caption?: string;
+  /** Dim the battery when the experiment does not use it. */
+  noBattery?: boolean;
 }
 
-const { parts, caption } = Astro.props;
+const { parts, caption, noBattery = false } = Astro.props;
 
 // Lower levels paint first so stacked parts sit on top, as they do in the kit.
 const ordered = [...parts].sort((a, b) => (a.level ?? 1) - (b.level ?? 1));
@@ -92,7 +94,7 @@ const description = describeBoard(parts);
       terminal holes in column 2 that build plans actually connect to, so the
       path from the battery into the circuit is visible rather than implied.
     */}
-    <g class="battery">
+    <g class="battery" opacity={noBattery ? 0.25 : 1}>
       <path
         d={`M ${batteryCentre.x} ${batteryCentre.y - 22} V ${minusTerminal.y} H ${minusTerminal.x}`}
         fill="none"

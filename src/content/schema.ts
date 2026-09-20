@@ -26,6 +26,11 @@ export const boardSchema = z.object({
   caption: z.string().optional(),
   /** Set when the build plan deliberately leaves a gap for the reader to bridge. */
   openGap: z.boolean().default(false),
+  /**
+   * Set when the experiment does not use the battery at all: the magnet and
+   * compass done in the hand, or the coil and motor used as generators.
+   */
+  noBattery: z.boolean().default(false),
   parts: z.array(placedPartSchema).min(1),
 });
 

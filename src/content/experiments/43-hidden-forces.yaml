@@ -1,0 +1,25 @@
+number: 43
+title: "Hidden Forces"
+chapter: "magnetism"
+steps:
+  - "Put the compass on the baseplate and wait until the needle settles and stops moving."
+  - "Move the magnet slowly towards the compass and watch the needle. It swings away from where it was resting."
+  - "Take the magnet far enough away and the needle swings back to rest."
+  - "Now bring a paper clip close to the compass. The needle hardly moves at all."
+  - "Stroke the magnet over the paper clip several times, always in the same direction, then try again. Now the clip moves the needle."
+whatHappens:
+  - "The compass needle is a magnet on a pivot, free to turn. It lines up north to south because the magnetic field of the Earth pulls it that way."
+  - "The bar magnet from your kit is far stronger than the field of the Earth, which is why you can pull the needle away from north with it."
+  - "The paper clip is iron, and the tiny magnets inside it point in all directions at random, so it has no effect on the needle."
+  - "But stroke the magnet over the clip in one direction several times and you force those tiny magnets to line up together. Now the clip is a weak magnet in its own right."
+note: "You can also find out which end of the bar magnet is which. Hold it close to the compass: the end the red half of the needle points at is the magnet south pole."
+boards:
+  - caption: "No circuit needed: the compass and the magnet"
+    noBattery: true
+    parts:
+      - type: "compass"
+        at: "C4"
+        level: 1
+      - type: "magnet"
+        at: "C7"
+        level: 1

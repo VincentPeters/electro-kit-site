@@ -1,0 +1,34 @@
+number: 50
+title: "Untouched, and Still It Switches"
+chapter: "magnetism"
+steps:
+  - "Bring one of the narrow ends of the magnet slowly towards the magnetic switch."
+  - "As soon as the magnet is close enough, the bulb starts to glow."
+  - "Take the magnet away again and the bulb goes out."
+  - "So you can switch a light on and off without ever touching a switch."
+whatHappens:
+  - "The magnetic switch, also called a reed switch, is a little glass tube with two metal contacts inside it. Normally those contacts are held apart, so no current can flow."
+  - "The contacts are very thin and made of magnetic material, so the pull of a magnet is enough to move them. They touch, and the circuit is closed."
+  - "Take the magnetic force away and the contacts spring back to where they started, breaking the circuit again."
+boards:
+  - caption: "A magnetic switch and a bulb"
+    parts:
+      - type: "link2"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "lamp"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "link3"
+        from: "D4"
+        to: "F4"
+        level: 1
+      - type: "reedSwitch"
+        from: "F2"
+        to: "F4"
+        level: 2
+      - type: "magnet"
+        at: "G3"
+        level: 3

@@ -180,7 +180,7 @@ describe('experiment content', () => {
             union(a, b);
           }
         }
-        if (board.openGap) continue;
+        if (board.openGap || board.noBattery) continue;
         if (find('D2') !== find('F2')) {
           broken.push(`${file} board ${i + 1}`);
         }

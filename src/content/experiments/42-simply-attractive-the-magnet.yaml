@@ -1,0 +1,23 @@
+number: 42
+title: "Simply Attractive: the Magnet"
+chapter: "magnetism"
+steps:
+  - "Bring the magnet slowly towards a metal paper clip. Before the magnet even touches it, the clip jumps across and sticks."
+  - "Check whether the iron core from the kit is pulled towards the magnet too."
+  - "Try other materials: wood, plastic, different metals. Which of them does the magnet pull?"
+  - "Hold a sheet of paper, a piece of plastic or some cloth between the magnet and the iron core. The magnetic force goes straight through."
+whatHappens:
+  - "A magnet attracts things made of iron, nickel or cobalt. Other metals such as copper, aluminium and brass are not attracted at all, and nor are plastics."
+  - "The magnetic force works across a gap, before anything touches."
+  - "It also passes straight through things that are not magnetic, like a sheet of paper, thin plastic or cloth."
+note: "Keep your magnets away from bank cards, tapes, computers and mechanical watches. A magnet can wipe what is stored on them for good."
+boards:
+  - caption: "No circuit needed: just the magnet and the iron core"
+    noBattery: true
+    parts:
+      - type: "magnet"
+        at: "C4"
+        level: 1
+      - type: "ironCore"
+        at: "C7"
+        level: 1

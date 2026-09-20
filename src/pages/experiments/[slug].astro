@@ -38,7 +38,9 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
     </div>
 
     <div class="boards">
-      {boards.map((board) => <Board parts={board.parts} caption={board.caption} />)}
+      {boards.map((board) => (
+        <Board parts={board.parts} caption={board.caption} noBattery={board.noBattery} />
+      ))}
     </div>
   </div>
 

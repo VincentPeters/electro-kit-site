@@ -1,0 +1,32 @@
+number: 51
+title: "Switch Me On, but Do Not Touch Me"
+chapter: "magnetism"
+steps:
+  - "Bring one of the narrow ends of the magnet slowly towards the magnetic switch."
+  - "As soon as the magnet is close enough, the electric motor starts to turn."
+  - "It keeps turning until you take the magnet away again."
+whatHappens:
+  - "Once again you are switching something on with the magnet rather than with your finger."
+  - "Plenty of everyday things work this way. Bicycle speedometers, for example, use a magnetic switch and a magnet on a spoke."
+  - "Every time the wheel goes round, the magnet passes the switch and the speedometer counts one turn."
+boards:
+  - caption: "A magnetic switch driving the motor"
+    parts:
+      - type: "motor"
+        from: "D2"
+        to: "D4"
+        level: 1
+      - type: "link3"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "reedSwitch"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "propeller"
+        at: "C3"
+        level: 3
+      - type: "magnet"
+        at: "G3"
+        level: 3

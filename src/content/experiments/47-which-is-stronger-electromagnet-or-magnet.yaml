@@ -1,0 +1,43 @@
+number: 47
+title: "Which Is Stronger: Electromagnet or Magnet?"
+chapter: "magnetism"
+steps:
+  - "Move the bar magnet slowly towards the compass. The needle changes where it points."
+  - "Take the bar magnet away again and press the button. The needle changes again."
+  - "Now bring the bar magnet back towards the compass while the button is pressed. Which of the two magnets can pull the needle its way? That is the stronger one."
+whatHappens:
+  - "Hold the bar magnet close enough to the compass and its magnetic field moves the needle."
+  - "Press the button and you switch the electromagnet on, which puts a magnetic field around the coil."
+  - "That field pulls on the needle too. Whichever of the two fields is stronger is the one that moves the needle furthest."
+boards:
+  - caption: "The electromagnet and the bar magnet, competing for the compass"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "B2"
+        to: "B4"
+        level: 2
+      - type: "coil"
+        from: "B4"
+        to: "D4"
+        level: 3
+      - type: "button"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "ironCore"
+        at: "C4"
+        level: 3
+      - type: "compass"
+        at: "C7"
+        level: 1
+      - type: "magnet"
+        at: "C9"
+        level: 1

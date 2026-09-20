@@ -1,0 +1,37 @@
+number: 46
+title: "Current Attracts Too: the Electromagnet"
+chapter: "magnetism"
+steps:
+  - "Hold a metal paper clip against the iron core and let go. It falls onto the baseplate."
+  - "Now press the button and hold the paper clip against the iron core again."
+  - "This time it sticks, for exactly as long as you keep the button pressed."
+whatHappens:
+  - "The coil with the iron core inside it makes an electromagnet. While current is flowing through the coil, that electromagnet behaves exactly like the bar magnet."
+  - "Stop the current and the magnetic force disappears with it."
+  - "That is the difference between the two. A bar magnet is called a permanent magnet, because its magnetic force is always there."
+boards:
+  - caption: "An electromagnet you can switch on and off"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "B2"
+        to: "B4"
+        level: 2
+      - type: "coil"
+        from: "B4"
+        to: "D4"
+        level: 3
+      - type: "button"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "ironCore"
+        at: "C4"
+        level: 3

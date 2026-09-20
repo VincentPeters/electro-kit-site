@@ -1,0 +1,40 @@
+number: 45
+title: "Magnetic Field, Concentrate!"
+chapter: "magnetism"
+steps:
+  - "Slide the iron core into the coil."
+  - "Wait until the compass needle has stopped moving, then press the button. The needle swings."
+  - "Move the compass further and further away from the electromagnet. You will find you can take it much further away than in experiment 44 and still pull the needle round."
+whatHappens:
+  - "A magnetic field forms all around a coil with current flowing in it. Push the iron core inside and the field lines itself up along the core."
+  - "The tiny magnets inside the iron core are pulled into line as well, so the core becomes a magnet itself."
+  - "That is why the magnetic field is especially strong at the ends of the iron core."
+boards:
+  - caption: "The same coil, with the iron core pushed inside"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "B2"
+        to: "B4"
+        level: 2
+      - type: "coil"
+        from: "B4"
+        to: "D4"
+        level: 3
+      - type: "button"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "ironCore"
+        at: "C4"
+        level: 3
+      - type: "compass"
+        at: "C8"
+        level: 1

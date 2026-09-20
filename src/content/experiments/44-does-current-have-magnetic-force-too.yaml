@@ -1,0 +1,38 @@
+number: 44
+title: "Does Current Have Magnetic Force Too?"
+chapter: "magnetism"
+steps:
+  - "Wait until the compass needle has settled."
+  - "Now press the button. The compass needle moves."
+  - "If you put the compass on the baseplate right in front of the coil, the coloured end of the needle lines up with the coil for exactly as long as you hold the button down."
+  - "Let the button go and the needle swings back to where it was resting."
+whatHappens:
+  - "A coil with current flowing through it makes a magnetic field. That field appears all around the coil."
+  - "By switching the current on and off, you are switching a magnetic field on and off."
+  - "And it is not only coils. A magnetic field forms around any conductor that has current flowing through it."
+boards:
+  - caption: "A coil, a button, and the compass beside it"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "B2"
+        to: "B4"
+        level: 2
+      - type: "coil"
+        from: "B4"
+        to: "D4"
+        level: 3
+      - type: "button"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "compass"
+        at: "C7"
+        level: 1

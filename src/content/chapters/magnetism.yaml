@@ -1,0 +1,22 @@
+order: 4
+title: "Magnetism"
+colour: "blue"
+intro:
+  - "You cannot see a magnetic field, or hear it, or smell it. But hold two magnets close together and you can certainly feel it pushing back at you."
+  - "In this chapter you find out that magnetism and electricity are really the same story told two ways. A current can make a magnet, and a moving magnet can make a current."
+deepDive:
+  - heading: "Magnetism and electricity belong together"
+    body:
+      - "Every electric motor only works because of electricity and magnetism together, and you can find those two invisible forces working side by side on almost any bicycle."
+      - "The current for bike lights is made by a dynamo, which turns movement and magnetism into electricity."
+      - "And if the bike has a speedometer, that uses magnetism too: to work a switch without anything touching it, and to count how often the wheel goes round."
+  - heading: "The Earth is one huge magnet"
+    body:
+      - "Our planet is an enormous, but rather weak, magnet. Picture the bar magnet from your kit buried inside a ball, and the ball being the Earth."
+      - "Then one place on the ball is a magnetic north pole and the place exactly opposite is the south pole, with a magnetic field wrapped all the way around."
+      - "That field matters more than you might think. It keeps dangerous radiation from space away from us. And a compass only works at all because the Earth is a magnet."
+  - heading: "No music without a magnet"
+    body:
+      - "Did you know that most loudspeakers have a powerful magnet inside them?"
+      - "The magnet is shaped like a ring, and a coil sits in a gap in that ring where it is free to move. A thin sheet called a membrane is fixed to the coil."
+      - "When current flows through the coil it pushes against the magnet, so the coil moves and the membrane moves with it. That sets the air shaking, and shaking air is sound."

@@ -1,0 +1,32 @@
+number: 49
+title: "A Motor That Makes Electricity"
+chapter: "magnetism"
+steps:
+  - "Set the switch on the meter to 3V."
+  - "Spin the motor shaft quickly between your fingers, always the same way. The meter needle moves a little."
+  - "If the needle swings towards the left-hand edge of the meter, turn the motor the other way instead."
+whatHappens:
+  - "Here the motor is working like a bicycle dynamo: it is making a voltage. To see how, you need to know what is inside it."
+  - "Round the outside of the motor are magnets, forming a sort of tube. Inside that sits a coil that can turn, called the armature, and its shaft comes out of the case, which is the bit you are twisting."
+  - "Turn the armature inside the magnetic field and a voltage is produced, exactly as it was in experiment 48."
+  - "Which way you turn the motor by hand decides which way round that voltage comes out."
+boards:
+  - caption: "The motor and the meter, with no battery at all"
+    noBattery: true
+    parts:
+      - type: "meter"
+        from: "B4"
+        to: "B6"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 2
+      - type: "link3"
+        from: "B6"
+        to: "D6"
+        level: 2
+      - type: "motor"
+        from: "D4"
+        to: "D6"
+        level: 3

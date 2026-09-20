@@ -1,0 +1,29 @@
+number: 52
+title: "A Magnet Raises the Alarm"
+chapter: "magnetism"
+steps:
+  - "Bring a narrow end of the magnet towards the magnetic switch. As soon as it is close enough, the buzzer sounds."
+  - "Take the magnet away from the switch again and the sound stops."
+  - "You could use a circuit like this for a simple burglar alarm."
+whatHappens:
+  - "Here you are switching something on with the magnet once more, this time the buzzer."
+  - "Magnetic switches are built into a great many real alarm systems."
+  - "One can be fitted into a window frame with the magnet on the window itself, and wired to an alarm. Open the window, the magnet moves away, and the alarm goes off."
+boards:
+  - caption: "A magnetic switch and the buzzer"
+    parts:
+      - type: "buzzer"
+        from: "D2"
+        to: "D4"
+        level: 1
+      - type: "link3"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "reedSwitch"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "magnet"
+        at: "G3"
+        level: 3
