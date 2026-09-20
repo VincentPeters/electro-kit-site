@@ -1,0 +1,38 @@
+---
+import { PITCH_X } from '../board/geometry';
+import { partDef, type PartType } from '../parts/registry';
+import { symbolMarkup } from '../parts/symbols';
+
+interface Props {
+  type: PartType;
+}
+
+const { type } = Astro.props;
+const def = partDef(type);
+
+const length = def.cells > 1 ? (def.cells - 1) * PITCH_X : 0;
+const padX = 50;
+const padY = 75;
+const width = length + padX * 2;
+const height = padY * 2;
+const markup = symbolMarkup(type, length);
+---
+
+<svg
+  viewBox={`0 0 ${width} ${height}`}
+  role="img"
+  aria-label={def.label}
+  xmlns="http://www.w3.org/2000/svg"
+  class="swatch"
+  style={`max-width:${Math.round(width * 0.72)}px`}
+>
+  <g transform={`translate(${padX} ${padY})`} set:html={markup} />
+</svg>
+
+<style>
+  .swatch {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

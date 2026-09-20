@@ -19,6 +19,8 @@ const level = part.level ?? 1;
 // Badges must stay upright, so they are placed outside the rotated group.
 // The kit number sits beside the middle of the part, offset along the
 // part's own "up" — above a horizontal part, to the side of a vertical one.
+// Level badges go below-left of the part's first hole, so that the two
+// kinds of badge do not pile up where parts are stacked.
 const radians = (placement.angle * Math.PI) / 180;
 const mid = {
   x: placement.x + (placement.length / 2) * Math.cos(radians),
@@ -53,7 +55,7 @@ const levelAt = cellCenter(part.at ?? part.from!);
 )}
 
 {level > 1 && (
-  <g transform={`translate(${levelAt.x - 24} ${levelAt.y - 24})`}>
+  <g transform={`translate(${levelAt.x - 24} ${levelAt.y + 24})`}>
     <rect
       x="-10"
       y="-10"

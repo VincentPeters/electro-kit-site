@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Board from '../components/Board.astro';
+import PartSwatch from '../components/PartSwatch.astro';
+import type { PlacedPart } from '../board/describe';
+
+const gridDemo: PlacedPart[] = [
+  { type: 'link3', from: 'C3', to: 'C5', level: 1 },
+  { type: 'lamp', from: 'C6', to: 'C7', level: 1 },
+];
+
+const levelDemo: PlacedPart[] = [
+  { type: 'link4', from: 'D2', to: 'D5', level: 1 },
+  { type: 'lamp', from: 'D4', to: 'D5', level: 2 },
+  { type: 'link1', at: 'D5', level: 3 },
+];
+---
+
+<BaseLayout
+  title="Build tips"
+  description="How to read a build plan: the grid, the stacking levels, and which way round a part goes."
+>
+  <h1>How to read a build plan</h1>
+  <p>
+    Every experiment on this site shows you a picture of the finished circuit.
+    Three things tell you exactly where each part goes.
+  </p>
+
+  <section>
+    <h2>1. The grid</h2>
+    <p>
+      The baseplate is a grid of holes. The columns are numbered
+      <strong>1 to 10</strong> across the top, and the rows are lettered
+      <strong>A to G</strong> down the side. So <strong>C3</strong> means row C,
+      column 3.
+    </p>
+    <p>
+      Every part stretches between two holes, and we name both. A strip
+      described as <strong>C3 to C5</strong> starts at C3 and finishes at C5,
+      covering three holes.
+    </p>
+    <p>
+      The battery compartment is built into the board at the bottom left, with
+      its minus terminal at the top and its plus at the bottom. It is always
+      there, so it is never listed as a part.
+    </p>
+    <Board parts={gridDemo} caption="A strip from C3 to C5, and a bulb from C6 to C7" />
+  </section>
+
+  <section>
+    <h2>2. Levels: what goes on top of what</h2>
+    <p>
+      Parts stack on top of each other. A part with no number sits straight on
+      the baseplate — that is <strong>level 1</strong>. A small square with a
+      <strong>2</strong> or a <strong>3</strong> means that part clips on top of
+      something you have already fitted.
+    </p>
+    <p>
+      Always build from the bottom up. Fit everything on level 1 first, then
+      level 2, then level 3. If a part will not sit flat, something underneath
+      it is probably missing.
+    </p>
+    <Board
+      parts={levelDemo}
+      caption="A strip on level 1, a bulb stacked on level 2, and a single-hole strip on level 3"
+    />
+  </section>
+
+  <section>
+    <h2>3. Which way round?</h2>
+    <p>
+      The motor, the buzzer and the meter each have a <strong>+</strong> printed
+      on them. Fit the part so its plus sign points the same way as the plus sign
+      in the build plan. Turn one of them around and the motor spins backwards,
+      or the buzzer stays silent.
+    </p>
+    <div class="swatches">
+      <figure>
+        <PartSwatch type="motor" />
+        <figcaption>Motor</figcaption>
+      </figure>
+      <figure>
+        <PartSwatch type="buzzer" />
+        <figcaption>Buzzer</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="warning">
+    <h2>Before you switch on</h2>
+    <ul>
+      <li>
+        Build the circuit exactly as the plan shows. Leaving out a bulb that the
+        plan includes can damage the meter.
+      </li>
+      <li>
+        Set the meter's switch to <strong>3V</strong> or <strong>1A</strong>
+        before you fit it, as the experiment tells you.
+      </li>
+      <li>
+        Never join the battery's two terminals with only connector strips
+        between them. That is a short circuit, and the parts get hot.
+      </li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    margin-block: 3rem;
+  }
+  .swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+  }
+  .swatches figure {
+    margin: 0;
+    text-align: center;
+  }
+  .swatches figcaption {
+    font-weight: 600;
+    color: var(--colour-muted);
+  }
+  .warning {
+    padding: 1.25rem 1.5rem;
+    background: var(--theme-wash);
+    border-left: 6px solid var(--theme);
+    border-radius: var(--radius);
+  }
+  .warning h2 {
+    margin-top: 0;
+    font-size: var(--step-1);
+  }
+</style>

@@ -29,8 +29,13 @@ h3 {
   font-size: var(--step-1);
 }
 
-p,
-li {
+p {
+  max-width: var(--measure);
+}
+
+/* Prose lists get a reading measure; layout lists set their own width. */
+ul:not([class]) li,
+ol:not([class]) li {
   max-width: var(--measure);
 }
 

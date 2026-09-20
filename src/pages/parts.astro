@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PartSwatch from '../components/PartSwatch.astro';
+import { BOARD_PARTS, LOOSE_PARTS } from '../parts/registry';
+
+const groups = [
+  {
+    heading: 'Connector strips',
+    blurb:
+      'The blue parts carry the current. The number on a strip tells you how many holes it covers, so a 3 reaches from one hole to the third one along.',
+    parts: BOARD_PARTS.filter((p) => p.family === 'conductor'),
+  },
+  {
+    heading: 'Switches',
+    blurb: 'The green parts break the circuit and close it again.',
+    parts: BOARD_PARTS.filter((p) => p.family === 'switch'),
+  },
+  {
+    heading: 'Things that use the current',
+    blurb: 'These turn electricity into light, sound or movement.',
+    parts: BOARD_PARTS.filter((p) => p.family === 'load'),
+  },
+  {
+    heading: 'The meter',
+    blurb: 'The black part measures what all the others are doing.',
+    parts: BOARD_PARTS.filter((p) => p.family === 'instrument'),
+  },
+  {
+    heading: 'Loose pieces',
+    blurb:
+      'These do not clip onto the board. You hold them, or push them onto something else.',
+    parts: LOOSE_PARTS,
+  },
+];
+---
+
+<BaseLayout
+  title="Parts"
+  description="Every part in the Easy Elektro Start kit, what it does, and how many come in the box."
+>
+  <h1>What is in the box</h1>
+  <p>
+    Most parts have a number printed on them. That same number appears in every
+    build plan on this site, so you can always tell which part you need.
+  </p>
+  <p>
+    Colour tells you the job a part does: <strong>blue</strong> carries the
+    current, <strong>red</strong> uses it up, <strong>green</strong> switches it
+    on and off, and <strong>black</strong> measures it.
+  </p>
+
+  {
+    groups.map((group) => (
+      <section>
+        <h2>{group.heading}</h2>
+        <p>{group.blurb}</p>
+        <ul class="part-list">
+          {group.parts.map((part) => (
+            <li>
+              <div class="swatch-cell">
+                <PartSwatch type={part.type} />
+              </div>
+              <div>
+                <h3>{part.label}</h3>
+                <p class="meta">
+                  {part.kitNumber !== undefined && <span>Part {part.kitNumber}</span>}
+                  <span>{part.count} in the box</span>
+                </p>
+                <p>{part.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <section>
+    <h2>And the baseplate</h2>
+    <p>
+      The clear plastic board with all the holes. Everything gets built on it,
+      and the battery compartment is part of it, down in the bottom left corner.
+      That is why no build plan ever lists the battery as a part — it is always
+      already there.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    margin-block: 2.5rem;
+  }
+  .part-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .part-list li {
+    display: grid;
+    grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: var(--colour-surface);
+    border-radius: var(--radius);
+  }
+  .swatch-cell {
+    display: grid;
+    place-items: center;
+  }
+  .part-list h3 {
+    margin: 0 0 0.25rem;
+    font-size: var(--step-0);
+  }
+  .part-list p {
+    margin: 0;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    color: var(--colour-muted);
+    font-size: var(--step--1);
+    font-weight: 600;
+    margin-bottom: 0.35rem !important;
+  }
+  @media (max-width: 40rem) {
+    .part-list li {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
