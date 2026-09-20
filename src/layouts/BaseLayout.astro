@@ -1,0 +1,49 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import { asset, url } from '../lib/url';
+
+interface Props {
+  title: string;
+  description?: string;
+  theme?: 'red' | 'green' | 'orange' | 'blue' | 'purple';
+}
+
+const { title, description, theme = 'blue' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme={theme}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Easy Elektro Start</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href={asset('/favicon.svg')} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <nav aria-label="Main">
+          <a href={url('/')}>Home</a>
+          <a href={url('/experiments/')}>Experiments</a>
+          <a href={url('/parts/')}>Parts</a>
+          <a href={url('/build-tips/')}>Build tips</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Unofficial companion site for the KOSMOS Easy Elektro Start kit. Not
+          affiliated with or endorsed by Franckh-Kosmos Verlags-GmbH &amp; Co. KG.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

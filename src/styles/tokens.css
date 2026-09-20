@@ -1,0 +1,43 @@
+:root {
+  --colour-ink: #16202e;
+  --colour-muted: #55647a;
+  --colour-page: #ffffff;
+  --colour-surface: #f3f5f8;
+  --colour-line: #dde3ec;
+
+  --chapter-red: #c62222;
+  --chapter-green: #15803d;
+  --chapter-orange: #b45309;
+  --chapter-blue: #1f6fd0;
+  --chapter-purple: #6d28d9;
+
+  /* Overridden per page, and per card, by a data-theme attribute. */
+  --theme: var(--chapter-blue);
+  --theme-wash: color-mix(in srgb, var(--theme) 8%, white);
+
+  --step--1: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  --step-1: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
+  --step-2: clamp(1.7rem, 1.5rem + 1vw, 2.3rem);
+  --step-3: clamp(2.2rem, 1.8rem + 2vw, 3.2rem);
+
+  --space: 1rem;
+  --measure: 36rem;
+  --radius: 14px;
+}
+
+[data-theme='red'] {
+  --theme: var(--chapter-red);
+}
+[data-theme='green'] {
+  --theme: var(--chapter-green);
+}
+[data-theme='orange'] {
+  --theme: var(--chapter-orange);
+}
+[data-theme='blue'] {
+  --theme: var(--chapter-blue);
+}
+[data-theme='purple'] {
+  --theme: var(--chapter-purple);
+}
