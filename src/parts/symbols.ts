@@ -39,8 +39,9 @@ export function kitBadge(type: PartType): { number: number; colour: string } | n
 }
 
 /** The orientation mark on parts that only work one way round. */
-function plusMark(colour: string): string {
-  return `<text x="14" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="${colour}">+</text>`;
+function plusMark(colour: string, length: number, flip: boolean): string {
+  const x = flip ? length - 14 : 14;
+  return `<text x="${x}" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="${colour}">+</text>`;
 }
 
 function wire(from: number, to: number, colour: string): string {
@@ -80,13 +81,13 @@ function lampMarkup(length: number, colour: string): string {
   );
 }
 
-function motorMarkup(length: number, colour: string): string {
+function motorMarkup(length: number, colour: string, flip: boolean): string {
   const mid = length / 2;
   return (
     wire(0, length, colour) +
     `<circle cx="${mid}" cy="0" r="20" fill="#ffffff" stroke="${colour}" stroke-width="5" />` +
     `<text x="${mid}" y="7" text-anchor="middle" font-size="20" font-weight="700" fill="${colour}">M</text>` +
-    plusMark(colour) +
+    plusMark(colour, length, flip) +
     studMarkup(0, colour) +
     studMarkup(length, colour)
   );
@@ -114,14 +115,14 @@ function coilMarkup(length: number, colour: string): string {
   );
 }
 
-function buzzerMarkup(length: number, colour: string): string {
+function buzzerMarkup(length: number, colour: string, flip: boolean): string {
   const mid = length / 2;
   return (
     wire(0, length, colour) +
     `<circle cx="${mid}" cy="0" r="20" fill="#ffffff" stroke="${colour}" stroke-width="5" />` +
     `<path d="M ${mid - 7} -9 a 11 11 0 0 1 0 18" fill="none" stroke="${colour}" stroke-width="4" />` +
     `<path d="M ${mid - 1} -14 a 17 17 0 0 1 0 28" fill="none" stroke="${colour}" stroke-width="4" />` +
-    plusMark(colour) +
+    plusMark(colour, length, flip) +
     studMarkup(0, colour) +
     studMarkup(length, colour)
   );
@@ -176,8 +177,6 @@ function switchMarkup(length: number, colour: string): string {
     `<line x1="${left}" y1="0" x2="${right}" y2="-13" stroke="${colour}" stroke-width="6" stroke-linecap="round" />` +
     `<circle cx="${left}" cy="0" r="6" fill="${colour}" />` +
     `<circle cx="${right}" cy="0" r="6" fill="#ffffff" stroke="${colour}" stroke-width="4" />` +
-    `<text x="${left}" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="${colour}">OFF</text>` +
-    `<text x="${right}" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="${colour}">ON</text>` +
     studMarkup(0, colour) +
     studMarkup(length, colour)
   );
@@ -188,21 +187,16 @@ function switchMarkup(length: number, colour: string): string {
  * paths are drawn so the reader can see the choice the switch makes.
  */
 function changeoverMarkup(length: number, colour: string): string {
-  const pivot = length * 0.35;
-  const out = length * 0.8;
+  // Three contacts in a line. The middle one, A, is joined to either B or
+  // C but never to both, which is exactly how the kit part behaves.
+  const mid = length / 2;
   return (
     switchBody(length, colour) +
-    wire(0, pivot, colour) +
-    `<circle cx="${pivot}" cy="0" r="6" fill="${colour}" />` +
-    `<line x1="${pivot}" y1="0" x2="${out}" y2="-12" stroke="${colour}" stroke-width="6" stroke-linecap="round" />` +
-    `<circle cx="${out}" cy="-12" r="5" fill="#ffffff" stroke="${colour}" stroke-width="4" />` +
-    `<circle cx="${out}" cy="12" r="5" fill="#ffffff" stroke="${colour}" stroke-width="4" />` +
-    // Contact names sit outside the body: the experiments refer to
-    // "position B" and "position C", so the reader needs to see which is which.
-    `<text x="${pivot}" y="-28" text-anchor="middle" font-size="12" font-weight="700" fill="${colour}">A</text>` +
-    `<text x="${out + 2}" y="-28" text-anchor="middle" font-size="12" font-weight="700" fill="${colour}">C</text>` +
-    `<text x="${out + 2}" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="${colour}">B</text>` +
+    `<line x1="0" y1="0" x2="${mid}" y2="0" stroke="${colour}" stroke-width="5" />` +
+    `<line x1="${mid}" y1="0" x2="${length}" y2="0" stroke="${colour}" stroke-width="5" stroke-dasharray="4 5" />` +
+    `<circle cx="${mid}" cy="0" r="6" fill="${colour}" />` +
     studMarkup(0, colour) +
+    studMarkup(mid, colour) +
     studMarkup(length, colour)
   );
 }
@@ -292,7 +286,7 @@ function batteryHolderMarkup(colour: string): string {
 
 /* ------------------------------------------------------------------ */
 
-type SymbolFn = (length: number, colour: string) => string;
+type SymbolFn = (length: number, colour: string, flip: boolean) => string;
 
 /**
  * Total over PartType on purpose: adding a part to the registry without
@@ -327,10 +321,27 @@ const SYMBOLS: Record<PartType, SymbolFn> = {
  * SVG markup for one part, drawn along the x axis from (0,0) to
  * (length,0) and centred on the wire. The caller positions and rotates it.
  */
-export function symbolMarkup(type: PartType, length: number): string {
+export function symbolMarkup(type: PartType, length: number, flip = false): string {
   const def = partDef(type);
   const draw = SYMBOLS[type];
   if (!draw) throw new Error(`Unknown part type: ${type}`);
   const colour = PART_COLOURS[def.colour];
-  return draw(length, colour);
+  return draw(length, colour, flip);
 }
+
+/**
+ * Lettering that must stay upright whatever way the part runs: the
+ * changeover contacts the experiments refer to by name, and the two
+ * positions of the on/off switch. `t` is the fraction along the span.
+ */
+export const CONTACT_LABELS: Partial<Record<PartType, { t: number; label: string }[]>> = {
+  changeover: [
+    { t: 0, label: 'B' },
+    { t: 0.5, label: 'A' },
+    { t: 1, label: 'C' },
+  ],
+  switch: [
+    { t: 0.3, label: 'OFF' },
+    { t: 0.7, label: 'ON' },
+  ],
+};

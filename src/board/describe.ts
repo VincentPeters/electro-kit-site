@@ -8,6 +8,8 @@ export interface PlacedPart {
   to?: string;
   /** Single cell, for parts that fill one hole. */
   at?: string;
+  /** Mirror the part, so its plus mark faces the other way. */
+  flip?: boolean;
   /** Stacking level, 1 on the baseplate. */
   level?: number;
 }

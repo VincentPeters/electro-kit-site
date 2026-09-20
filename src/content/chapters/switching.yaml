@@ -1,0 +1,25 @@
+order: 3
+title: "Switching"
+colour: "orange"
+intro:
+  - "Every time you turn on a light you are using a switch. A switch has one simple job: to break the circuit, or to close it again."
+  - "In this chapter you build switches that do cleverer things. Two switches controlling one lamp from opposite ends of a hallway. Switches that only work together. A traffic light you drive by hand, and three bulbs that can count to seven."
+deepDive:
+  - heading: "Switches and push buttons"
+    body:
+      - "Switches and buttons break one circuit, or several at once, and close them again. Some are built to break one circuit and close another at the same moment."
+      - "They come in a huge number of shapes depending on the job, but one thing is always true of a switch: once you have moved it, it stays where you put it."
+      - "A push button is the opposite. Let go and it springs straight back to where it was."
+  - heading: "Where switches hide"
+    body:
+      - "Once you start looking, switches turn up everywhere. The light switches on the wall are the obvious ones."
+      - "So are the switches in a car, for the wipers or the headlights. But there are hidden ones too. Open a car door and a light comes on inside, because opening the door pressed a switch. The same happens in the fridge: open the door and a switch closes and the light comes on."
+      - "How many more hidden switches can you find?"
+  - heading: "Switches worked by something other than a finger"
+    body:
+      - "So far every switch you have used you worked by hand. But there are switches operated by electricity, and switches operated by magnetism."
+      - "You will meet both of those in the chapters that follow."
+  - heading: "The binary number system"
+    body:
+      - "The binary system was studied by the scholar Gottfried Wilhelm Leibniz in 1674, with calculating machines in mind."
+      - "In 1938 one of the very first computers was built to work in exactly that system, with nothing but switches that were either on or off."

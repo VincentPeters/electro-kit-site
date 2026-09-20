@@ -1,0 +1,46 @@
+number: 31
+title: "What Would You Like: A Buzz or a Light?"
+chapter: "switching"
+steps:
+  - "Close the circuit at the minus terminal with the two-contact strip. Either the bulb lights or the buzzer sounds."
+  - "Work the changeover switch. Either the bulb goes out and the buzzer starts, or the buzzer stops and the bulb lights."
+  - "Work the switch a second time and it swaps back between bulb and buzzer."
+whatHappens:
+  - "This circuit works exactly like the one in experiment 30. The only difference is that the buzzer has taken the place of the second bulb."
+  - "The changeover switch closes the circuit either for the bulb or for the buzzer."
+  - "It can never close both at once, because the middle contact can only ever be joined to one side."
+boards:
+  - caption: "The changeover switch picks the bulb or the buzzer"
+    parts:
+      - type: "link2"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "changeover"
+        from: "C3"
+        to: "E3"
+        level: 2
+      - type: "lamp"
+        from: "C3"
+        to: "C4"
+        level: 3
+      - type: "buzzer"
+        from: "E3"
+        to: "E5"
+        level: 3
+      - type: "link2"
+        from: "C4"
+        to: "C5"
+        level: 2
+      - type: "link3"
+        from: "C5"
+        to: "E5"
+        level: 1
+      - type: "link2"
+        from: "E5"
+        to: "F5"
+        level: 2
+      - type: "link4"
+        from: "F2"
+        to: "F5"
+        level: 1

@@ -1,0 +1,49 @@
+number: 41
+title: "A Gentle Breeze or a Fresh One"
+chapter: "switching"
+steps:
+  - "Push the propeller onto the motor, put the on/off switch at OFF and press the button. The motor turns slowly."
+  - "If your batteries are not quite fresh you may have to help the motor start by giving the fan a flick with your hand."
+  - "Now put the on/off switch at ON. Press the button and the fan spins much faster."
+whatHappens:
+  - "The motor and the coil are wired one after another, and the on/off switch sits across the coil."
+  - "With the switch at OFF and the button pressed, the current has to flow through the coil as well as the motor. That leaves the motor with less voltage, so it turns slowly."
+  - "With the switch at ON the coil is short-circuited. Press the button and the current goes straight through the switch contacts to the motor, which now has the full battery voltage and can spin fast."
+boards:
+  - caption: "The switch decides whether the coil is in the way"
+    parts:
+      - type: "motor"
+        from: "D2"
+        to: "D4"
+        level: 1
+      - type: "coil"
+        from: "D4"
+        to: "D6"
+        level: 2
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 1
+      - type: "button"
+        from: "F4"
+        to: "F6"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "switch"
+        from: "B4"
+        to: "B6"
+        level: 1
+      - type: "link3"
+        from: "B4"
+        to: "D4"
+        level: 2
+      - type: "link3"
+        from: "B6"
+        to: "D6"
+        level: 2
+      - type: "propeller"
+        at: "C3"
+        level: 3

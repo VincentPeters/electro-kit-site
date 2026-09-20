@@ -1,0 +1,87 @@
+number: 35
+title: "Can Three Bulbs Count to Seven?"
+chapter: "switching"
+steps:
+  - "The three bulbs are wired side by side, and you can switch each one on and off on its own."
+  - "Put the right-hand changeover switch at C and the bulb above it comes on."
+  - "Push the on/off switch to ON and the middle bulb lights. The left bulb comes on when you put the left changeover switch at B."
+whatHappens:
+  - "Give the bulbs a system and they can show numbers, in what is called the binary system."
+  - "To do that you agree that the bulb on the far right stands for the figure 1 when it is lit. The middle bulb stands for 2, and the one on the far left stands for 4."
+  - "The table shows how the bulbs have to shine to make each number. With three bulbs you can count from 0 all the way to 7."
+tables:
+  - heading: "Counting with three bulbs"
+    columns:
+      - "Left bulb (4)"
+      - "Middle bulb (2)"
+      - "Right bulb (1)"
+      - "Binary"
+      - "Number"
+    rows:
+      - ["off", "off", "off", "000", "0"]
+      - ["off", "off", "on", "001", "1"]
+      - ["off", "on", "off", "010", "2"]
+      - ["off", "on", "on", "011", "3"]
+      - ["on", "off", "off", "100", "4"]
+      - ["on", "off", "on", "101", "5"]
+      - ["on", "on", "off", "110", "6"]
+      - ["on", "on", "on", "111", "7"]
+boards:
+  - caption: "Each bulb has its own switch"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link5"
+        from: "B2"
+        to: "B6"
+        level: 2
+      - type: "lamp"
+        from: "B4"
+        to: "C4"
+        level: 3
+      - type: "changeover"
+        from: "C4"
+        to: "E4"
+        level: 2
+      - type: "link3"
+        from: "E4"
+        to: "G4"
+        level: 3
+      - type: "lamp"
+        from: "B5"
+        to: "C5"
+        level: 3
+      - type: "switch"
+        from: "C5"
+        to: "E5"
+        level: 2
+      - type: "link3"
+        from: "E5"
+        to: "G5"
+        level: 3
+      - type: "lamp"
+        from: "B6"
+        to: "C6"
+        level: 3
+      - type: "changeover"
+        from: "C6"
+        to: "E6"
+        level: 2
+      - type: "link3"
+        from: "E6"
+        to: "G6"
+        level: 3
+      - type: "link4"
+        from: "G2"
+        to: "G5"
+        level: 1
+      - type: "link2"
+        from: "G5"
+        to: "G6"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 2

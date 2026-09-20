@@ -1,0 +1,59 @@
+number: 40
+title: "Right or Left: a Switch Decides"
+chapter: "switching"
+steps:
+  - "Put both changeover switches at C and press the button. The motor runs."
+  - "Now put both changeover switches at B. Press the button and the motor runs the other way."
+  - "Put the two switches in different positions. Now you can press the button as much as you like and the motor will not turn at all."
+whatHappens:
+  - "The motor is wired between the middle contacts of the two changeover switches. The switching contacts of the two switches are joined to each other, and each pair also goes to one terminal of the battery."
+  - "Depending on where the switches are, the motor is joined through the left switch to plus and through the right switch to minus. Flip both switches and the polarity reverses: now it is minus on the left and plus on the right."
+  - "Because the polarity decides which way a motor turns, this circuit lets you change its direction. With the switches in different positions both motor connections end up on the same battery terminal, so it cannot turn at all."
+note: "You could use a circuit like this to drive a model boat or car forwards and backwards."
+boards:
+  - caption: "The motor between two changeover switches"
+    parts:
+      - type: "link2"
+        from: "C2"
+        to: "D2"
+        level: 1
+      - type: "link2"
+        from: "C2"
+        to: "C3"
+        level: 2
+      - type: "link5"
+        from: "C3"
+        to: "C7"
+        level: 1
+      - type: "changeover"
+        from: "C3"
+        to: "E3"
+        level: 2
+      - type: "changeover"
+        from: "C7"
+        to: "E7"
+        level: 2
+      - type: "motor"
+        from: "D3"
+        to: "D5"
+        level: 3
+      - type: "link3"
+        from: "D5"
+        to: "D7"
+        level: 2
+      - type: "link3"
+        from: "E3"
+        to: "E5"
+        level: 1
+      - type: "link3"
+        from: "E5"
+        to: "E7"
+        level: 1
+      - type: "link2"
+        from: "E4"
+        to: "F4"
+        level: 2
+      - type: "button"
+        from: "F2"
+        to: "F4"
+        level: 1

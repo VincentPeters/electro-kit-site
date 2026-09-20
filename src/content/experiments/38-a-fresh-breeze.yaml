@@ -1,0 +1,30 @@
+number: 38
+title: "A Fresh Breeze"
+chapter: "switching"
+steps:
+  - "Push the propeller onto the shaft of the electric motor."
+  - "Press the button. The motor turns."
+  - "Let the button go and the fan stops. You have built an electric fan."
+whatHappens:
+  - "Inside the motor there are magnets arranged around the metal case. Inside those sits a coil that is free to spin."
+  - "When current flows through the coil it starts to turn."
+  - "Which way it turns depends on which motor connection you put plus on, and which one you put minus on."
+note: "Never aim the spinning propeller at faces, people or animals."
+boards:
+  - caption: "Motor, propeller and a push button"
+    parts:
+      - type: "motor"
+        from: "D2"
+        to: "D4"
+        level: 1
+      - type: "link3"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "button"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "propeller"
+        at: "C3"
+        level: 3

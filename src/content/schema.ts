@@ -13,6 +13,7 @@ export const placedPartSchema = z
     to: cell.optional(),
     at: cell.optional(),
     level: z.number().int().min(1).max(3).default(1),
+    flip: z.boolean().default(false),
   })
   .refine(
     (part) =>

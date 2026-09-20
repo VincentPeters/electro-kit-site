@@ -1,0 +1,34 @@
+number: 36
+title: "Only If You Go, I Go Too"
+chapter: "switching"
+steps:
+  - "The bulb only lights when you press the left button AND the right button at the same time."
+  - "Try pressing just one of them. Nothing happens."
+  - "A circuit like this is called an AND gate."
+whatHappens:
+  - "An AND gate is really just a series circuit."
+  - "Current can only flow once both buttons in the chain are closed. One open button anywhere breaks the whole path."
+  - "AND gates are used on machines where the worker has to press a button with each hand. That makes sure the machine cannot start by accident, and that both hands are safely out of the dangerous part."
+boards:
+  - caption: "Two buttons in a row: an AND gate"
+    parts:
+      - type: "button"
+        from: "D2"
+        to: "D4"
+        level: 1
+      - type: "button"
+        from: "D4"
+        to: "D6"
+        level: 2
+      - type: "lamp"
+        from: "D6"
+        to: "D7"
+        level: 3
+      - type: "link3"
+        from: "D7"
+        to: "F7"
+        level: 1
+      - type: "link6"
+        from: "F2"
+        to: "F7"
+        level: 2

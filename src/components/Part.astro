@@ -1,7 +1,7 @@
 ---
 import { cellCenter, spanOf } from '../board/geometry';
 import type { PlacedPart } from '../board/describe';
-import { kitBadge, symbolMarkup } from '../parts/symbols';
+import { CONTACT_LABELS, kitBadge, symbolMarkup } from '../parts/symbols';
 
 interface Props {
   part: PlacedPart;
@@ -13,7 +13,7 @@ const placement = part.at
   ? { ...cellCenter(part.at), length: 0, angle: 0 }
   : spanOf(part.from!, part.to!);
 
-const markup = symbolMarkup(part.type, placement.length);
+const markup = symbolMarkup(part.type, placement.length, part.flip ?? false);
 const level = part.level ?? 1;
 
 // Badges must stay upright, so they are placed outside the rotated group.
@@ -33,6 +33,14 @@ const badgeAt = {
 };
 
 const badge = kitBadge(part.type);
+
+// Contact lettering sits on the far side of the part from the kit number,
+// and is placed upright for the same reason the badges are.
+const contacts = (CONTACT_LABELS[part.type] ?? []).map((contact) => ({
+  label: contact.label,
+  x: placement.x + contact.t * placement.length * Math.cos(radians) - 30 * Math.sin(radians),
+  y: placement.y + contact.t * placement.length * Math.sin(radians) + 30 * Math.cos(radians),
+}));
 const levelAt = cellCenter(part.at ?? part.from!);
 ---
 
@@ -53,6 +61,20 @@ const levelAt = cellCenter(part.at ?? part.from!);
       fill={badge.colour}>{badge.number}</text>
   </g>
 )}
+
+{contacts.map((contact) => (
+  <text
+    x={contact.x}
+    y={contact.y}
+    text-anchor="middle"
+    font-size="12"
+    font-weight="700"
+    paint-order="stroke"
+    stroke="#ffffff"
+    stroke-width="4"
+    stroke-linejoin="round"
+    fill="#199a55">{contact.label}</text>
+))}
 
 {level > 1 && (
   <g transform={`translate(${levelAt.x - 24} ${levelAt.y + 24})`}>

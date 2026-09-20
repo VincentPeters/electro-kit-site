@@ -1,0 +1,46 @@
+number: 37
+title: "Do You Go, or Do I?"
+chapter: "switching"
+steps:
+  - "The bulb lights when you press the top button, OR the bottom button, OR both together."
+  - "Try each one on its own, then both at once."
+  - "A circuit like this is called an OR gate."
+whatHappens:
+  - "An OR gate is really just a parallel circuit."
+  - "Current can flow whenever one button or the other is closed, because each button has its own complete path."
+  - "OR gates are used where a machine has to be startable from one control desk or from another."
+boards:
+  - caption: "Two buttons side by side: an OR gate"
+    parts:
+      - type: "link2"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link3"
+        from: "C3"
+        to: "E3"
+        level: 2
+      - type: "button"
+        from: "C3"
+        to: "C5"
+        level: 3
+      - type: "button"
+        from: "E3"
+        to: "E5"
+        level: 3
+      - type: "link3"
+        from: "C5"
+        to: "E5"
+        level: 2
+      - type: "lamp"
+        from: "D5"
+        to: "D6"
+        level: 3
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 1
+      - type: "link5"
+        from: "F2"
+        to: "F6"
+        level: 2

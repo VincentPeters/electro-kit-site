@@ -1,0 +1,91 @@
+number: 34
+title: "Directing Traffic by Hand"
+chapter: "switching"
+steps:
+  - "Close the circuit at the minus terminal of the battery compartment. One of the bulbs lights."
+  - "The two changeover switches now let you work the bulbs like a set of traffic lights. The top bulb is red, the middle one is amber and the bottom one is green."
+  - "Set the switches one after another to run the real sequence: red, red and amber, green, amber, red."
+whatHappens:
+  - "Red: the current runs from the plus terminal straight to the red bulb. The left switch sits at C, which is a direct path to the minus terminal, so red lights. The right switch sits at B, which joins green to plus, but green other end is open because the left switch is at C. One end of amber is open too, because the right switch is at B."
+  - "Red and amber: red stays connected exactly as before. Putting the right switch at C also joins amber to the plus terminal, so red and amber shine together."
+  - "Green: with both switches at B, green is joined straight across the battery. Both other bulbs have a broken circuit."
+  - "Amber: amber is joined directly to the minus terminal, and the right switch at C gives its other end a path to plus."
+tables:
+  - heading: "Working the lights"
+    columns:
+      - "Left switch"
+      - "Right switch"
+      - "The lights show"
+    rows:
+      - ["C", "B", "Red"]
+      - ["C", "C", "Red and amber"]
+      - ["B", "B", "Green"]
+      - ["B", "C", "Amber"]
+      - ["C", "B", "Red"]
+boards:
+  - caption: "Three bulbs and two changeover switches"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link6"
+        from: "B2"
+        to: "B7"
+        level: 2
+      - type: "link2"
+        from: "B7"
+        to: "B8"
+        level: 3
+      - type: "lamp"
+        from: "B8"
+        to: "C8"
+        level: 2
+      - type: "link3"
+        from: "C8"
+        to: "E8"
+        level: 3
+      - type: "link2"
+        from: "E7"
+        to: "E8"
+        level: 2
+      - type: "link2"
+        from: "D2"
+        to: "D3"
+        level: 2
+      - type: "changeover"
+        from: "C3"
+        to: "E3"
+        level: 3
+      - type: "lamp"
+        from: "C3"
+        to: "C4"
+        level: 2
+      - type: "link4"
+        from: "C4"
+        to: "C7"
+        level: 3
+      - type: "changeover"
+        from: "C7"
+        to: "E7"
+        level: 2
+      - type: "link3"
+        from: "D7"
+        to: "F7"
+        level: 3
+      - type: "link4"
+        from: "F2"
+        to: "F5"
+        level: 1
+      - type: "link3"
+        from: "F5"
+        to: "F7"
+        level: 2
+      - type: "lamp"
+        from: "E3"
+        to: "E4"
+        level: 2
+      - type: "link2"
+        from: "E4"
+        to: "F4"
+        level: 3

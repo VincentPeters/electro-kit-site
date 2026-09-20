@@ -1,0 +1,31 @@
+number: 39
+title: "The Propeller Takes Off"
+chapter: "switching"
+steps:
+  - "Push the propeller onto the electric motor."
+  - "Hold the button down until the fan has worked up to a good speed."
+  - "Now let the button go. The propeller lifts off and flies into the air."
+whatHappens:
+  - "In this experiment the motor is built in the other way round, so it spins in the opposite direction to experiment 38."
+  - "That is the direction that lets the propeller fly, and it takes off the moment you let go of the button."
+  - "The experiment only really works with fresh batteries."
+note: "Careful! Never let the propeller fly towards people or animals. It can climb five metres."
+boards:
+  - caption: "The same circuit, with the motor turned round"
+    parts:
+      - type: "motor"
+        from: "D2"
+        to: "D4"
+        flip: true
+        level: 1
+      - type: "link3"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "button"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "propeller"
+        at: "C3"
+        level: 3

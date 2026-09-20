@@ -1,0 +1,51 @@
+number: 32
+title: "Spoilt for Choice: Morse by Sound or by Light"
+chapter: "switching"
+steps:
+  - "Tap the push button. Either the bulb flashes or the buzzer sounds, in exactly the rhythm you tap."
+  - "Work the changeover switch to swap between the buzzer and the bulb."
+  - "Now you can send Morse code either way, as a light or as a sound."
+whatHappens:
+  - "This circuit works just like the ones in experiments 30 and 31."
+  - "The difference is the push button. It opens and closes the circuit no matter where the changeover switch happens to be."
+  - "So the changeover switch chooses which one speaks, and the button decides when."
+note: "The Morse alphabet is in experiment 3, if you need to look up a letter."
+boards:
+  - caption: "A changeover switch to choose, and a button to send"
+    parts:
+      - type: "link2"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "changeover"
+        from: "C3"
+        to: "E3"
+        level: 2
+      - type: "lamp"
+        from: "C3"
+        to: "C4"
+        level: 3
+      - type: "buzzer"
+        from: "E3"
+        to: "E5"
+        level: 3
+      - type: "link2"
+        from: "C4"
+        to: "C5"
+        level: 2
+      - type: "link3"
+        from: "C5"
+        to: "E5"
+        level: 1
+      - type: "link2"
+        from: "E5"
+        to: "F5"
+        level: 2
+      - type: "button"
+        from: "F2"
+        to: "F4"
+        level: 1
+      - type: "link2"
+        from: "F4"
+        to: "F5"
+        level: 3

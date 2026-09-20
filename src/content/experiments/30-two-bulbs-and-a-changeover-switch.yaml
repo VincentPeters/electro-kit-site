@@ -1,0 +1,48 @@
+number: 30
+title: "Two Bulbs and a Changeover Switch"
+chapter: "switching"
+steps:
+  - "Close the circuit at the minus terminal of the battery compartment with the two-contact strip. One of the bulbs lights up."
+  - "Now work the changeover switch. The other bulb lights and the one that was shining goes out."
+  - "You could use a circuit like this as a free and engaged sign on a toilet door."
+whatHappens:
+  - "One connection of each bulb goes to the plus terminal of the battery. The other connection of each bulb goes to one of the switching contacts of the changeover switch, B and C. The middle contact, A, goes to the minus terminal."
+  - "So one of the two switching contacts is always joined to the middle contact, and whichever bulb is on that side lights up."
+  - "Work the switch and the middle contact joins the other bulb instead. At the very same moment the first bulb circuit is broken."
+sidebar:
+  heading: "Switches and changeover switches"
+  body:
+    - "An on/off switch has two contacts. Depending on which way you push it, they are held open or held closed, and they stay that way."
+    - "A changeover switch has three contacts. The middle contact, A, is permanently joined either to contact B or to contact C, depending on where you put the switch."
+    - "With the switch at C, contact A is joined only to C. Move it to B and contact A is joined only to B."
+boards:
+  - caption: "One changeover switch feeding two bulbs"
+    parts:
+      - type: "link2"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "changeover"
+        from: "C3"
+        to: "E3"
+        level: 2
+      - type: "lamp"
+        from: "C3"
+        to: "C4"
+        level: 3
+      - type: "lamp"
+        from: "E3"
+        to: "E4"
+        level: 3
+      - type: "link3"
+        from: "C4"
+        to: "E4"
+        level: 1
+      - type: "link2"
+        from: "E4"
+        to: "F4"
+        level: 2
+      - type: "link3"
+        from: "F2"
+        to: "F4"
+        level: 1

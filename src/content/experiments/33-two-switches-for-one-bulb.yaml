@@ -1,0 +1,52 @@
+number: 33
+title: "Two Switches for One Bulb"
+chapter: "switching"
+steps:
+  - "Close the circuit at the minus terminal with the two-contact strip. The bulb is either lit or not."
+  - "Work either one of the two changeover switches. The bulb goes out if it was lit, and comes on if it was not."
+  - "You can turn the bulb on or off from either switch. A circuit like this is called two-way switching."
+whatHappens:
+  - "The middle contact of one changeover switch goes to the bulb, and the middle contact of the other goes to the battery. The bulb second connection goes straight back to the battery, and the switching contacts of the two switches are wired to each other."
+  - "Because the middle contact of each switch is always joined to one of its two switching contacts, there is always a position in which the circuit is closed. When it is, the bulb lights."
+  - "Work either switch and the connection breaks. Work the other one afterwards and the circuit is closed again."
+sidebar:
+  heading: "Two-way switching"
+  body:
+    - "Two-way switching lets you turn one thing, such as a ceiling light, on and off from two places that are far apart."
+    - "That is why hallways and staircases are wired this way: a switch at the bottom of the stairs and another at the top, both controlling the same light."
+    - "To build it you need two changeover switches."
+boards:
+  - caption: "Either switch turns the bulb on or off"
+    parts:
+      - type: "link2"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "changeover"
+        from: "C3"
+        to: "E3"
+        level: 2
+      - type: "changeover"
+        from: "C6"
+        to: "E6"
+        level: 2
+      - type: "link4"
+        from: "C3"
+        to: "C6"
+        level: 3
+      - type: "link4"
+        from: "E3"
+        to: "E6"
+        level: 3
+      - type: "lamp"
+        from: "D6"
+        to: "D7"
+        level: 3
+      - type: "link3"
+        from: "D7"
+        to: "F7"
+        level: 1
+      - type: "link6"
+        from: "F2"
+        to: "F7"
+        level: 2
