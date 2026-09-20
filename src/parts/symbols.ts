@@ -144,6 +144,31 @@ function relayMarkup(length: number, colour: string): string {
   );
 }
 
+/** The coil half of the relay: an electromagnet in a box. */
+function relayCoilMarkup(length: number, colour: string): string {
+  const w = Math.max(length, 50);
+  return (
+    `<rect x="0" y="-22" width="${w}" height="44" rx="8" fill="#ffffff" stroke="${colour}" stroke-width="5" />` +
+    `<rect x="${w * 0.2}" y="-12" width="${w * 0.6}" height="24" rx="3" fill="${colour}" />` +
+    studMarkup(0, colour) +
+    studMarkup(w, colour)
+  );
+}
+
+/** The contact half of the relay: a changeover the coil pulls over. */
+function relaySwitchMarkup(length: number, colour: string): string {
+  const mid = length / 2;
+  return (
+    `<rect x="-18" y="-22" width="${length + 36}" height="44" rx="10" fill="#ffffff" stroke="${colour}" stroke-width="5" />` +
+    `<line x1="0" y1="0" x2="${mid}" y2="0" stroke="${colour}" stroke-width="5" />` +
+    `<line x1="${mid}" y1="0" x2="${length}" y2="0" stroke="${colour}" stroke-width="5" stroke-dasharray="4 5" />` +
+    `<circle cx="${mid}" cy="0" r="6" fill="${colour}" />` +
+    studMarkup(0, colour) +
+    studMarkup(mid, colour) +
+    studMarkup(length, colour)
+  );
+}
+
 /* ------------------------------------------------------------------ *
  * Switches                                                            *
  * ------------------------------------------------------------------ */
@@ -305,6 +330,8 @@ const SYMBOLS: Record<PartType, SymbolFn> = {
   coil: coilMarkup,
   buzzer: buzzerMarkup,
   relay: relayMarkup,
+  relayCoil: relayCoilMarkup,
+  relaySwitch: relaySwitchMarkup,
   button: buttonMarkup,
   switch: switchMarkup,
   changeover: changeoverMarkup,
@@ -343,5 +370,10 @@ export const CONTACT_LABELS: Partial<Record<PartType, { t: number; label: string
   switch: [
     { t: 0.3, label: 'OFF' },
     { t: 0.7, label: 'ON' },
+  ],
+  relaySwitch: [
+    { t: 0, label: 'B' },
+    { t: 0.5, label: 'A' },
+    { t: 1, label: 'C' },
   ],
 };

@@ -1,0 +1,83 @@
+number: 59
+title: "I Do Not Forget the Alarm"
+chapter: "relay"
+steps:
+  - "Close the circuit at the plus terminal of the battery compartment. The buzzer sounds straight away."
+  - "Bring the magnet close enough to the magnetic switch for it to close, then tap the button briefly. The relay pulls in and the buzzer goes quiet."
+  - "Take the magnet away and the buzzer sounds again. It does not stop, even if you hold the magnet back against the magnetic switch."
+  - "Hold the magnet at the magnetic switch and press the button. Now the buzzer goes quiet again."
+whatHappens:
+  - "The plus side of the buzzer goes straight to the battery. Its minus side reaches the battery through the middle contact and the rest contact of the relay, so the buzzer sounds whenever the relay is at rest."
+  - "The relay coil has one connection to the battery and the other through the button. Press the button and the relay pulls in. That joins the battery, through the middle contact and the work contact, to the magnetic switch."
+  - "If the magnetic switch is open, nothing further happens and the relay only stays in while you hold the button. But if a magnet is holding the magnetic switch closed, current can reach the relay coil through it, so the relay stays pulled in and the buzzer stays quiet."
+  - "Take the magnet away and the magnetic switch opens, the coil loses its voltage and the relay drops out. From then on it can only pull in again when the magnetic switch is closed and the button is tapped at the same moment. The alarm does not forget."
+boards:
+  - caption: "The alarm latches: the magnet alone will not reset it"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "A2"
+        to: "C2"
+        level: 2
+      - type: "link7"
+        from: "A2"
+        to: "A8"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+      - type: "link6"
+        from: "G2"
+        to: "G7"
+        level: 1
+      - type: "relaySwitch"
+        from: "C5"
+        to: "E5"
+        level: 2
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 3
+      - type: "link4"
+        from: "A6"
+        to: "D6"
+        level: 2
+      - type: "buzzer"
+        from: "C3"
+        to: "C5"
+        level: 3
+      - type: "link4"
+        from: "C3"
+        to: "F3"
+        level: 2
+      - type: "link2"
+        from: "F3"
+        to: "G3"
+        level: 3
+      - type: "relayCoil"
+        from: "E7"
+        to: "F7"
+        level: 2
+      - type: "link2"
+        from: "F7"
+        to: "G7"
+        level: 3
+      - type: "button"
+        from: "C7"
+        to: "E7"
+        level: 3
+      - type: "link3"
+        from: "A7"
+        to: "C7"
+        level: 2
+      - type: "reedSwitch"
+        from: "E5"
+        to: "E7"
+        level: 3
+      - type: "magnet"
+        at: "B9"
+        level: 2

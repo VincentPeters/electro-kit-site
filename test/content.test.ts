@@ -28,6 +28,10 @@ describe('chapter content', () => {
     }
   });
 
+  it('has all five chapters', () => {
+    expect(loadYaml(CHAPTER_DIR)).toHaveLength(5);
+  });
+
   it('never gives two chapters the same position', () => {
     const orders = loadYaml(CHAPTER_DIR).map((c) => c.data.order);
     expect(new Set(orders).size).toBe(orders.length);
@@ -191,5 +195,49 @@ describe('experiment content', () => {
       broken,
       `these boards have no complete path from the battery minus terminal at D2 to the plus terminal at F2`,
     ).toEqual([]);
+  });
+
+  it('never short-circuits the battery through bare connector strips', () => {
+    // A strip running down column 2 from the minus terminal at D2 passes
+    // straight through the plus terminal at F2. That is a short circuit: it
+    // gets hot and the manual warns against it. Union only the conductors,
+    // so a path that runs through a bulb or a switch does not count.
+    const shorted: string[] = [];
+    for (const { file, data } of loadYaml(EXPERIMENT_DIR)) {
+      for (const [i, board] of (data.boards ?? []).entries()) {
+        const parent = new Map<string, string>();
+        const find = (a: string): string => {
+          if (!parent.has(a)) parent.set(a, a);
+          const up = parent.get(a)!;
+          if (up === a) return a;
+          const root = find(up);
+          parent.set(a, root);
+          return root;
+        };
+        for (const part of board.parts ?? []) {
+          if (!part.from || !part.to) continue;
+          if (PARTS[part.type as PartType].family !== 'conductor') continue;
+          const from = parseCell(part.from);
+          const to = parseCell(part.to);
+          const steps = Math.abs(to.row - from.row) + Math.abs(to.col - from.col);
+          const dRow = Math.sign(to.row - from.row);
+          const dCol = Math.sign(to.col - from.col);
+          for (let s = 0; s < steps; s += 1) {
+            const a = `${ROWS[from.row + dRow * s]}${from.col + dCol * s + 1}`;
+            const b = `${ROWS[from.row + dRow * (s + 1)]}${from.col + dCol * (s + 1) + 1}`;
+            parent.set(find(a), find(b));
+          }
+        }
+        if (find('D2') === find('F2')) shorted.push(`${file} board ${i + 1}`);
+      }
+    }
+    expect(shorted, 'these boards join the battery terminals through bare strips').toEqual([]);
+  });
+
+  it('covers all sixty experiments', () => {
+    const numbers = loadYaml(EXPERIMENT_DIR)
+      .map((e) => e.data.number)
+      .sort((a: number, b: number) => a - b);
+    expect(numbers).toEqual(Array.from({ length: 60 }, (_, i) => i + 1));
   });
 });

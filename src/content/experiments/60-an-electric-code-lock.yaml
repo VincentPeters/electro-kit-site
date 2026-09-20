@@ -1,0 +1,101 @@
+number: 60
+title: "An Electric Code Lock"
+chapter: "relay"
+steps:
+  - "First set the right code: both changeover switches have to be at B."
+  - "Put the on/off switch at ON and press the right-hand button. The bulb lights for as long as you hold it. The lock is open."
+  - "Press the left-hand button instead, or leave either changeover switch in the wrong position, and the buzzer raises the alarm the moment you put the on/off switch to ON."
+  - "The alarm keeps sounding until you put the on/off switch back to OFF."
+whatHappens:
+  - "The buzzer and the relay coil are wired side by side, each with one connection to the minus terminal. The on/off switch joins the middle contact of the left changeover to the plus terminal, and so does the work contact of the relay."
+  - "If that left switch is at C, the battery voltage reaches the relay coil directly: the relay pulls in and the buzzer sounds. It stays on, because it now feeds itself through its own work contact and middle contact."
+  - "If the left switch is at B, the battery voltage reaches the two buttons instead. Press the left button and the voltage gets back to the relay coil, so the alarm goes off. Press the right button and the voltage reaches the middle contact of the right changeover. If that one is at C, the alarm sounds again."
+  - "Only when the right changeover is at B and you press the right button does the voltage reach the bulb. It lights, because its other connection goes straight to the minus terminal."
+note: "This is the biggest build in the book. Work through it one level at a time and check each part before you switch on."
+boards:
+  - caption: "The code is both changeover switches at B"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "A2"
+        to: "C2"
+        level: 2
+      - type: "link7"
+        from: "A2"
+        to: "A8"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+      - type: "link6"
+        from: "G2"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G7"
+        to: "G8"
+        level: 2
+      - type: "switch"
+        from: "E8"
+        to: "G8"
+        level: 2
+      - type: "changeover"
+        from: "D8"
+        to: "F8"
+        level: 3
+      - type: "link4"
+        from: "D5"
+        to: "D8"
+        level: 2
+      - type: "link5"
+        from: "B8"
+        to: "F8"
+        level: 2
+      - type: "button"
+        from: "B5"
+        to: "D5"
+        level: 3
+      - type: "changeover"
+        from: "C3"
+        to: "C5"
+        level: 2
+      - type: "button"
+        from: "C6"
+        to: "E6"
+        level: 3
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 2
+      - type: "link2"
+        from: "C5"
+        to: "C6"
+        level: 3
+      - type: "lamp"
+        from: "A3"
+        to: "B3"
+        level: 2
+      - type: "link2"
+        from: "B3"
+        to: "C3"
+        level: 3
+      - type: "relayCoil"
+        from: "A4"
+        to: "B4"
+        level: 2
+      - type: "link3"
+        from: "B4"
+        to: "B6"
+        level: 3
+      - type: "buzzer"
+        from: "A7"
+        to: "C7"
+        level: 2
+      - type: "link2"
+        from: "B6"
+        to: "B7"
+        level: 3

@@ -1,0 +1,86 @@
+number: 56
+title: "Stop, Thief!"
+chapter: "relay"
+steps:
+  - "Close the circuit at the minus terminal of the battery compartment. The buzzer raises the alarm straight away."
+  - "The sound only stops when you bring the magnet close enough to the magnetic switch."
+  - "Take the magnet away and the alarm sounds again."
+  - "You could guard something with this. Fix a magnet underneath it and put the magnetic switch where it stands. Take the object away and the alarm goes off."
+whatHappens:
+  - "One connection of the buzzer reaches the battery through the rest contact of the relay. The other goes straight to the battery, so the buzzer has the full battery voltage across it and sounds."
+  - "Bring the magnet close and the magnetic switch closes, which switches on the relay coil."
+  - "The relay switches over, the buzzer connection leaves the rest contact, and the sound stops."
+boards:
+  - caption: "A magnet holds the alarm off"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "A2"
+        to: "C2"
+        level: 2
+      - type: "link7"
+        from: "A2"
+        to: "A8"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+      - type: "link6"
+        from: "G2"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G7"
+        to: "G8"
+        level: 2
+      - type: "link2"
+        from: "A3"
+        to: "B3"
+        level: 3
+      - type: "relayCoil"
+        from: "B3"
+        to: "B4"
+        level: 2
+      - type: "reedSwitch"
+        from: "B4"
+        to: "B6"
+        level: 2
+      - type: "link4"
+        from: "B6"
+        to: "E6"
+        level: 1
+      - type: "link3"
+        from: "E6"
+        to: "G6"
+        level: 2
+      - type: "relaySwitch"
+        from: "C8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "D8"
+        to: "F8"
+        level: 2
+      - type: "link2"
+        from: "F8"
+        to: "G8"
+        level: 3
+      - type: "link2"
+        from: "A8"
+        to: "A9"
+        level: 3
+      - type: "buzzer"
+        from: "A9"
+        to: "C9"
+        level: 2
+      - type: "link2"
+        from: "C8"
+        to: "C9"
+        level: 3
+      - type: "magnet"
+        at: "B7"
+        level: 3

@@ -1,29 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PartSwatch from '../components/PartSwatch.astro';
-import { BOARD_PARTS, LOOSE_PARTS } from '../parts/registry';
+import { LISTED_PARTS, LOOSE_PARTS } from '../parts/registry';
 
 const groups = [
   {
     heading: 'Connector strips',
     blurb:
       'The blue parts carry the current. The number on a strip tells you how many holes it covers, so a 3 reaches from one hole to the third one along.',
-    parts: BOARD_PARTS.filter((p) => p.family === 'conductor'),
+    parts: LISTED_PARTS.filter((p) => p.family === 'conductor'),
   },
   {
     heading: 'Switches',
     blurb: 'The green parts break the circuit and close it again.',
-    parts: BOARD_PARTS.filter((p) => p.family === 'switch'),
+    parts: LISTED_PARTS.filter((p) => p.family === 'switch'),
   },
   {
     heading: 'Things that use the current',
     blurb: 'These turn electricity into light, sound or movement.',
-    parts: BOARD_PARTS.filter((p) => p.family === 'load'),
+    parts: LISTED_PARTS.filter((p) => p.family === 'load'),
   },
   {
     heading: 'The meter',
     blurb: 'The black part measures what all the others are doing.',
-    parts: BOARD_PARTS.filter((p) => p.family === 'instrument'),
+    parts: LISTED_PARTS.filter((p) => p.family === 'instrument'),
   },
   {
     heading: 'Loose pieces',

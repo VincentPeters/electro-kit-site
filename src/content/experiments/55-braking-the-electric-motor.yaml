@@ -1,0 +1,92 @@
+number: 55
+title: "Braking the Electric Motor"
+chapter: "relay"
+steps:
+  - "Put the on/off switch at OFF and press the button. The relay pulls in and the motor runs."
+  - "Let the button go. The motor takes a little while to coast to a stop."
+  - "Now put the on/off switch at ON and press the button again. The relay pulls in and the motor runs just as before."
+  - "Let the button go this time and the motor stops almost at once. You have braked it electrically."
+whatHappens:
+  - "With the switch at OFF and the button pressed, the relay coil gets current through the button and the relay switches. The motor runs, because one of its connections goes straight to the battery and the other reaches the battery through the work contact. Let go and the relay drops out, so the motor is simply disconnected and coasts to a halt."
+  - "With the switch at ON the same thing happens at first. But when you let the button go, the two motor connections are now joined to each other through the on/off switch and the rest contact of the relay."
+  - "A motor that is still spinning makes electricity, as you saw in experiment 49. Here that electricity has a short circuit across it, so the motor is braked hard. The more current a generator has to supply, the more effort it takes to turn it."
+note: "Braking a motor electrically, with no parts rubbing together, matters in real machines. Trams and locomotives do it."
+boards:
+  - caption: "The relay switches the motor, and brakes it on the way down"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "A2"
+        to: "C2"
+        level: 2
+      - type: "link7"
+        from: "A2"
+        to: "A8"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+      - type: "link6"
+        from: "G2"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G7"
+        to: "G8"
+        level: 2
+      - type: "link2"
+        from: "A3"
+        to: "B3"
+        level: 3
+      - type: "relayCoil"
+        from: "B3"
+        to: "B4"
+        level: 2
+      - type: "button"
+        from: "B4"
+        to: "B6"
+        level: 2
+      - type: "link4"
+        from: "B6"
+        to: "E6"
+        level: 1
+      - type: "link3"
+        from: "E6"
+        to: "G6"
+        level: 2
+      - type: "relaySwitch"
+        from: "C8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "E8"
+        to: "G8"
+        level: 2
+      - type: "link2"
+        from: "A8"
+        to: "A9"
+        level: 3
+      - type: "motor"
+        from: "A9"
+        to: "C9"
+        level: 2
+      - type: "link2"
+        from: "C9"
+        to: "D9"
+        level: 3
+      - type: "link2"
+        from: "D8"
+        to: "D9"
+        level: 2
+      - type: "switch"
+        from: "A7"
+        to: "C7"
+        level: 2
+      - type: "link2"
+        from: "C7"
+        to: "C8"
+        level: 3

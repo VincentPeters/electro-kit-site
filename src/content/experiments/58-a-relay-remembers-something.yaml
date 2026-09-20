@@ -1,0 +1,85 @@
+number: 58
+title: "A Relay Remembers Something"
+chapter: "relay"
+steps:
+  - "Put the on/off switch at OFF and press the button. The relay clacks and the bulb lights for exactly as long as you hold the button down."
+  - "Now put the on/off switch at ON and tap the button once, briefly. The relay clacks and the bulb lights, and it stays lit whether you press the button again or not."
+  - "Only when you put the on/off switch back to OFF does the relay drop out and the bulb go dark."
+  - "So the relay can remember that you pressed the button. It can store it."
+whatHappens:
+  - "The bulb is wired side by side with the relay coil. One connection of each goes to the battery. The other connection of each goes to the middle contact of the relay changeover, and also reaches the plus terminal through the button."
+  - "With the switch at OFF and the button pressed, the coil and the bulb are joined to the battery for as long as you hold it."
+  - "With the switch at ON, letting the button go does not stop the current. It keeps flowing through the middle contact and the work contact of the relay, and on through the on/off switch back to the battery. The bulb stays lit and the relay stays pulled in."
+  - "Only putting the switch to OFF breaks that path. A circuit like this is called a self-holding relay, because once it has pulled in it makes its own path to stay that way."
+note: "This is why the first computer memories were built from relays. Each one could hold on to a single yes or no."
+boards:
+  - caption: "The relay holds itself in through its own work contact"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "A2"
+        to: "C2"
+        level: 2
+      - type: "link7"
+        from: "A2"
+        to: "A8"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+      - type: "link6"
+        from: "G2"
+        to: "G7"
+        level: 1
+      - type: "lamp"
+        from: "A5"
+        to: "B5"
+        level: 3
+      - type: "link3"
+        from: "B5"
+        to: "D5"
+        level: 2
+      - type: "relayCoil"
+        from: "A6"
+        to: "B6"
+        level: 3
+      - type: "link3"
+        from: "B6"
+        to: "D6"
+        level: 2
+      - type: "link2"
+        from: "D5"
+        to: "D6"
+        level: 3
+      - type: "button"
+        from: "D3"
+        to: "D5"
+        level: 2
+      - type: "link4"
+        from: "D3"
+        to: "G3"
+        level: 1
+      - type: "link5"
+        from: "D5"
+        to: "D9"
+        level: 2
+      - type: "relaySwitch"
+        from: "C9"
+        to: "E9"
+        level: 3
+      - type: "switch"
+        from: "E9"
+        to: "G9"
+        level: 2
+      - type: "link2"
+        from: "G7"
+        to: "G8"
+        level: 1
+      - type: "link2"
+        from: "G8"
+        to: "G9"
+        level: 2

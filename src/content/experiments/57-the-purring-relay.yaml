@@ -1,0 +1,74 @@
+number: 57
+title: "The Purring Relay"
+chapter: "relay"
+steps:
+  - "Press the button. The relay makes a purring sound."
+  - "Let the button go and the noise stops."
+whatHappens:
+  - "The relay coil is joined to the battery through the button and through the relay own rest contact. Press the button and the relay switches on."
+  - "But at the very moment it switches, it breaks the circuit to its own coil."
+  - "So the contacts fall back to rest. Now current can flow through the rest contact again, and the relay switches once more. That rapid switching, over and over, is the purring sound you hear."
+note: "Old electric doorbells and old car horns worked on very much this principle."
+boards:
+  - caption: "The relay switches itself off, over and over"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "A2"
+        to: "C2"
+        level: 2
+      - type: "link7"
+        from: "A2"
+        to: "A8"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+      - type: "link6"
+        from: "G2"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G7"
+        to: "G8"
+        level: 2
+      - type: "link2"
+        from: "A3"
+        to: "B3"
+        level: 3
+      - type: "button"
+        from: "B3"
+        to: "B5"
+        level: 2
+      - type: "link2"
+        from: "B5"
+        to: "B6"
+        level: 3
+      - type: "relayCoil"
+        from: "B6"
+        to: "B7"
+        level: 2
+      - type: "link2"
+        from: "B7"
+        to: "B8"
+        level: 3
+      - type: "link2"
+        from: "B8"
+        to: "C8"
+        level: 2
+      - type: "relaySwitch"
+        from: "C8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "D8"
+        to: "F8"
+        level: 2
+      - type: "link2"
+        from: "F8"
+        to: "G8"
+        level: 3

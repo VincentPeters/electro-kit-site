@@ -1,7 +1,8 @@
 ---
 import { cellCenter, spanOf } from '../board/geometry';
 import type { PlacedPart } from '../board/describe';
-import { CONTACT_LABELS, kitBadge, symbolMarkup } from '../parts/symbols';
+import { CONTACT_LABELS, PART_COLOURS, kitBadge, symbolMarkup } from '../parts/symbols';
+import { partDef } from '../parts/registry';
 
 interface Props {
   part: PlacedPart;
@@ -33,6 +34,7 @@ const badgeAt = {
 };
 
 const badge = kitBadge(part.type);
+const contactColour = PART_COLOURS[partDef(part.type).colour];
 
 // Contact lettering sits on the far side of the part from the kit number,
 // and is placed upright for the same reason the badges are.
@@ -73,7 +75,7 @@ const levelAt = cellCenter(part.at ?? part.from!);
     stroke="#ffffff"
     stroke-width="4"
     stroke-linejoin="round"
-    fill="#199a55">{contact.label}</text>
+    fill={contactColour}>{contact.label}</text>
 ))}
 
 {level > 1 && (

@@ -1,0 +1,85 @@
+number: 53
+title: "A Switch Switches an Electrical Switch"
+chapter: "relay"
+steps:
+  - "Close the circuit at the minus terminal of the battery compartment. The bulb lights."
+  - "Press the button. The relay switches over with a quiet click and the light goes out."
+  - "Let the button go. The relay drops back to rest and the bulb lights again."
+  - "So the button is switching an electrical switch on and off."
+whatHappens:
+  - "The electromagnet inside the relay is joined to the battery through the button. The bulb has one connection straight to the battery, and its other connection goes through the changeover inside the relay, so the bulb lights."
+  - "That switch position is called the rest contact, because it is the one that is closed while no current is flowing through the relay coil."
+  - "Press the button and the relay switches. The middle contact leaves the rest contact, the bulb is no longer joined to the battery, and it goes out because the circuit is broken."
+sidebar:
+  heading: "The relay"
+  body:
+    - "A relay is a switch worked by electricity rather than by a finger."
+    - "It is built from an electromagnet, a piece of iron called the armature, and springy contacts. Your relay has a changeover switch for its contacts."
+    - "When current flows through the coil of the electromagnet, it pulls the iron armature towards it. A small lever on the armature pushes the contacts across."
+boards:
+  - caption: "The bulb hangs on the rest contact"
+    parts:
+      - type: "link3"
+        from: "B2"
+        to: "D2"
+        level: 1
+      - type: "link3"
+        from: "A2"
+        to: "C2"
+        level: 2
+      - type: "link7"
+        from: "A2"
+        to: "A8"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+      - type: "link6"
+        from: "G2"
+        to: "G7"
+        level: 1
+      - type: "link2"
+        from: "G7"
+        to: "G8"
+        level: 2
+      - type: "link2"
+        from: "A3"
+        to: "B3"
+        level: 3
+      - type: "relayCoil"
+        from: "B3"
+        to: "B4"
+        level: 2
+      - type: "button"
+        from: "B4"
+        to: "B6"
+        level: 2
+      - type: "link4"
+        from: "B6"
+        to: "E6"
+        level: 1
+      - type: "link3"
+        from: "E6"
+        to: "G6"
+        level: 2
+      - type: "link2"
+        from: "A8"
+        to: "B8"
+        level: 3
+      - type: "lamp"
+        from: "B8"
+        to: "C8"
+        level: 2
+      - type: "relaySwitch"
+        from: "C8"
+        to: "E8"
+        level: 1
+      - type: "link3"
+        from: "D8"
+        to: "F8"
+        level: 2
+      - type: "link2"
+        from: "F8"
+        to: "G8"
+        level: 3

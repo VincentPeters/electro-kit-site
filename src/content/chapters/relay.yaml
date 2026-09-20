@@ -1,0 +1,22 @@
+order: 5
+title: "The Relay"
+colour: "purple"
+intro:
+  - "A relay is a switch that another circuit presses for you. An electromagnet pulls a set of contacts across, so a tiny current can switch a much bigger one."
+  - "In this chapter you build an alarm that remembers it went off, an electric brake for the motor, and a code lock that only opens for the right combination."
+deepDive:
+  - heading: "What is inside a relay"
+    body:
+      - "A relay is made of an electromagnet, a piece of iron called the armature, and a set of springy contacts."
+      - "Put current through the coil and the electromagnet pulls the armature towards it. A small lever on the armature pushes the contacts across."
+      - "The contacts in your relay form a changeover switch, exactly like the green one you used in chapter 3. The difference is that electricity works it, not your finger."
+  - heading: "Rest contact and work contact"
+    body:
+      - "The contact that is closed while no current flows through the coil is called the rest contact."
+      - "The one that closes when the relay pulls in is called the work contact."
+      - "Which of the two you wire your bulb to decides whether it is on or off to start with, as experiments 53 and 54 show."
+  - heading: "A relay can remember"
+    body:
+      - "A relay can feed its own coil through its own work contact. Once it has pulled in, it holds itself in, even after you let go of the button."
+      - "That is a way of storing one piece of information: it went off, or it did not."
+      - "It is also why the very first computer memories were built out of rooms full of relays, clicking away."

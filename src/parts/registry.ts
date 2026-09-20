@@ -26,6 +26,11 @@ export interface PartDef {
   count: number;
   /** One sentence, written for a child. */
   description: string;
+  /**
+   * True for the two halves of the relay, which are drawn separately on a
+   * build plan but are one physical part, so the parts page lists them once.
+   */
+  boardOnly?: boolean;
 }
 
 type PartInput = Omit<PartDef, 'colour'> & { colour?: PartFamily };
@@ -56,7 +61,9 @@ export const PARTS = define({
   motor: { label: 'Electric motor', cells: 3, family: 'load', kitNumber: 24, count: 1, description: 'Magnets and a coil inside. It spins when current flows, and swapping its two connections makes it spin the other way.' },
   coil: { label: 'Coil / electromagnet', cells: 3, family: 'load', colour: 'conductor', kitNumber: 63, count: 1, description: 'Wire wound into a spiral. Current through it makes a magnetic field — and moving a magnet inside it makes a voltage.' },
   buzzer: { label: 'Buzzer', cells: 3, family: 'load', kitNumber: 10, count: 1, description: 'A crystal that bends when you put a voltage across it. Bending fast enough makes a tone. Watch the plus sign when you fit it.' },
-  relay: { label: 'Relay', cells: 4, family: 'load', kitNumber: 61, count: 1, description: 'A changeover switch worked by an electromagnet, so one circuit can switch another one.' },
+  relay: { label: 'Relay', cells: 4, family: 'load', kitNumber: 61, count: 1, description: 'A changeover switch worked by an electromagnet, so one circuit can switch another one. Build plans draw its two halves separately, because they belong to two circuits that must stay apart.' },
+  relayCoil: { label: 'Relay: the electromagnet', cells: 2, family: 'load', count: 1, boardOnly: true, description: 'The coil half of relay 61. Put current through it and it pulls the contacts over.' },
+  relaySwitch: { label: 'Relay: the contacts', cells: 3, family: 'load', count: 1, boardOnly: true, description: 'The changeover half of relay 61. Contact A rests against B, and snaps across to C when the coil is energised.' },
 
   meter: { label: 'Meter, 3 V / 1 A', cells: 3, family: 'instrument', kitNumber: 56, count: 1, description: 'Measures voltage or current. Set its switch to 3V for volts or 1A for amps before you fit it, and watch the plus sign.' },
 
@@ -89,4 +96,6 @@ const allParts: PartEntry[] = (Object.keys(PARTS) as PartType[]).map((type) => (
 }));
 
 export const BOARD_PARTS = allParts.filter((p) => p.family !== 'loose');
+/** What the parts page lists: one row per physical part in the box. */
+export const LISTED_PARTS = BOARD_PARTS.filter((p) => !p.boardOnly);
 export const LOOSE_PARTS = allParts.filter((p) => p.family === 'loose');
