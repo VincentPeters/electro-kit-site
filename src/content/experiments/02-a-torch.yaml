@@ -1,0 +1,39 @@
+number: 2
+title: "A Torch"
+chapter: "voltage-current-resistance"
+steps:
+  - "Build the circuit, then push the switch to ON. The bulb lights up."
+  - "Push the switch to OFF and the light goes out, exactly the way a torch works."
+whatHappens:
+  - "A switch lets you break a circuit or close it again without taking anything apart."
+  - "There are two contacts inside the switch. At OFF they are held apart, which is just the same as pulling out a connector strip: the circuit is broken."
+  - "At ON the two contacts are pressed together, the loop is complete again, and current can flow."
+sidebar:
+  heading: "Electric current"
+  body:
+    - "The battery supplies a voltage because one of its terminals has a surplus of electrons and the other has a shortage."
+    - "Join both terminals through a bulb and electrons move from the minus terminal, which has plenty, towards the plus terminal, which has few. That movement is what we call the electric current."
+    - "When the voltage stays the same way round, the result is called direct current. When the voltage keeps swapping over, you get alternating current instead."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link3"
+        from: "D3"
+        to: "D5"
+        level: 2
+      - type: "link3"
+        from: "D5"
+        to: "F5"
+        level: 1
+      - type: "switch"
+        from: "F3"
+        to: "F5"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 1

@@ -1,0 +1,23 @@
+order: 1
+title: "Voltage, Current and Resistance"
+colour: "red"
+intro:
+  - "Voltage and current are what the whole of electronics is built on. Without voltage no current flows, and without current nothing happens at all: no bulb lights, no motor turns."
+  - "In this chapter you build your first circuits. A torch, a door buzzer, and a way of sending messages to a friend in flashes of light. Then you pick up the meter and start measuring what is really going on inside them."
+deepDive:
+  - heading: "Voltage, current and resistance"
+    body:
+      - "Whether it is a computer, a radio or the light in your bedroom, the same three things are always at work: voltage, current and resistance."
+      - "Without voltage there is no current, and without current nothing works. But resistance matters just as much. Without it there would either be no current at all, or so much current that it destroyed everything in its path."
+  - heading: "A fixed relationship"
+    body:
+      - "Voltage, current and resistance always pull on each other in the same way. Current can only flow when both terminals of a voltage source are joined up."
+      - "How much current flows is decided by the resistance of that connection. Small resistance, large current. Large resistance, small current."
+  - heading: "Where voltage comes from"
+    body:
+      - "In these experiments your voltage source is a pair of batteries, but there are plenty of others."
+      - "Rechargeable batteries store electricity and can be filled up again when they run flat. A car battery is the one that delivers the huge current needed to turn an engine over when you start it."
+  - heading: "A bit of history"
+    body:
+      - "Morse code is named after Samuel Morse, who invented an alphabet much like the one in experiment 3 in about 1837."
+      - "Messages were tapped out on a Morse key by telegraph operators, and travelled down a wire as nothing more than long and short pulses of current."

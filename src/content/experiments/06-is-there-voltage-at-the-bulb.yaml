@@ -1,0 +1,60 @@
+number: 6
+title: "Is There Voltage at the Bulb?"
+chapter: "voltage-current-resistance"
+steps:
+  - "Before you close the circuit at the battery compartment, set the switch on the meter to 3V."
+  - "With the circuit complete the bulb lights and the meter needle swings up to about 3 volts."
+  - "Now pull out one of the two-contact strips joining the battery compartment to the circuit. The bulb goes out and the needle drops back to rest."
+whatHappens:
+  - "Here again you are measuring the voltage the battery makes. The difference is that this time a bulb is connected to the battery as well as the meter."
+  - "The needle swings exactly as far as it did when the bulb was not there at all."
+  - "That is because the voltage the battery supplies is not used up by the bulb. The full voltage is available to it."
+sidebar:
+  heading: "Electrical resistance"
+  body:
+    - "The voltage decides how large an electric current is. But so does something else: how easily the electrons can get from one battery terminal to the other."
+    - "The fewer difficulties the electrons meet on the way, the larger the current."
+    - "Those difficulties are what we call electrical resistance. It is measured in ohms, written with the Greek letter omega."
+boards:
+  - caption: "Build plan: the meter and the bulb sit side by side across the battery"
+    parts:
+      - type: "link2"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "meter"
+        from: "D3"
+        to: "D5"
+        level: 2
+      - type: "link4"
+        from: "D5"
+        to: "D8"
+        level: 1
+      - type: "link3"
+        from: "D3"
+        to: "F3"
+        level: 3
+      - type: "lamp"
+        from: "F3"
+        to: "F4"
+        level: 2
+      - type: "link5"
+        from: "F4"
+        to: "F8"
+        level: 1
+      - type: "link3"
+        from: "D8"
+        to: "F8"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "G2"
+        level: 1
+      - type: "link7"
+        from: "G2"
+        to: "G8"
+        level: 2
+      - type: "link2"
+        from: "F8"
+        to: "G8"
+        level: 3

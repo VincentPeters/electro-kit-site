@@ -1,0 +1,219 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Board from '../../components/Board.astro';
+import { url } from '../../lib/url';
+import { experimentSlug, sortByNumber } from '../../lib/experiments';
+
+export async function getStaticPaths() {
+  const all = sortByNumber(await getCollection('experiments'));
+
+  return all.map((experiment, index) => ({
+    params: { slug: experimentSlug(experiment.id) },
+    props: {
+      experiment,
+      previous: all[index - 1] ?? null,
+      next: all[index + 1] ?? null,
+    },
+  }));
+}
+
+const { experiment, previous, next } = Astro.props;
+const chapter = await getEntry(experiment.data.chapter);
+const { number, title, steps, whatHappens, note, sidebar, tables, boards } = experiment.data;
+---
+
+<BaseLayout title={title} description={whatHappens[0]} theme={chapter!.data.colour}>
+  <p class="eyebrow">
+    <a href={url(`/chapters/${chapter!.id}/`)}>{chapter!.data.title}</a>
+    <span> · Experiment {number}</span>
+  </p>
+  <h1>{title}</h1>
+
+  <div class="columns">
+    <div class="steps">
+      <h2>How to build it</h2>
+      <ol>{steps.map((step) => <li>{step}</li>)}</ol>
+      {note && <p class="note">{note}</p>}
+    </div>
+
+    <div class="boards">
+      {boards.map((board) => <Board parts={board.parts} caption={board.caption} />)}
+    </div>
+  </div>
+
+  <div class="columns">
+    <section class="explain">
+      <h2>What happens?</h2>
+      {whatHappens.map((para) => <p>{para}</p>)}
+    </section>
+
+    {
+      sidebar && (
+        <aside class="sidebar">
+          <h2>{sidebar.heading}</h2>
+          {sidebar.body.map((para) => (
+            <p>{para}</p>
+          ))}
+        </aside>
+      )
+    }
+  </div>
+
+  {
+    tables.length > 0 && (
+      <div class="tables">
+        {tables.map((table) => (
+          <section>
+            <h2>{table.heading}</h2>
+            <table>
+              <thead>
+                <tr>
+                  {table.columns.map((column) => (
+                    <th scope="col">{column}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {table.rows.map((row) => (
+                  <tr>
+                    {row.map((cell, i) =>
+                      i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>,
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+        ))}
+      </div>
+    )
+  }
+
+  <nav class="pager" aria-label="Experiments">
+    {
+      previous ? (
+        <a href={url(`/experiments/${experimentSlug(previous.id)}/`)}>
+          <span>Previous</span>
+          {previous.data.number}. {previous.data.title}
+        </a>
+      ) : (
+        <span />
+      )
+    }
+    {
+      next && (
+        <a class="next" href={url(`/experiments/${experimentSlug(next.id)}/`)}>
+          <span>Next</span>
+          {next.data.number}. {next.data.title}
+        </a>
+      )
+    }
+  </nav>
+</BaseLayout>
+
+<style>
+  .eyebrow a {
+    color: var(--theme);
+  }
+  .columns {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 2rem;
+    align-items: start;
+  }
+  @media (min-width: 58rem) {
+    .columns {
+      grid-template-columns: minmax(0, 23rem) minmax(0, 1fr);
+    }
+  }
+  .steps ol {
+    padding-left: 1.2rem;
+  }
+  .steps li {
+    margin-bottom: 0.6rem;
+    max-width: none;
+  }
+  .boards {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .note {
+    padding: 0.9rem 1.1rem;
+    background: var(--theme-wash);
+    border-left: 6px solid var(--theme);
+    border-radius: var(--radius);
+    font-weight: 600;
+  }
+  .explain {
+    padding: 1.5rem;
+    background: var(--colour-surface);
+    border-radius: var(--radius);
+  }
+  .explain h2,
+  .sidebar h2 {
+    margin-top: 0;
+    font-size: var(--step-1);
+  }
+  .sidebar {
+    padding: 1.5rem;
+    border: 2px solid var(--theme);
+    border-radius: var(--radius);
+  }
+  .sidebar h2 {
+    color: var(--theme);
+  }
+  .tables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-block: 2rem;
+  }
+  .tables table {
+    border-collapse: collapse;
+  }
+  .tables th,
+  .tables td {
+    padding: 0.2rem 1.25rem 0.2rem 0;
+    text-align: left;
+  }
+  .tables thead th {
+    border-bottom: 2px solid var(--colour-line);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--colour-muted);
+  }
+  .tables tbody th {
+    font-weight: 700;
+  }
+  .tables td {
+    font-size: 1.25em;
+    letter-spacing: 0.12em;
+  }
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+  .pager a {
+    font-weight: 600;
+    text-decoration: none;
+    max-width: 16rem;
+  }
+  .pager a:hover {
+    text-decoration: underline;
+  }
+  .pager .next {
+    text-align: right;
+  }
+  .pager span {
+    display: block;
+    font-size: var(--step--1);
+    color: var(--colour-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+</style>

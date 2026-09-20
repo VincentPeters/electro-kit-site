@@ -26,6 +26,23 @@ export const boardSchema = z.object({
   parts: z.array(placedPartSchema).min(1),
 });
 
+/** A coloured concept box beside an experiment, explaining the idea behind it. */
+export const sidebarSchema = z.object({
+  heading: z.string().min(1),
+  body: z.array(z.string().min(1)).min(1),
+});
+
+/** A reference table, such as the Morse alphabet or a switch-position chart. */
+export const tableSchema = z
+  .object({
+    heading: z.string().min(1),
+    columns: z.array(z.string().min(1)).min(1),
+    rows: z.array(z.array(z.string()).min(1)).min(1),
+  })
+  .refine((table) => table.rows.every((row) => row.length === table.columns.length), {
+    message: 'every row must have exactly one cell per column',
+  });
+
 export const experimentSchema = z.object({
   number: z.number().int().min(1).max(60),
   title: z.string().min(1),
@@ -33,6 +50,8 @@ export const experimentSchema = z.object({
   steps: z.array(z.string().min(1)).min(1),
   whatHappens: z.array(z.string().min(1)).min(1),
   note: z.string().min(1).optional(),
+  sidebar: sidebarSchema.optional(),
+  tables: z.array(tableSchema).default([]),
   boards: z.array(boardSchema).min(1).max(3),
 });
 

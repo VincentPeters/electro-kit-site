@@ -3,6 +3,8 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parse } from 'yaml';
 import { chapterSchema, experimentSchema } from '../src/content/schema';
+import { parseCell } from '../src/board/geometry';
+import { PARTS, type PartType } from '../src/parts/registry';
 
 const CHAPTER_DIR = 'src/content/chapters';
 const EXPERIMENT_DIR = 'src/content/experiments';
@@ -68,5 +70,59 @@ describe('experiment content', () => {
       f.replace(/\.yaml$/, '').replace(/^\d+-/, ''),
     );
     expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it('writes every part span left-to-right or top-to-bottom', () => {
+    // A part drawn from right to left is rotated 180 degrees, which stands
+    // its labels and kit number on their head. Spans are written in reading
+    // order so that can never happen.
+    for (const { file, data } of loadYaml(EXPERIMENT_DIR)) {
+      for (const board of data.boards ?? []) {
+        for (const part of board.parts ?? []) {
+          if (!part.from || !part.to) continue;
+          const from = parseCell(part.from);
+          const to = parseCell(part.to);
+          const inOrder =
+            from.row < to.row || (from.row === to.row && from.col < to.col);
+          expect(
+            inOrder,
+            `${file}: ${part.type} runs backwards from ${part.from} to ${part.to}`,
+          ).toBe(true);
+        }
+      }
+    }
+  });
+
+  it('keeps every part inside a single row or a single column', () => {
+    for (const { file, data } of loadYaml(EXPERIMENT_DIR)) {
+      for (const board of data.boards ?? []) {
+        for (const part of board.parts ?? []) {
+          if (!part.from || !part.to) continue;
+          const from = parseCell(part.from);
+          const to = parseCell(part.to);
+          expect(
+            from.row === to.row || from.col === to.col,
+            `${file}: ${part.type} runs diagonally from ${part.from} to ${part.to}`,
+          ).toBe(true);
+        }
+      }
+    }
+  });
+
+  it('spans a part across exactly the number of holes it has contacts for', () => {
+    for (const { file, data } of loadYaml(EXPERIMENT_DIR)) {
+      for (const board of data.boards ?? []) {
+        for (const part of board.parts ?? []) {
+          if (!part.from || !part.to) continue;
+          const from = parseCell(part.from);
+          const to = parseCell(part.to);
+          const holes = Math.abs(to.row - from.row) + Math.abs(to.col - from.col) + 1;
+          expect(
+            holes,
+            `${file}: ${part.type} from ${part.from} to ${part.to} covers ${holes} holes`,
+          ).toBe(PARTS[part.type as PartType].cells);
+        }
+      }
+    }
   });
 });

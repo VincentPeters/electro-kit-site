@@ -1,0 +1,81 @@
+number: 3
+title: "Sending Messages with Light"
+chapter: "voltage-current-resistance"
+steps:
+  - "Tap the push button. The bulb flashes in exactly the rhythm you tap."
+  - "Every letter and every number has its own pattern of short and long flashes. Sending a message that way is called Morse code."
+  - "In the Morse alphabet a dot means press the button briefly, and a dash means hold it down a little longer. Try sending your name to someone across the room."
+whatHappens:
+  - "A push button closes and breaks a circuit, just as the switch did."
+  - "It has two contacts that are only pressed together while you are holding the button down."
+  - "Let go and the contacts spring apart again. That is why the current can only flow for exactly as long as you keep pressing."
+tables:
+  - heading: "The Morse alphabet"
+    columns:
+      - "Letter"
+      - "Code"
+    rows:
+      - ["A", "·—"]
+      - ["B", "—···"]
+      - ["C", "—·—·"]
+      - ["D", "—··"]
+      - ["E", "·"]
+      - ["F", "··—·"]
+      - ["G", "——·"]
+      - ["H", "····"]
+      - ["I", "··"]
+      - ["J", "·———"]
+      - ["K", "—·—"]
+      - ["L", "·—··"]
+      - ["M", "——"]
+      - ["N", "—·"]
+      - ["O", "———"]
+      - ["P", "·——·"]
+      - ["Q", "——·—"]
+      - ["R", "·—·"]
+      - ["S", "···"]
+      - ["T", "—"]
+      - ["U", "··—"]
+      - ["V", "···—"]
+      - ["W", "·——"]
+      - ["X", "—··—"]
+      - ["Y", "—·——"]
+      - ["Z", "——··"]
+  - heading: "Numbers"
+    columns:
+      - "Number"
+      - "Code"
+    rows:
+      - ["0", "—————"]
+      - ["1", "·————"]
+      - ["2", "··———"]
+      - ["3", "···——"]
+      - ["4", "····—"]
+      - ["5", "·····"]
+      - ["6", "—····"]
+      - ["7", "——···"]
+      - ["8", "———··"]
+      - ["9", "————·"]
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link3"
+        from: "D3"
+        to: "D5"
+        level: 2
+      - type: "link3"
+        from: "D5"
+        to: "F5"
+        level: 1
+      - type: "button"
+        from: "F3"
+        to: "F5"
+        level: 2
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 1

@@ -1,0 +1,30 @@
+number: 1
+title: "Going Round in Circles"
+chapter: "voltage-current-resistance"
+steps:
+  - "Connect the bulb to both terminals of the battery compartment, so that the current has a complete loop to travel round."
+  - "Look carefully at what you have built. Can you trace the path the current takes?"
+whatHappens:
+  - "As soon as every contact is closed the bulb lights up. You have built a closed circuit: current flows out of the battery, through the bulb, and straight back into the battery."
+  - "Now take one of the connector strips away. The current cannot flow any more and the bulb goes out. You have broken the circuit."
+sidebar:
+  heading: "Electrical voltage"
+  body:
+    - "The battery makes a voltage. At one of its terminals there are too few electrons, and at the other there are too many. That difference is what pushes the current round."
+    - "A voltage like this one, with a fixed plus terminal and a fixed minus terminal, is called a direct voltage."
+    - "If a voltage source swapped its two terminals over again and again, very fast, it would be making an alternating voltage instead. That is what comes out of the sockets in your wall."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link3"
+        from: "D3"
+        to: "F3"
+        level: 1
+      - type: "link2"
+        from: "F2"
+        to: "F3"
+        level: 2

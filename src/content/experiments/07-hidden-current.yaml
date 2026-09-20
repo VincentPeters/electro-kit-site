@@ -1,0 +1,42 @@
+number: 7
+title: "Hidden Current"
+chapter: "voltage-current-resistance"
+steps:
+  - "Before you close the circuit, set the switch on the meter to 1A so that it measures current."
+  - "With the circuit complete the needle settles at about 0.19 on the scale. That means a current of roughly 0.19 amperes is flowing."
+  - "Break the circuit anywhere and the needle drops straight back to rest."
+whatHappens:
+  - "This time you are measuring the current flowing through the bulb. The meter is wired so that the same current passes through the bulb and through the meter."
+  - "The further the needle swings, the bigger the current. Read it off the lower row of the scale, the one marked 0 to 1 A."
+  - "The current is the number the needle is pointing at."
+note: "The meter has to be built in exactly as the plan shows for current measurements too, or it can be damaged."
+sidebar:
+  heading: "Short circuits"
+  body:
+    - "If you join the two terminals of a voltage source straight to each other with a piece of wire, you have made a short circuit."
+    - "The wire puts almost no resistance in the way, so an enormous number of electrons flow at once and the current becomes very large."
+    - "A break in a circuit is the opposite: the resistance is enormous and no current can flow at all."
+    - "Never short-circuit the terminals of your battery compartment. The parts get hot."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "meter"
+        from: "D4"
+        to: "D6"
+        level: 1
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 2
+      - type: "link5"
+        from: "F2"
+        to: "F6"
+        level: 1

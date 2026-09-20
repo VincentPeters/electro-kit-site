@@ -1,0 +1,42 @@
+number: 8
+title: "Can a Paper Clip Carry Electricity?"
+chapter: "voltage-current-resistance"
+steps:
+  - "Set the switch on the meter to 1A so that it measures current."
+  - "Build the circuit, but leave a gap. Nothing joins the plus terminal of the battery compartment to the open end of the connector strip beside it."
+  - "Now bend a metal paper clip open and use it to bridge that gap, touching the battery terminal with one end and the open contact with the other."
+  - "A metal paper clip carries current well. Now try other things in the gap and find out which of them do."
+whatHappens:
+  - "Before any current can reach the bulb, it has to travel through whatever you have put in the gap."
+  - "If the object carries current well, like your paper clip, the bulb lights and the meter shows the current."
+  - "If the object carries current badly or not at all, the bulb stays dark and the meter shows very little or nothing."
+note: "The gap is between the battery plus terminal at F2 and the open end of the strip at F3. That is where you hold the object you are testing."
+sidebar:
+  heading: "Conductors and insulators"
+  body:
+    - "Materials that carry current well are called conductors. Metals such as silver, gold, copper, iron and aluminium are all good conductors."
+    - "Materials that cannot carry current are called non-conductors, or insulators."
+    - "Glass, porcelain and most plastics are insulators. That is why the wires in your house are wrapped in plastic."
+boards:
+  - caption: "Build plan: leave the gap between F2 and F3"
+    parts:
+      - type: "lamp"
+        from: "D2"
+        to: "D3"
+        level: 1
+      - type: "link2"
+        from: "D3"
+        to: "D4"
+        level: 2
+      - type: "meter"
+        from: "D4"
+        to: "D6"
+        level: 1
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 2
+      - type: "link4"
+        from: "F3"
+        to: "F6"
+        level: 1

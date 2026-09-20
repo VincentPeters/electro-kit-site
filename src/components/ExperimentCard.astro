@@ -1,0 +1,47 @@
+---
+import { url } from '../lib/url';
+import { experimentSlug } from '../lib/experiments';
+
+interface Props {
+  id: string;
+  number: number;
+  title: string;
+}
+
+const { id, number, title } = Astro.props;
+---
+
+<a class="card" href={url(`/experiments/${experimentSlug(id)}/`)}>
+  <span class="number">{number}</span>
+  <span class="title">{title}</span>
+</a>
+
+<style>
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    border: 2px solid var(--colour-line);
+    border-left: 6px solid var(--theme);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    max-width: none;
+  }
+  .card:hover {
+    background: var(--theme-wash);
+  }
+  .number {
+    flex: 0 0 auto;
+    min-width: 2.2rem;
+    height: 2.2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--theme);
+    color: #fff;
+    font-size: var(--step--1);
+  }
+</style>

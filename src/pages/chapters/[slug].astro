@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ExperimentCard from '../../components/ExperimentCard.astro';
+import { sortByNumber } from '../../lib/experiments';
+
+export async function getStaticPaths() {
+  const chapters = await getCollection('chapters');
+  const experiments = await getCollection('experiments');
+
+  return chapters.map((chapter) => ({
+    params: { slug: chapter.id },
+    props: {
+      chapter,
+      experiments: sortByNumber(
+        experiments.filter((e) => e.data.chapter.id === chapter.id),
+      ),
+    },
+  }));
+}
+
+const { chapter, experiments } = Astro.props;
+---
+
+<BaseLayout
+  title={chapter.data.title}
+  description={chapter.data.intro[0]}
+  theme={chapter.data.colour}
+>
+  <p class="eyebrow">Chapter {chapter.data.order}</p>
+  <h1>{chapter.data.title}</h1>
+  {chapter.data.intro.map((para) => <p class="lede">{para}</p>)}
+
+  <h2>Experiments</h2>
+  <div class="cards">
+    {
+      experiments.map((exp) => (
+        <ExperimentCard id={exp.id} number={exp.data.number} title={exp.data.title} />
+      ))
+    }
+  </div>
+
+  {
+    chapter.data.deepDive.length > 0 && (
+      <section class="deep-dive">
+        <h2>A closer look</h2>
+        {chapter.data.deepDive.map((entry) => (
+          <div class="entry">
+            <h3>{entry.heading}</h3>
+            {entry.body.map((para) => (
+              <p>{para}</p>
+            ))}
+          </div>
+        ))}
+      </section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .eyebrow {
+    color: var(--theme);
+  }
+  .lede {
+    max-width: 42rem;
+  }
+  .cards {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  }
+  .deep-dive {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--theme-wash);
+    border-radius: var(--radius);
+  }
+  .deep-dive h2 {
+    margin-top: 0;
+  }
+  .entry + .entry {
+    margin-top: 1.5rem;
+  }
+</style>

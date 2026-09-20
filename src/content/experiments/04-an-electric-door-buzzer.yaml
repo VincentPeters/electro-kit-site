@@ -1,0 +1,32 @@
+number: 4
+title: "An Electric Door Buzzer"
+chapter: "voltage-current-resistance"
+steps:
+  - "Build the circuit and press the push button. The buzzer sounds, exactly like an electric doorbell."
+  - "Now try Morse code again, but with sound instead of light."
+whatHappens:
+  - "You are closing and breaking a circuit with the push button, just as you did before."
+  - "This time the current runs through the buzzer instead of the bulb."
+  - "Whenever the buzzer is properly connected to both terminals of the battery compartment, it makes its tone."
+note: "Watch the plus sign on the buzzer. Fit it the way the build plan shows, or it will stay silent."
+sidebar:
+  heading: "Electrons"
+  body:
+    - "Electrons are tiny negatively charged particles. They are part of every atom, sitting in a shell around it."
+    - "Electrons cannot move freely in every material."
+    - "In metals, though, they move very easily indeed. That is exactly why metals carry electricity so well."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "button"
+        from: "D2"
+        to: "D4"
+        level: 1
+      - type: "link3"
+        from: "D4"
+        to: "F4"
+        level: 2
+      - type: "buzzer"
+        from: "F2"
+        to: "F4"
+        level: 1

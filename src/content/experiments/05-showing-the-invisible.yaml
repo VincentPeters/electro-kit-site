@@ -1,0 +1,41 @@
+number: 5
+title: "Showing the Invisible: Measuring Voltage"
+chapter: "voltage-current-resistance"
+steps:
+  - "First set the switch on the meter to 3V. That is the setting for measuring a voltage."
+  - "Now push the on/off switch to ON. The meter needle swings across and stops at about the figure 3 on the scale, telling you the voltage is 3 volts."
+  - "Push the switch back to OFF and the needle drops back to rest."
+whatHappens:
+  - "The meter makes an invisible voltage visible. It is wired to the battery in the same way a bulb would be, and the swing of its needle shows you the voltage."
+  - "Inside the meter there is a scale with numbers on it. Because this meter measures both voltage and current, the scale is split into two rows. The upper row, 0 to 3 V, is for voltage. The lower row, 0 to 1 A, is for current."
+  - "Whichever you are measuring, the answer is the number the needle is pointing at."
+note: "Always fit the meter exactly as the build plan shows, and set its switch before you build it in. Wiring it the wrong way round can ruin it."
+sidebar:
+  heading: "How electrons really move"
+  body:
+    - "Electrons do not race from one battery terminal to the other like tiny runners. Each one shuffles along very slowly, jostling the ones next to it."
+    - "It is rather like filling a tube with table tennis balls and laying it flat."
+    - "Push one more ball in at one end and a ball pops out of the far end straight away, even though no single ball travelled the length of the tube."
+boards:
+  - caption: "Build plan"
+    parts:
+      - type: "link3"
+        from: "D2"
+        to: "D4"
+        level: 1
+      - type: "meter"
+        from: "D4"
+        to: "D6"
+        level: 2
+      - type: "link3"
+        from: "D6"
+        to: "F6"
+        level: 1
+      - type: "link3"
+        from: "F4"
+        to: "F6"
+        level: 2
+      - type: "switch"
+        from: "F2"
+        to: "F4"
+        level: 1
