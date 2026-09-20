@@ -21,59 +21,66 @@ const levelDemo: PlacedPart[] = [
   description="How to read a build plan: the grid, the stacking levels, and which way round a part goes."
 >
   <h1>How to read a build plan</h1>
-  <p>
-    Every experiment on this site shows you a picture of the finished circuit.
-    Three things tell you exactly where each part goes.
+  <p class="lede">
+    Every experiment shows you a picture of the finished circuit. Three things
+    tell you exactly where each part goes.
   </p>
 
-  <section>
-    <h2>1. The grid</h2>
-    <p>
-      The baseplate is a grid of holes. The columns are numbered
-      <strong>1 to 10</strong> across the top, and the rows are lettered
-      <strong>A to G</strong> down the side. So <strong>C3</strong> means row C,
-      column 3.
-    </p>
-    <p>
-      Every part stretches between two holes, and we name both. A strip
-      described as <strong>C3 to C5</strong> starts at C3 and finishes at C5,
-      covering three holes.
-    </p>
-    <p>
-      The battery compartment is built into the board at the bottom left, with
-      its minus terminal at the top and its plus at the bottom. It is always
-      there, so it is never listed as a part.
-    </p>
+  <section class="lesson">
+    <div class="text">
+      <h2><span class="hex">1</span>The grid</h2>
+      <p>
+        The baseplate is a grid of holes. The columns are numbered{' '}
+        <strong>1 to 10</strong> across the top, and the rows are lettered{' '}
+        <strong>A to G</strong> down the side. So <strong>C3</strong> means row C,
+        column 3.
+      </p>
+      <p>
+        Every part stretches between two holes, and we name both. A strip
+        described as <strong>C3 to C5</strong> starts at C3 and finishes at C5,
+        covering three holes.
+      </p>
+      <p>
+        The battery compartment is built into the board at the bottom left, with
+        its minus terminal at the top and its plus at the bottom. It is always
+        there, so it is never listed as a part.
+      </p>
+    </div>
     <Board parts={gridDemo} caption="A strip from C3 to C5, and a bulb from C6 to C7" />
   </section>
 
-  <section>
-    <h2>2. Levels: what goes on top of what</h2>
-    <p>
-      Parts stack on top of each other. A part with no number sits straight on
-      the baseplate — that is <strong>level 1</strong>. A small square with a
-      <strong>2</strong> or a <strong>3</strong> means that part clips on top of
-      something you have already fitted.
-    </p>
-    <p>
-      Always build from the bottom up. Fit everything on level 1 first, then
-      level 2, then level 3. If a part will not sit flat, something underneath
-      it is probably missing.
-    </p>
+  <section class="lesson">
+    <div class="text">
+      <h2><span class="hex">2</span>What goes on top of what</h2>
+      <p>
+        Parts stack on top of each other. A part with no chip beside it sits
+        straight on the baseplate: that is <strong>level 1</strong>. A grey chip
+        reading <strong>L2</strong> or <strong>L3</strong> means that part clips
+        on top of something you have already fitted. Round coloured badges are
+        something else: those are the numbers printed on the parts themselves.
+      </p>
+      <p>
+        Always build from the bottom up. Fit everything on level 1 first, then
+        level 2, then level 3. If a part will not sit flat, something underneath
+        it is probably missing.
+      </p>
+    </div>
     <Board
       parts={levelDemo}
       caption="A strip on level 1, a bulb stacked on level 2, and a single-hole strip on level 3"
     />
   </section>
 
-  <section>
-    <h2>3. Which way round?</h2>
-    <p>
-      The motor, the buzzer and the meter each have a <strong>+</strong> printed
-      on them. Fit the part so its plus sign points the same way as the plus sign
-      in the build plan. Turn one of them around and the motor spins backwards,
-      or the buzzer stays silent.
-    </p>
+  <section class="lesson">
+    <div class="text">
+      <h2><span class="hex">3</span>Which way round?</h2>
+      <p>
+        The motor, the buzzer and the meter each have a <strong>+</strong> printed
+        on them. Fit the part so its plus sign points the same way as the plus sign
+        in the build plan. Turn one of them around and the motor spins backwards,
+        or the buzzer stays silent.
+      </p>
+    </div>
     <div class="swatches">
       <figure>
         <PartSwatch type="motor" />
@@ -94,7 +101,7 @@ const levelDemo: PlacedPart[] = [
         plan includes can damage the meter.
       </li>
       <li>
-        Set the meter's switch to <strong>3V</strong> or <strong>1A</strong>
+        Set the meter's switch to <strong>3V</strong> or <strong>1A</strong>{' '}
         before you fit it, as the experiment tells you.
       </li>
       <li>
@@ -106,31 +113,92 @@ const levelDemo: PlacedPart[] = [
 </BaseLayout>
 
 <style>
-  section {
-    margin-block: 3rem;
+  .lede {
+    font-size: var(--step-1);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 34ch;
+    text-wrap: balance;
+    margin-bottom: var(--space-xl);
   }
+
+  /* Three numbered steps, because this genuinely is a sequence. */
+  .lesson {
+    display: grid;
+    gap: var(--space-m);
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    padding-top: var(--space-m);
+    border-top: 2px solid var(--colour-ink-strong);
+  }
+  .lesson + .lesson {
+    margin-top: var(--space-xl);
+  }
+  @media (min-width: 58rem) {
+    .lesson {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--space-l);
+    }
+  }
+  .lesson h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 0;
+    font-size: var(--step-2);
+  }
+  .lesson h2 .hex {
+    background: var(--colour-ink-strong);
+  }
+  .text p:last-child {
+    margin-bottom: 0;
+  }
+
   .swatches {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: var(--space-m) var(--space-l);
     align-items: center;
+    justify-content: center;
+    padding: var(--space-m);
+    background: var(--colour-surface);
+    border-radius: var(--radius-l);
   }
   .swatches figure {
     margin: 0;
     text-align: center;
   }
   .swatches figcaption {
-    font-weight: 600;
+    margin-top: var(--space-xs);
+    font-size: var(--step--1);
+    font-weight: 700;
     color: var(--colour-muted);
   }
+
   .warning {
-    padding: 1.25rem 1.5rem;
-    background: var(--theme-wash);
-    border-left: 6px solid var(--theme);
-    border-radius: var(--radius);
+    margin-top: var(--space-2xl);
+    padding: var(--space-l);
+    background: var(--colour-ink-strong);
+    color: var(--colour-page);
+    border-radius: var(--radius-l);
   }
   .warning h2 {
     margin-top: 0;
     font-size: var(--step-1);
+    color: var(--colour-page);
+  }
+  .warning ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .warning li {
+    max-width: 58ch;
+    color: oklch(1 0 0 / 0.82);
+    line-height: 1.5;
+  }
+  .warning strong {
+    color: var(--colour-page);
   }
 </style>

@@ -13,40 +13,96 @@ interface Props {
 const { slug, order, title, blurb, colour, count } = Astro.props;
 ---
 
-<a class="chapter-card" href={url(`/chapters/${slug}/`)} data-theme={colour}>
-  <span class="eyebrow">Chapter {order} · {count} experiments</span>
-  <h3>{title}</h3>
-  <p>{blurb}</p>
+<a class="chapter" href={url(`/chapters/${slug}/`)} data-theme={colour}>
+  <span class="hex">{order}</span>
+  <span class="body">
+    <span class="head">
+      <span class="name">{title}</span>
+      <span class="count">{count} experiments</span>
+    </span>
+    <span class="blurb">{blurb}</span>
+  </span>
+  <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+    <path d="M4 12h15m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.5" />
+  </svg>
 </a>
 
 <style>
-  .chapter-card {
-    display: block;
-    padding: 1.5rem;
-    border: 2px solid var(--colour-line);
-    border-top: 8px solid var(--theme);
-    border-radius: var(--radius);
+  .chapter {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--space);
+    padding: var(--space) var(--space-m) var(--space) var(--space);
+    border: 1px solid var(--colour-line);
+    border-radius: var(--radius-l);
+    background: var(--colour-page);
     text-decoration: none;
     color: inherit;
+    transition:
+      border-color var(--fast) var(--ease),
+      background var(--fast) var(--ease);
   }
-  .chapter-card:hover {
+  .chapter:hover {
+    border-color: var(--theme-edge);
     background: var(--theme-wash);
   }
-  .chapter-card h3 {
-    margin: 0.35rem 0 0.5rem;
+  .hex {
+    width: 2.6rem;
+    height: 3rem;
+    background: var(--theme);
+    font-size: var(--step-0);
+  }
+  .body {
+    display: grid;
+    gap: 0.15rem;
+  }
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.75rem;
+  }
+  .name {
+    font-variation-settings: 'wdth' 110;
+    font-weight: 800;
     font-size: var(--step-1);
-    color: var(--theme);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--colour-ink-strong);
+    text-wrap: balance;
   }
-  .chapter-card p {
-    margin: 0;
-    max-width: none;
-  }
-  .eyebrow {
-    display: block;
+  .count {
     font-size: var(--step--1);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
     color: var(--colour-muted);
+    white-space: nowrap;
+  }
+  .blurb {
+    color: var(--colour-ink);
+    line-height: 1.5;
+  }
+  .arrow {
+    width: 1.4rem;
+    height: 1.4rem;
+    color: var(--theme);
+    transition: transform var(--slow) var(--ease);
+  }
+  .chapter:hover .arrow {
+    transform: translateX(4px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chapter:hover .arrow {
+      transform: none;
+    }
+  }
+  @media (max-width: 34rem) {
+    .arrow {
+      display: none;
+    }
+    .chapter {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
   }
 </style>

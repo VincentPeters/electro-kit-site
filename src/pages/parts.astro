@@ -6,31 +6,43 @@ import { LISTED_PARTS, LOOSE_PARTS } from '../parts/registry';
 const groups = [
   {
     heading: 'Connector strips',
+    colour: 'conductor',
     blurb:
       'The blue parts carry the current. The number on a strip tells you how many holes it covers, so a 3 reaches from one hole to the third one along.',
     parts: LISTED_PARTS.filter((p) => p.family === 'conductor'),
   },
   {
     heading: 'Switches',
+    colour: 'switch',
     blurb: 'The green parts break the circuit and close it again.',
     parts: LISTED_PARTS.filter((p) => p.family === 'switch'),
   },
   {
     heading: 'Things that use the current',
+    colour: 'load',
     blurb: 'These turn electricity into light, sound or movement.',
     parts: LISTED_PARTS.filter((p) => p.family === 'load'),
   },
   {
     heading: 'The meter',
+    colour: 'instrument',
     blurb: 'The black part measures what all the others are doing.',
     parts: LISTED_PARTS.filter((p) => p.family === 'instrument'),
   },
   {
     heading: 'Loose pieces',
+    colour: 'loose',
     blurb:
       'These do not clip onto the board. You hold them, or push them onto something else.',
     parts: LOOSE_PARTS,
   },
+];
+
+const legend = [
+  { colour: 'conductor', word: 'Blue', job: 'carries the current' },
+  { colour: 'load', word: 'Red', job: 'uses it up' },
+  { colour: 'switch', word: 'Green', job: 'switches it on and off' },
+  { colour: 'instrument', word: 'Black', job: 'measures it' },
 ];
 ---
 
@@ -39,31 +51,40 @@ const groups = [
   description="Every part in the Easy Elektro Start kit, what it does, and how many come in the box."
 >
   <h1>What is in the box</h1>
-  <p>
+  <p class="lede">
     Most parts have a number printed on them. That same number appears in every
     build plan on this site, so you can always tell which part you need.
   </p>
-  <p>
-    Colour tells you the job a part does: <strong>blue</strong> carries the
-    current, <strong>red</strong> uses it up, <strong>green</strong> switches it
-    on and off, and <strong>black</strong> measures it.
-  </p>
+
+  <h2 class="legend-heading">The colour tells you the job</h2>
+  <ul class="legend">
+    {
+      legend.map((item) => (
+        <li style={`--swatch: var(--part-${item.colour})`}>
+          <span class="dot" />
+          <strong>{item.word}</strong> {item.job}
+        </li>
+      ))
+    }
+  </ul>
 
   {
     groups.map((group) => (
-      <section>
+      <section style={`--swatch: var(--part-${group.colour})`}>
         <h2>{group.heading}</h2>
-        <p>{group.blurb}</p>
+        <p class="blurb">{group.blurb}</p>
         <ul class="part-list">
           {group.parts.map((part) => (
             <li>
               <div class="swatch-cell">
                 <PartSwatch type={part.type} />
               </div>
-              <div>
+              <div class="detail">
                 <h3>{part.label}</h3>
                 <p class="meta">
-                  {part.kitNumber !== undefined && <span>Part {part.kitNumber}</span>}
+                  {part.kitNumber !== undefined && (
+                    <span class="kit-number">Part {part.kitNumber}</span>
+                  )}
                   <span>{part.count} in the box</span>
                 </p>
                 <p>{part.description}</p>
@@ -75,59 +96,129 @@ const groups = [
     ))
   }
 
-  <section>
+  <section class="baseplate">
     <h2>And the baseplate</h2>
     <p>
       The clear plastic board with all the holes. Everything gets built on it,
       and the battery compartment is part of it, down in the bottom left corner.
-      That is why no build plan ever lists the battery as a part — it is always
+      That is why no build plan ever lists the battery as a part: it is always
       already there.
     </p>
   </section>
 </BaseLayout>
 
 <style>
-  section {
-    margin-block: 2.5rem;
+  .lede {
+    font-size: var(--step-1);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 34ch;
+    text-wrap: balance;
   }
+  .legend-heading {
+    font-size: var(--step-1);
+  }
+  .legend {
+    list-style: none;
+    margin: 0 0 var(--space-2xl);
+    padding: 0;
+    display: grid;
+    gap: 0.6rem var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  }
+  .legend li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    max-width: none;
+  }
+  .dot {
+    flex: 0 0 auto;
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    background: var(--swatch);
+    translate: 0 0.05rem;
+  }
+
+  section + section {
+    margin-top: var(--space-2xl);
+  }
+  section h2 {
+    padding-bottom: var(--space-xs);
+    border-bottom: 3px solid var(--swatch, var(--colour-ink-strong));
+    margin-top: 0;
+  }
+  .blurb {
+    max-width: 52ch;
+    margin-bottom: var(--space-m);
+  }
+
   .part-list {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: grid;
-    gap: 1rem;
+    gap: 0.75rem;
   }
   .part-list li {
     display: grid;
-    grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    gap: var(--space-m);
     align-items: center;
-    padding: 1rem 1.25rem;
-    background: var(--colour-surface);
-    border-radius: var(--radius);
+    padding: var(--space) var(--space-m);
+    border: 1px solid var(--colour-line);
+    border-radius: var(--radius-l);
+    max-width: none;
   }
   .swatch-cell {
     display: grid;
     place-items: center;
+    padding: var(--space-xs);
+    background: var(--colour-surface);
+    border-radius: var(--radius);
   }
   .part-list h3 {
-    margin: 0 0 0.25rem;
+    margin: 0 0 0.2rem;
     font-size: var(--step-0);
+    font-variation-settings: 'wdth' 106;
   }
   .part-list p {
     margin: 0;
+    max-width: 58ch;
   }
   .meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
     color: var(--colour-muted);
     font-size: var(--step--1);
-    font-weight: 600;
-    margin-bottom: 0.35rem !important;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.4rem !important;
   }
-  @media (max-width: 40rem) {
+  /* The number printed on the real part, in the real part's colour. */
+  .kit-number {
+    padding: 0.1rem 0.5rem;
+    border: 2px solid var(--swatch);
+    border-radius: 999px;
+    color: var(--swatch);
+  }
+
+  .baseplate {
+    padding-top: var(--space-m);
+    border-top: 2px solid var(--colour-ink-strong);
+  }
+  .baseplate h2 {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  @media (max-width: 42rem) {
     .part-list li {
       grid-template-columns: 1fr;
+      gap: var(--space-s);
     }
   }
 </style>

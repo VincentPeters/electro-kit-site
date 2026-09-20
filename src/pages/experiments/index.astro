@@ -9,6 +9,8 @@ const chapters = (await getCollection('chapters')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 const experiments = await getCollection('experiments');
+const inChapter = (slug: string) =>
+  sortByNumber(experiments.filter((e) => e.data.chapter.id === slug));
 ---
 
 <BaseLayout
@@ -16,43 +18,86 @@ const experiments = await getCollection('experiments');
   description="Every one of the 60 experiments in the Easy Elektro Start kit, grouped by chapter."
 >
   <h1>All 60 experiments</h1>
-  <p>
-    Every experiment in the kit, in the order the manual runs them. They build
-    on each other, so working straight through is the easiest way.
+  <p class="lede">
+    In the order the manual runs them. Each one uses something you learned in
+    the last, so working straight through is the easiest way.
   </p>
 
   {
-    chapters.map((chapter) => (
-      <section data-theme={chapter.data.colour}>
-        <h2>
-          <a href={url(`/chapters/${chapter.id}/`)}>{chapter.data.title}</a>
-        </h2>
-        <div class="cards">
-          {sortByNumber(
-            experiments.filter((e) => e.data.chapter.id === chapter.id),
-          ).map((exp) => (
-            <ExperimentCard id={exp.id} number={exp.data.number} title={exp.data.title} />
-          ))}
-        </div>
-      </section>
-    ))
+    chapters.map((chapter) => {
+      const list = inChapter(chapter.id);
+      return (
+        <section data-theme={chapter.data.colour}>
+          <div class="head">
+            <span class="hex">{chapter.data.order}</span>
+            <h2>
+              <a href={url(`/chapters/${chapter.id}/`)}>{chapter.data.title}</a>
+            </h2>
+            <span class="range">
+              {list[0]?.data.number}–{list.at(-1)?.data.number}
+            </span>
+          </div>
+          <div class="cards">
+            {list.map((exp) => (
+              <ExperimentCard id={exp.id} number={exp.data.number} title={exp.data.title} />
+            ))}
+          </div>
+        </section>
+      );
+    })
   }
 </BaseLayout>
 
 <style>
-  section {
-    margin-block: 2.5rem;
+  .lede {
+    font-size: var(--step-1);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 32ch;
+    text-wrap: balance;
+    margin-bottom: var(--space-xl);
   }
-  section h2 a {
-    color: var(--theme);
+  section + section {
+    margin-top: var(--space-xl);
+  }
+  .head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+    padding-bottom: var(--space-xs);
+    margin-bottom: var(--space);
+    border-bottom: 2px solid var(--theme);
+  }
+  .head .hex {
+    width: 1.75rem;
+    height: 2rem;
+    background: var(--theme);
+    font-size: var(--step--2);
+  }
+  .head h2 {
+    margin: 0;
+    font-size: var(--step-1);
+    margin-right: auto;
+  }
+  .head h2 a {
+    color: var(--colour-ink-strong);
     text-decoration: none;
   }
-  section h2 a:hover {
+  .head h2 a:hover {
     text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  .range {
+    font-size: var(--step--1);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    color: var(--colour-muted);
   }
   .cards {
     display: grid;
-    gap: 0.75rem;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    gap: 0.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
   }
 </style>

@@ -11,6 +11,7 @@ import {
   cellCenter,
 } from '../board/geometry';
 import { describeBoard, type PlacedPart } from '../board/describe';
+import { layoutLabels } from '../board/annotate';
 import Part from './Part.astro';
 
 interface Props {
@@ -50,6 +51,10 @@ const minusTerminal = cellCenter('D2');
 const plusTerminal = cellCenter('F2');
 
 const description = describeBoard(parts);
+
+// Labels are solved against every part at once, so a crowded plan pushes
+// them apart instead of stacking them on top of each other.
+const labels = layoutLabels(parts);
 ---
 
 <figure class="board">
@@ -150,22 +155,95 @@ const description = describeBoard(parts);
     ))}
 
     {ordered.map((part) => <Part part={part} />)}
+
+    {/* Labels paint last so nothing is drawn over a number. */}
+    {labels.map((label) => (
+      <g>
+        {label.leader && (
+          <line
+            x1={label.anchor.x}
+            y1={label.anchor.y}
+            x2={label.x}
+            y2={label.y}
+            stroke={label.colour}
+            stroke-width="1.5"
+            opacity="0.45"
+          />
+        )}
+        {label.kind === 'kit' && (
+          <>
+            <circle cx={label.x} cy={label.y} r="10" fill="#ffffff" stroke={label.colour} stroke-width="2" />
+            <text
+              x={label.x}
+              y={label.y + 4}
+              text-anchor="middle"
+              font-size="12"
+              font-weight="700"
+              fill={label.colour}>{label.text}</text>
+          </>
+        )}
+        {label.kind === 'level' && (
+          <>
+            <rect
+              x={label.x - label.rx}
+              y={label.y - label.ry}
+              width={label.rx * 2}
+              height={label.ry * 2}
+              rx="5"
+              fill="#ffffff"
+              stroke="#9aa6b8"
+              stroke-width="1.5"
+            />
+            <text
+              x={label.x}
+              y={label.y + 4}
+              text-anchor="middle"
+              font-size="12"
+              font-weight="700"
+              fill="#3f4c60">{label.text}</text>
+          </>
+        )}
+        {label.kind === 'contact' && (
+          <text
+            x={label.x}
+            y={label.y + 4}
+            text-anchor="middle"
+            font-size="12"
+            font-weight="700"
+            paint-order="stroke"
+            stroke="#ffffff"
+            stroke-width="4"
+            stroke-linejoin="round"
+            fill={label.colour}>{label.text}</text>
+        )}
+      </g>
+    ))}
   </svg>
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
 
 <style>
+  /* Framed like a plate in a manual: a thin rule, then a caption bar. */
   .board {
     margin: 0;
+    border: 1px solid var(--colour-line);
+    border-radius: var(--radius-l);
+    background: var(--colour-page);
+    overflow: hidden;
   }
   .board svg {
     width: 100%;
     height: auto;
     display: block;
+    padding: 0.75rem 0.75rem 0.25rem;
   }
   .board figcaption {
-    margin-top: 0.5rem;
-    font-weight: 600;
-    color: var(--colour-muted, #5c6b7f);
+    padding: 0.55rem 0.9rem;
+    border-top: 1px solid var(--colour-line);
+    background: var(--colour-surface);
+    font-size: var(--step--1);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--colour-ink);
   }
 </style>

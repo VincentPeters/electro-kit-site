@@ -19,65 +19,94 @@ const firstCircuit: PlacedPart[] = [
   { type: 'link3', from: 'D3', to: 'F3', level: 1 },
   { type: 'link2', from: 'F2', to: 'F3', level: 2 },
 ];
+
+const howItWorks = [
+  {
+    heading: 'Look at the plan',
+    body: 'A drawing of the finished circuit, on the same grid as the baseplate in front of you. Every part sits where it sits on the board.',
+  },
+  {
+    heading: 'Build it and switch it on',
+    body: 'Numbered steps, one clip at a time, bottom level first. Then press the switch and watch what the circuit does.',
+  },
+  {
+    heading: 'Find out why',
+    body: 'A plain explanation of what the electricity just did, and why swapping one part changes everything.',
+  },
+];
 ---
 
 <BaseLayout
   title="Home"
   description="All 60 experiments from the KOSMOS Easy Elektro Start electronics kit, written in English."
 >
-  <h1>Easy Elektro Start</h1>
-  <p class="lede">
-    Sixty experiments with the KOSMOS Easy Elektro Start kit, written in English.
-    Build a circuit, switch it on, and find out what is really going on inside it.
-  </p>
-
-  <div class="intro">
-    <div>
-      <h2>How this works</h2>
-      <p>
-        Every experiment shows you a picture of the finished circuit, tells you
-        what to do, and then explains what just happened.
-      </p>
-      <p>
-        New to the kit? Start with <a href={url('/parts/')}>what is in the box</a>,
-        then learn <a href={url('/build-tips/')}>how to read a build plan</a>.
-        After that, work straight through from experiment 1.
-      </p>
-      <p>
-        <a class="cta" href={url('/experiments/going-round-in-circles/')}>
-          Start at experiment 1
-        </a>
-      </p>
+  <section class="hero" slot="band">
+    <div class="wrap">
+      <div class="hero-text">
+        <h1>Sixty circuits, one baseplate.</h1>
+        <p>
+          The whole KOSMOS Easy Elektro Start kit, written in English. Clip the
+          parts together, switch it on, and find out what the electricity is
+          actually doing in there.
+        </p>
+        <p class="actions">
+          <a class="button" href={url('/experiments/going-round-in-circles/')}>
+            Start at experiment 1
+          </a>
+          <a class="secondary" href={url('/build-tips/')}>How to read a build plan</a>
+        </p>
+      </div>
+      <div class="hero-plate">
+        <Board parts={firstCircuit} caption="Experiment 1: a bulb, and a complete loop" />
+      </div>
     </div>
-    <div>
-      <Board parts={firstCircuit} caption="Experiment 1: a bulb, and a complete loop" />
-    </div>
-  </div>
+  </section>
 
-  <h2>The five chapters</h2>
-  <div class="chapters">
-    {
-      chapters.map((chapter) => (
-        <ChapterCard
-          slug={chapter.id}
-          order={chapter.data.order}
-          title={chapter.data.title}
-          blurb={chapter.data.intro[0]}
-          colour={chapter.data.colour}
-          count={countFor(chapter.id)}
-        />
-      ))
-    }
-  </div>
+  <section class="how">
+    <h2>Every experiment, three parts</h2>
+    <ol class="how-list">
+      {
+        howItWorks.map((item, i) => (
+          <li>
+            <span class="hex">{i + 1}</span>
+            <h3>{item.heading}</h3>
+            <p>{item.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="how-note">
+      New to the kit? Start with <a href={url('/parts/')}>what is in the box</a>,
+      then learn <a href={url('/build-tips/')}>how to read a build plan</a>.
+    </p>
+  </section>
+
+  <section class="chapters-section">
+    <h2>The five chapters</h2>
+    <div class="chapters">
+      {
+        chapters.map((chapter) => (
+          <ChapterCard
+            slug={chapter.id}
+            order={chapter.data.order}
+            title={chapter.data.title}
+            blurb={chapter.data.intro[0]}
+            colour={chapter.data.colour}
+            count={countFor(chapter.id)}
+          />
+        ))
+      }
+    </div>
+  </section>
 
   <section class="safety">
     <h2>Before you start</h2>
-    <p>
+    <p class="safety-lede">
       The kit is for children of 8 and over, because the electrical parts are
       out in the open. It is not suitable for under-3s: there are small parts
       that could be swallowed or breathed in.
     </p>
-    <ul>
+    <ul class="rules">
       <li>
         <strong>Small magnets.</strong> Swallowed magnets can pull towards each
         other inside the body and cause serious injury. If that ever happens,
@@ -115,62 +144,162 @@ const firstCircuit: PlacedPart[] = [
       </li>
     </ul>
     <p class="parents">
-      <strong>A note for parents:</strong> the safety rules above are a summary.
-      The printed manual that came with the kit is the authority, and it is
-      worth reading it with your child before the first experiment.
+      <strong>A note for parents:</strong> the rules above are a summary. The
+      printed manual that came with the kit is the authority, and it is worth
+      reading it with your child before the first experiment.
     </p>
   </section>
 </BaseLayout>
 
 <style>
-  .lede {
-    font-size: var(--step-1);
-    max-width: 40rem;
+  /*
+    The dark field continues down from the masthead, so the page opens like a
+    lit workbench: the baseplate is the only bright thing on it.
+  */
+  .hero {
+    background: var(--colour-ink-strong);
+    color: var(--colour-page);
+    background-image: radial-gradient(
+      circle at center,
+      oklch(1 0 0 / 0.07) 1.5px,
+      transparent 1.6px
+    );
+    background-size: 22px 22px;
   }
-  .intro {
+  .hero .wrap {
     display: grid;
-    gap: 2rem;
+    gap: var(--space-l);
     grid-template-columns: minmax(0, 1fr);
     align-items: center;
-    margin-block: 2.5rem;
+    padding-block: var(--space-xl) var(--space-2xl);
   }
-  @media (min-width: 52rem) {
-    .intro {
+  @media (min-width: 56rem) {
+    .hero .wrap {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--space-2xl);
     }
   }
-  .cta {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.7rem 1.4rem;
-    background: var(--theme);
-    color: #fff;
-    border-radius: var(--radius);
-    text-decoration: none;
-    font-weight: 700;
+  .hero h1 {
+    font-size: var(--step-4);
+    color: var(--colour-page);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space);
   }
-  .cta:hover {
-    text-decoration: underline;
+  .hero p {
+    color: oklch(1 0 0 / 0.78);
+    max-width: 38ch;
+    line-height: 1.65;
+  }
+  .actions {
+    max-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space) var(--space-m);
+    margin-top: var(--space-m);
+  }
+  .actions .button {
+    background: var(--colour-page);
+    color: var(--colour-ink-strong);
+  }
+  .actions .button:hover {
+    background: oklch(1 0 0);
+  }
+  .secondary {
+    color: var(--colour-page);
+    font-weight: 600;
+    text-decoration-color: oklch(1 0 0 / 0.4);
+  }
+  .hero a:focus-visible {
+    outline-color: var(--colour-page);
+  }
+  .hero-plate :global(.board) {
+    border-color: oklch(1 0 0 / 0.14);
+    box-shadow: 0 18px 40px -20px oklch(0 0 0 / 0.8);
+  }
+
+  /* ---- How it works ---- */
+
+  .how-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .how-list li {
+    max-width: none;
+    padding-top: var(--space-s);
+    border-top: 2px solid var(--colour-ink-strong);
+  }
+  .how-list h3 {
+    margin: var(--space-xs) 0 0.2rem;
+    font-size: var(--step-1);
+  }
+  .how-list p {
+    margin: 0;
+    color: var(--colour-ink);
+  }
+  .how-note {
+    margin-top: var(--space-m);
+    color: var(--colour-muted);
+  }
+
+  .chapters-section {
+    margin-top: var(--space-2xl);
   }
   .chapters {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+    gap: 0.6rem;
   }
+
+  /* ---- Safety ---- */
+
   .safety {
-    margin-top: 3rem;
-    padding: 1.5rem;
+    margin-top: var(--space-2xl);
+    padding: var(--space-l);
     background: var(--colour-surface);
-    border-radius: var(--radius);
+    border: 1px solid var(--colour-line);
+    border-radius: var(--radius-l);
   }
   .safety h2 {
     margin-top: 0;
   }
-  .safety li {
-    margin-bottom: 0.6rem;
+  .safety-lede {
+    font-weight: 600;
+    max-width: 52ch;
+  }
+  .rules {
+    list-style: none;
+    margin: var(--space-m) 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  }
+  .rules li {
+    max-width: none;
+    padding-left: var(--space-m);
+    line-height: 1.5;
+    position: relative;
+  }
+  /* A snap stud, the same mark the parts carry at every contact. */
+  .rules li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2.5px solid var(--colour-ink-strong);
   }
   .parents {
-    margin-bottom: 0;
+    margin: var(--space-m) 0 0;
+    padding-top: var(--space);
+    border-top: 1px solid var(--colour-line);
     color: var(--colour-muted);
+    max-width: 60ch;
   }
 </style>

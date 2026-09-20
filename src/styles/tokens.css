@@ -1,39 +1,78 @@
+/*
+  The kit's own four-colour part code is printed on the physical parts, so it
+  belongs to the diagrams and nothing else. Site chrome is achromatic on
+  purpose: if a child sees blue on a build page, it is a conductor.
+*/
 :root {
-  --colour-ink: #16202e;
-  --colour-muted: #55647a;
-  --colour-page: #ffffff;
-  --colour-surface: #f3f5f8;
-  --colour-line: #dde3ec;
+  /* Neutrals, tinted a touch toward the conductor blue rather than toward warm. */
+  --colour-ink: oklch(0.22 0.018 250);
+  --colour-ink-strong: oklch(0.15 0.02 250);
+  --colour-muted: oklch(0.49 0.022 250);
+  --colour-page: oklch(0.985 0.003 250);
+  --colour-surface: oklch(0.955 0.006 250);
+  --colour-line: oklch(0.885 0.01 250);
+  --colour-line-strong: oklch(0.78 0.014 250);
 
-  --chapter-red: #c62222;
-  --chapter-green: #15803d;
-  --chapter-orange: #b45309;
-  --chapter-blue: #1f6fd0;
-  --chapter-purple: #6d28d9;
+  /* The part code. Diagrams and the parts page only. */
+  --part-conductor: #1f6fd0;
+  --part-load: #d92b2b;
+  --part-switch: #199a55;
+  --part-instrument: #1d1d1f;
+  --part-loose: #5a6472;
 
-  /* Overridden per page, and per card, by a data-theme attribute. */
+  /* Chapter identity. Used where no circuit is on screen. */
+  --chapter-red: oklch(0.45 0.18 27);
+  --chapter-orange: oklch(0.5 0.14 62);
+  --chapter-green: oklch(0.43 0.12 155);
+  --chapter-blue: oklch(0.44 0.16 250);
+  --chapter-purple: oklch(0.42 0.17 300);
+
+  /* Overridden per page, and per element, by a data-theme attribute. */
   --theme: var(--chapter-blue);
-  --theme-wash: color-mix(in srgb, var(--theme) 8%, white);
+  --theme-wash: color-mix(in oklab, var(--theme) 7%, var(--colour-page));
+  --theme-edge: color-mix(in oklab, var(--theme) 26%, var(--colour-page));
 
-  --step--1: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
-  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
-  --step-1: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
-  --step-2: clamp(1.7rem, 1.5rem + 1vw, 2.3rem);
-  --step-3: clamp(2.2rem, 1.8rem + 2vw, 3.2rem);
+  /* Ratio ~1.33. Body runs large: the screen is propped up across a table. */
+  --step--2: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
+  --step--1: clamp(0.82rem, 0.79rem + 0.14vw, 0.9rem);
+  --step-0: clamp(1.0625rem, 1.01rem + 0.28vw, 1.1875rem);
+  --step-1: clamp(1.4rem, 1.29rem + 0.55vw, 1.65rem);
+  --step-2: clamp(1.85rem, 1.65rem + 1vw, 2.35rem);
+  --step-3: clamp(2.4rem, 2rem + 2vw, 3.2rem);
+  --step-4: clamp(2.9rem, 2.2rem + 3.4vw, 4.4rem);
 
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-s: 0.75rem;
   --space: 1rem;
-  --measure: 36rem;
-  --radius: 14px;
+  --space-m: 1.5rem;
+  --space-l: 2.25rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5rem;
+
+  --measure: 38rem;
+  --radius-xs: 4px;
+  --radius: 8px;
+  --radius-l: 14px;
+
+  /* Snap-fit, not bouncy. */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fast: 160ms;
+  --slow: 240ms;
+
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-overlay: 300;
 }
 
 [data-theme='red'] {
   --theme: var(--chapter-red);
 }
-[data-theme='green'] {
-  --theme: var(--chapter-green);
-}
 [data-theme='orange'] {
   --theme: var(--chapter-orange);
+}
+[data-theme='green'] {
+  --theme: var(--chapter-green);
 }
 [data-theme='blue'] {
   --theme: var(--chapter-blue);

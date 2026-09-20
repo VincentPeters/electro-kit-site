@@ -4,31 +4,59 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: Archivo, system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: var(--step-0);
+  font-variation-settings: 'wdth' 100;
   line-height: 1.6;
   color: var(--colour-ink);
   background: var(--colour-page);
+  -webkit-font-smoothing: antialiased;
 }
 
+/*
+  One family, width as the contrast axis. Display type runs expanded and heavy;
+  body stays at normal width. Nothing here is dressed up to look technical.
+*/
 h1,
 h2,
-h3 {
-  line-height: 1.15;
+h3,
+h4 {
+  font-variation-settings: 'wdth' 112;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   text-wrap: balance;
+  color: var(--colour-ink-strong);
 }
 h1 {
   font-size: var(--step-3);
+  margin-block: 0 var(--space-s);
 }
 h2 {
   font-size: var(--step-2);
+  margin-block: var(--space-l) var(--space-s);
 }
 h3 {
   font-size: var(--step-1);
+  letter-spacing: -0.01em;
+  margin-block: var(--space-m) var(--space-xs);
 }
 
+p,
+li {
+  text-wrap: pretty;
+}
 p {
   max-width: var(--measure);
 }
@@ -39,73 +67,258 @@ ol:not([class]) li {
   max-width: var(--measure);
 }
 
+strong {
+  font-weight: 700;
+}
+
 a {
-  color: var(--theme);
+  color: var(--colour-ink-strong);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--colour-line-strong);
+  transition: text-decoration-color var(--fast) var(--ease);
+}
+a:hover {
+  text-decoration-color: currentColor;
 }
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--theme);
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--colour-ink-strong);
   outline-offset: 3px;
-  border-radius: 3px;
+  border-radius: var(--radius-xs);
 }
 
 .wrap {
-  width: min(72rem, 100% - 2rem);
+  width: min(76rem, 100% - 2.5rem);
   margin-inline: auto;
 }
 
-.eyebrow {
-  font-size: var(--step--1);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--colour-muted);
-  margin-bottom: 0;
+main.wrap {
+  padding-block: var(--space-l) var(--space-2xl);
 }
+
+/*
+  Chapter identity band. Rendered outside the reading container so the colour
+  reaches the page edges, and only ever on pages where no circuit competes
+  with it.
+*/
+.band {
+  background: var(--theme);
+  color: oklch(1 0 0);
+  background-image: radial-gradient(
+    circle at center,
+    oklch(1 0 0 / 0.1) 1.5px,
+    transparent 1.6px
+  );
+  background-size: 22px 22px;
+}
+.band .wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding-block: var(--space-m);
+}
+.band .hex {
+  width: 3rem;
+  height: 3.46rem;
+  background: oklch(1 0 0 / 0.16);
+  color: oklch(1 0 0);
+  font-size: var(--step-0);
+}
+.band-text {
+  min-width: 0;
+}
+.band h1 {
+  color: oklch(1 0 0);
+  font-size: var(--step-2);
+  margin: 0;
+}
+.band .chip {
+  color: oklch(1 0 0 / 0.86);
+}
+.band a {
+  color: inherit;
+  text-decoration-color: oklch(1 0 0 / 0.45);
+}
+.band a:focus-visible {
+  outline-color: oklch(1 0 0);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space);
+  top: var(--space);
+  z-index: var(--z-overlay);
+  padding: 0.6rem 1rem;
+  background: var(--colour-ink-strong);
+  color: var(--colour-page);
+  font-weight: 700;
+  border-radius: var(--radius);
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---- Shared pieces -------------------------------------------------- */
+
+/*
+  The hexagon is the baseplate's own hole shape, so numbers sit in one the
+  same way a part clips into the board.
+*/
+.hex {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2.6rem;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: var(--colour-ink-strong);
+  color: var(--colour-page);
+  font-size: var(--step--1);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.chip {
+  font-weight: 700;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--colour-muted);
+}
+
+.panel {
+  padding: var(--space-m);
+  background: var(--colour-surface);
+  border: 1px solid var(--colour-line);
+  border-radius: var(--radius-l);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  background: var(--colour-ink-strong);
+  color: var(--colour-page);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 106;
+  transition:
+    background var(--fast) var(--ease),
+    transform var(--fast) var(--ease);
+}
+.button:hover {
+  background: var(--colour-ink);
+  transform: translateY(-2px);
+}
+.button:active {
+  transform: none;
+}
+
+/* ---- Masthead ------------------------------------------------------- */
 
 .site-header {
-  border-bottom: 4px solid var(--theme);
-  padding-block: var(--space);
+  position: relative;
+  background: var(--colour-ink-strong);
+  color: var(--colour-page);
+  /* The baseplate's hole grid, at the density it has on the real board. */
+  background-image: radial-gradient(
+    circle at center,
+    oklch(1 0 0 / 0.07) 1.5px,
+    transparent 1.6px
+  );
+  background-size: 22px 22px;
 }
-.site-header nav {
+.site-header .wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  align-items: baseline;
+  gap: var(--space-xs) var(--space-l);
+  padding-block: var(--space-s);
 }
-.site-header a {
-  font-weight: 600;
+.wordmark {
+  font-variation-settings: 'wdth' 118;
+  font-weight: 800;
+  font-size: var(--step-0);
+  letter-spacing: -0.01em;
+  color: var(--colour-page);
   text-decoration: none;
+  margin-right: auto;
 }
-.site-header a:hover {
-  text-decoration: underline;
+.wordmark span {
+  display: block;
+  font-variation-settings: 'wdth' 100;
+  font-weight: 600;
+  font-size: var(--step--2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(1 0 0 / 0.55);
+}
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space) var(--space-m);
+}
+.site-nav a {
+  color: oklch(1 0 0 / 0.78);
+  font-weight: 600;
+  font-size: var(--step--1);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  padding-block: 0.15rem;
+  border-bottom: 2px solid transparent;
+  transition: color var(--fast) var(--ease);
+}
+.site-nav a:hover {
+  color: var(--colour-page);
+  border-bottom-color: currentColor;
+}
+.site-nav a[aria-current='page'] {
+  color: var(--colour-page);
+  border-bottom-color: var(--colour-page);
+}
+.site-header a:focus-visible {
+  outline-color: var(--colour-page);
 }
 
+/* ---- Footer --------------------------------------------------------- */
+
 .site-footer {
-  margin-top: calc(var(--space) * 4);
-  padding-block: calc(var(--space) * 2);
   border-top: 1px solid var(--colour-line);
+  background: var(--colour-surface);
+  padding-block: var(--space-l);
   color: var(--colour-muted);
   font-size: var(--step--1);
 }
+.site-footer p {
+  max-width: 44rem;
+  margin: 0;
+}
+
+/* ---- Print: the page goes to the table on paper --------------------- */
 
 @media print {
-  .site-header nav,
-  .site-footer {
+  .site-header,
+  .site-footer,
+  .pager,
+  .skip-link {
     display: none;
   }
   body {
     font-size: 11pt;
+    background: #fff;
   }
-}
-
-@media print {
   .board,
   .explain,
-  .sidebar {
+  .sidebar,
+  .step {
     break-inside: avoid;
-  }
-  .pager {
-    display: none;
   }
   a {
     color: inherit;

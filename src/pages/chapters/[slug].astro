@@ -20,6 +20,7 @@ export async function getStaticPaths() {
 }
 
 const { chapter, experiments } = Astro.props;
+const [opening, ...rest] = chapter.data.intro;
 ---
 
 <BaseLayout
@@ -27,11 +28,22 @@ const { chapter, experiments } = Astro.props;
   description={chapter.data.intro[0]}
   theme={chapter.data.colour}
 >
-  <p class="eyebrow">Chapter {chapter.data.order}</p>
-  <h1>{chapter.data.title}</h1>
-  {chapter.data.intro.map((para) => <p class="lede">{para}</p>)}
+  <div class="band" slot="band">
+    <div class="wrap">
+      <span class="hex">{chapter.data.order}</span>
+      <div class="band-text">
+        <p class="chip">Chapter {chapter.data.order} · {experiments.length} experiments</p>
+        <h1>{chapter.data.title}</h1>
+      </div>
+    </div>
+  </div>
 
-  <h2>Experiments</h2>
+  <div class="intro">
+    <p class="lede">{opening}</p>
+    {rest.map((para) => <p>{para}</p>)}
+  </div>
+
+  <h2>Experiments {experiments[0]?.data.number}–{experiments.at(-1)?.data.number}</h2>
   <div class="cards">
     {
       experiments.map((exp) => (
@@ -44,41 +56,59 @@ const { chapter, experiments } = Astro.props;
     chapter.data.deepDive.length > 0 && (
       <section class="deep-dive">
         <h2>A closer look</h2>
-        {chapter.data.deepDive.map((entry) => (
-          <div class="entry">
-            <h3>{entry.heading}</h3>
-            {entry.body.map((para) => (
-              <p>{para}</p>
-            ))}
-          </div>
-        ))}
+        <div class="entries">
+          {chapter.data.deepDive.map((entry) => (
+            <div class="entry">
+              <h3>{entry.heading}</h3>
+              {entry.body.map((para) => (
+                <p>{para}</p>
+              ))}
+            </div>
+          ))}
+        </div>
       </section>
     )
   }
 </BaseLayout>
 
 <style>
-  .eyebrow {
-    color: var(--theme);
+  .intro {
+    max-width: 44rem;
   }
   .lede {
-    max-width: 42rem;
+    font-size: var(--step-1);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 34ch;
+    text-wrap: balance;
+  }
+  .intro p + p {
+    max-width: 44rem;
   }
   .cards {
     display: grid;
-    gap: 0.75rem;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    gap: 0.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
   }
   .deep-dive {
-    margin-top: 3rem;
-    padding: 1.5rem;
-    background: var(--theme-wash);
-    border-radius: var(--radius);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-m);
+    border-top: 2px solid var(--colour-ink-strong);
   }
   .deep-dive h2 {
     margin-top: 0;
   }
-  .entry + .entry {
-    margin-top: 1.5rem;
+  .entries {
+    display: grid;
+    gap: var(--space-l);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+    align-items: start;
+  }
+  .entry h3 {
+    margin-top: 0;
+    color: var(--theme);
+  }
+  .entry p:last-child {
+    margin-bottom: 0;
   }
 </style>

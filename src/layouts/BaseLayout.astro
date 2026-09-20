@@ -10,6 +10,19 @@ interface Props {
 }
 
 const { title, description, theme = 'blue' } = Astro.props;
+
+const links = [
+  { href: url('/'), label: 'Home' },
+  { href: url('/experiments/'), label: 'Experiments' },
+  { href: url('/parts/'), label: 'Parts' },
+  { href: url('/build-tips/'), label: 'Build tips' },
+];
+
+// Home only matches exactly; the others match their whole section.
+const here = Astro.url.pathname;
+const home = url('/');
+const isCurrent = (href: string) =>
+  href === home ? here === home : here.startsWith(href);
 ---
 
 <!doctype html>
@@ -20,20 +33,38 @@ const { title, description, theme = 'blue' } = Astro.props;
     <title>{title} — Easy Elektro Start</title>
     {description && <meta name="description" content={description} />}
     <link rel="icon" type="image/svg+xml" href={asset('/favicon.svg')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap"
+    />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to the experiment</a>
+
     <header class="site-header">
       <div class="wrap">
-        <nav aria-label="Main">
-          <a href={url('/')}>Home</a>
-          <a href={url('/experiments/')}>Experiments</a>
-          <a href={url('/parts/')}>Parts</a>
-          <a href={url('/build-tips/')}>Build tips</a>
+        <a class="wordmark" href={url('/')}>
+          Easy Elektro Start
+          <span>60 experiments, in English</span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          {
+            links.map((link) => (
+              <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+                {link.label}
+              </a>
+            ))
+          }
         </nav>
       </div>
     </header>
 
-    <main class="wrap">
+    {/* Full-bleed chapter bands render outside the reading container. */}
+    <slot name="band" />
+
+    <main id="main" class="wrap">
       <slot />
     </main>
 

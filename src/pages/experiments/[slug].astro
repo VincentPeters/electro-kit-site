@@ -24,23 +24,36 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
 ---
 
 <BaseLayout title={title} description={whatHappens[0]} theme={chapter!.data.colour}>
-  <p class="eyebrow">
-    <a href={url(`/chapters/${chapter!.id}/`)}>{chapter!.data.title}</a>
-    <span> · Experiment {number}</span>
-  </p>
-  <h1>{title}</h1>
-
-  <div class="columns">
-    <div class="steps">
-      <h2>How to build it</h2>
-      <ol>{steps.map((step) => <li>{step}</li>)}</ol>
-      {note && <p class="note">{note}</p>}
+  <div class="band" slot="band">
+    <div class="wrap">
+      <span class="hex">{number}</span>
+      <div class="band-text">
+        <p class="chip">
+          <a href={url(`/chapters/${chapter!.id}/`)}>{chapter!.data.title}</a>
+        </p>
+        <h1>{title}</h1>
+      </div>
     </div>
+  </div>
 
-    <div class="boards">
+  <div class="sheet">
+    <div class="plates">
       {boards.map((board) => (
         <Board parts={board.parts} caption={board.caption} noBattery={board.noBattery} />
       ))}
+    </div>
+
+    <div class="build">
+      <h2>Build it</h2>
+      <ol class="ladder">
+        {steps.map((step, i) => (
+          <li class="step">
+            <span class="hex">{i + 1}</span>
+            <span>{step}</span>
+          </li>
+        ))}
+      </ol>
+      {note && <p class="note">{note}</p>}
     </div>
   </div>
 
@@ -66,7 +79,7 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
     tables.length > 0 && (
       <div class="tables">
         {tables.map((table) => (
-          <section>
+          <section class="table-block">
             <h2>{table.heading}</h2>
             <table>
               <thead>
@@ -96,8 +109,10 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
     {
       previous ? (
         <a href={url(`/experiments/${experimentSlug(previous.id)}/`)}>
-          <span>Previous</span>
-          {previous.data.number}. {previous.data.title}
+          <span class="dir">← Previous</span>
+          <span class="name">
+            {previous.data.number}. {previous.data.title}
+          </span>
         </a>
       ) : (
         <span />
@@ -106,8 +121,10 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
     {
       next && (
         <a class="next" href={url(`/experiments/${experimentSlug(next.id)}/`)}>
-          <span>Next</span>
-          {next.data.number}. {next.data.title}
+          <span class="dir">Next →</span>
+          <span class="name">
+            {next.data.number}. {next.data.title}
+          </span>
         </a>
       )
     }
@@ -115,121 +132,190 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
 </BaseLayout>
 
 <style>
-  .eyebrow a {
-    color: var(--theme);
-  }
-  .columns {
+  /*
+    Build sheet. The circuit comes first in the source so a child on a phone
+    sees what they are making before the instructions for making it; on a wide
+    screen the plates move to the right and stay put while the steps scroll.
+  */
+  .sheet {
     display: grid;
-    gap: 2rem;
+    gap: var(--space-m);
     grid-template-columns: minmax(0, 1fr);
-    margin-bottom: 2rem;
-    align-items: start;
   }
-  @media (min-width: 58rem) {
-    .columns {
-      grid-template-columns: minmax(0, 23rem) minmax(0, 1fr);
+  .plates {
+    display: grid;
+    gap: var(--space);
+  }
+  .build h2 {
+    margin-top: var(--space-m);
+  }
+
+  @media (min-width: 62rem) {
+    .sheet {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: var(--space-l);
+      align-items: start;
+    }
+    .plates {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: var(--space);
+      /* Experiments with three build plans are taller than the viewport. */
+      max-height: calc(100vh - var(--space) * 2);
+      overflow-y: auto;
+    }
+    .build {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .build h2 {
+      margin-top: 0;
     }
   }
-  .steps ol {
-    padding-left: 1.2rem;
+
+  .ladder {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--colour-line);
   }
-  .steps li {
-    margin-bottom: 0.6rem;
+  .step {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space);
+    align-items: start;
+    padding-block: 0.9rem;
+    border-bottom: 1px solid var(--colour-line);
+    max-width: none;
+    line-height: 1.5;
+  }
+  /*
+    Graphite, not the chapter colour: a red marker beside a diagram where red
+    means "uses the current" would break the code the whole site depends on.
+  */
+  .step .hex {
+    background: var(--colour-ink-strong);
+  }
+
+  .note {
+    margin-top: var(--space-m);
+    padding: var(--space) var(--space-m);
+    background: var(--theme-wash);
+    border: 1px solid var(--theme-edge);
+    border-radius: var(--radius-l);
+    font-weight: 600;
     max-width: none;
   }
-  .boards {
-    display: grid;
-    gap: 1.5rem;
-  }
-  /* Without a sidebar the explanation gets the full width rather than
-     sitting in a narrow column beside empty space. */
+
   .explain-row {
     display: grid;
-    gap: 2rem;
+    gap: var(--space-m);
     grid-template-columns: minmax(0, 1fr);
-    margin-bottom: 2rem;
-    align-items: start;
+    margin-top: var(--space-xl);
+    align-items: stretch;
   }
-  @media (min-width: 58rem) {
+  @media (min-width: 62rem) {
     .explain-row.has-sidebar {
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
     }
-  }
-  .note {
-    padding: 0.9rem 1.1rem;
-    background: var(--theme-wash);
-    border-left: 6px solid var(--theme);
-    border-radius: var(--radius);
-    font-weight: 600;
-  }
-  .explain {
-    padding: 1.5rem;
-    background: var(--colour-surface);
-    border-radius: var(--radius);
   }
   .explain h2,
   .sidebar h2 {
     margin-top: 0;
     font-size: var(--step-1);
   }
+  .explain {
+    padding: var(--space-m) var(--space-l);
+    background: var(--colour-surface);
+    border-radius: var(--radius-l);
+  }
+  .explain p:last-child {
+    margin-bottom: 0;
+  }
   .sidebar {
-    padding: 1.5rem;
-    border: 2px solid var(--theme);
-    border-radius: var(--radius);
+    padding: var(--space-m) var(--space-l);
+    border: 1px solid var(--colour-line-strong);
+    border-radius: var(--radius-l);
   }
   .sidebar h2 {
-    color: var(--theme);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--colour-ink-strong);
   }
+  .sidebar p:last-child {
+    margin-bottom: 0;
+  }
+
   .tables {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
-    margin-block: 2rem;
+    gap: var(--space-l) var(--space-xl);
+    margin-top: var(--space-xl);
+  }
+  .table-block h2 {
+    margin-top: 0;
+    font-size: var(--step-1);
   }
   .tables table {
     border-collapse: collapse;
   }
   .tables th,
   .tables td {
-    padding: 0.2rem 1.25rem 0.2rem 0;
+    padding: 0.3rem 1.5rem 0.3rem 0;
     text-align: left;
   }
   .tables thead th {
-    border-bottom: 2px solid var(--colour-line);
+    border-bottom: 2px solid var(--colour-ink-strong);
     font-size: var(--step--1);
-    text-transform: uppercase;
+    font-weight: 700;
     letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--colour-muted);
   }
   .tables tbody th {
     font-weight: 700;
   }
-  .tables td {
-    font-size: 1.25em;
-    letter-spacing: 0.12em;
+  .tables tbody tr + tr th,
+  .tables tbody tr + tr td {
+    border-top: 1px solid var(--colour-line);
   }
+  .tables td {
+    font-size: 1.2em;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.1em;
+  }
+
   .pager {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-m);
+    border-top: 2px solid var(--colour-ink-strong);
   }
   .pager a {
-    font-weight: 600;
+    display: grid;
+    gap: 0.15rem;
     text-decoration: none;
-    max-width: 16rem;
-  }
-  .pager a:hover {
-    text-decoration: underline;
+    color: var(--colour-ink-strong);
   }
   .pager .next {
     text-align: right;
   }
-  .pager span {
-    display: block;
+  .pager .dir {
     font-size: var(--step--1);
-    color: var(--colour-muted);
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    color: var(--colour-muted);
+  }
+  .pager .name {
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .pager a:hover .name {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
   }
 </style>
