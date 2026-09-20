@@ -1,0 +1,139 @@
+---
+import {
+  BOARD_HEIGHT,
+  BOARD_WIDTH,
+  COLS,
+  GUTTER_X,
+  GUTTER_Y,
+  PITCH_X,
+  PITCH_Y,
+  ROWS,
+  cellCenter,
+} from '../board/geometry';
+import { describeBoard, type PlacedPart } from '../board/describe';
+import Part from './Part.astro';
+
+interface Props {
+  parts: PlacedPart[];
+  caption?: string;
+}
+
+const { parts, caption } = Astro.props;
+
+// Lower levels paint first so stacked parts sit on top, as they do in the kit.
+const ordered = [...parts].sort((a, b) => (a.level ?? 1) - (b.level ?? 1));
+
+const holes = ROWS.flatMap((row) =>
+  Array.from({ length: COLS }, (_, i) => cellCenter(`${row}${i + 1}`)),
+);
+
+const hexPoints = (cx: number, cy: number, r: number) =>
+  Array.from({ length: 6 }, (_, i) => {
+    const angle = (Math.PI / 3) * i - Math.PI / 2;
+    return `${(cx + r * Math.cos(angle)).toFixed(2)},${(cy + r * Math.sin(angle)).toFixed(2)}`;
+  }).join(' ');
+
+const batteryTopLeft = cellCenter('D1');
+const battery = {
+  x: batteryTopLeft.x - PITCH_X / 2,
+  y: batteryTopLeft.y - PITCH_Y / 2,
+  width: PITCH_X * 2,
+  height: PITCH_Y * 3,
+};
+
+const description = describeBoard(parts);
+---
+
+<figure class="board">
+  <svg
+    viewBox={`0 0 ${BOARD_WIDTH} ${BOARD_HEIGHT}`}
+    role="img"
+    aria-label={description}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x={GUTTER_X - 12}
+      y={GUTTER_Y - 12}
+      width={BOARD_WIDTH - GUTTER_X + 4}
+      height={BOARD_HEIGHT - GUTTER_Y + 4}
+      rx="16"
+      fill="#f3f5f8"
+      stroke="#d7dde6"
+      stroke-width="2"
+    />
+
+    {holes.map((hole) => (
+      <polygon
+        points={hexPoints(hole.x, hole.y, 20)}
+        fill="#ffffff"
+        stroke="#e2e7ee"
+        stroke-width="2"
+      />
+    ))}
+
+    <rect
+      x={battery.x}
+      y={battery.y}
+      width={battery.width}
+      height={battery.height}
+      rx="12"
+      fill="#e6eaf0"
+      stroke="#cfd6e0"
+      stroke-width="2"
+    />
+    <g transform={`translate(${batteryTopLeft.x} ${battery.y + battery.height / 2})`}>
+      <text x="0" y="-38" text-anchor="middle" font-size="16" font-weight="700" fill="#d92b2b">
+        &#8722;
+      </text>
+      <line x1="-16" y1="-22" x2="16" y2="-22" stroke="#d92b2b" stroke-width="5" />
+      <line x1="-8" y1="-10" x2="8" y2="-10" stroke="#d92b2b" stroke-width="5" />
+      <line x1="-16" y1="2" x2="16" y2="2" stroke="#d92b2b" stroke-width="5" />
+      <line x1="-8" y1="14" x2="8" y2="14" stroke="#d92b2b" stroke-width="5" />
+      <text x="0" y="38" text-anchor="middle" font-size="16" font-weight="700" fill="#d92b2b">
+        +
+      </text>
+      <text x="0" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#7b8797">
+        3V
+      </text>
+    </g>
+
+    {Array.from({ length: COLS }, (_, i) => (
+      <text
+        x={GUTTER_X + i * PITCH_X + PITCH_X / 2}
+        y={GUTTER_Y - 18}
+        text-anchor="middle"
+        font-size="18"
+        font-weight="700"
+        fill="#7b8797">{i + 1}</text>
+    ))}
+
+    {ROWS.map((row, i) => (
+      <text
+        x={GUTTER_X - 24}
+        y={GUTTER_Y + i * PITCH_Y + PITCH_Y / 2 + 6}
+        text-anchor="middle"
+        font-size="18"
+        font-weight="700"
+        fill="#7b8797">{row}</text>
+    ))}
+
+    {ordered.map((part) => <Part part={part} />)}
+  </svg>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .board {
+    margin: 0;
+  }
+  .board svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .board figcaption {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: var(--colour-muted, #5c6b7f);
+  }
+</style>

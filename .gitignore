@@ -6,3 +6,4 @@ dist/
 
 # Source manual: copyrighted, kept locally only
 docs/*.pdf
+.playwright-mcp/

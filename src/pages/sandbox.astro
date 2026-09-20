@@ -1,0 +1,55 @@
+---
+import Board from '../components/Board.astro';
+import { BOARD_PARTS, LOOSE_PARTS } from '../parts/registry';
+import type { PlacedPart } from '../board/describe';
+
+const demo: PlacedPart[] = [
+  { type: 'meter', from: 'B4', to: 'B6', level: 1 },
+  { type: 'link4', from: 'B6', to: 'B9', level: 2 },
+  { type: 'lamp', from: 'D4', to: 'D5', level: 2 },
+  { type: 'lamp', from: 'D6', to: 'D7', level: 2 },
+  { type: 'link3', from: 'D2', to: 'D4', level: 1 },
+  { type: 'switch', from: 'F2', to: 'F4', level: 1 },
+  { type: 'link6', from: 'F4', to: 'F9', level: 1 },
+  { type: 'link1', at: 'C3', level: 3 },
+];
+
+const columnRun = (cells: number) => ({ from: 'C2', to: `C${1 + cells}` });
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Board sandbox</title>
+  </head>
+  <body style="max-width:64rem;margin:2rem auto;font-family:system-ui;padding:0 1rem">
+    <h1>Board sandbox</h1>
+    <Board parts={demo} caption="Build plan 1" />
+
+    <h2>Vertical and diagonal runs</h2>
+    <Board
+      parts={[
+        { type: 'link3', from: 'B2', to: 'D2' },
+        { type: 'lamp', from: 'B4', to: 'C4' },
+        { type: 'link4', from: 'D6', to: 'G6' },
+      ]}
+      caption="Parts rotate to follow their span"
+    />
+
+    <h2>Every board part</h2>
+    {BOARD_PARTS.map((part) => (
+      <>
+        <h3>{part.label} (kit no. {part.kitNumber}) — spans {part.cells}</h3>
+        <Board parts={[{ type: part.type, ...columnRun(part.cells) }]} />
+      </>
+    ))}
+
+    <h2>Loose pieces</h2>
+    {LOOSE_PARTS.map((part) => (
+      <>
+        <h3>{part.label}</h3>
+        <Board parts={[{ type: part.type, at: 'C5' }]} />
+      </>
+    ))}
+  </body>
+</html>
