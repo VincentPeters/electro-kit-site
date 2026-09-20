@@ -6,7 +6,7 @@ steps:
   - "The two changeover switches now let you work the bulbs like a set of traffic lights. The top bulb is red, the middle one is amber and the bottom one is green."
   - "Set the switches one after another to run the real sequence: red, red and amber, green, amber, red."
 whatHappens:
-  - "Red: the current runs from the plus terminal straight to the red bulb. The left switch sits at C, which is a direct path to the minus terminal, so red lights. The right switch sits at B, which joins green to plus, but green other end is open because the left switch is at C. One end of amber is open too, because the right switch is at B."
+  - "Red: the current runs from the plus terminal straight to the red bulb. The left switch sits at C, which is a direct path to the minus terminal, so red lights. The right switch sits at B, which joins green to plus, but the green bulb's other end is open because the left switch is at C. One end of amber is open too, because the right switch is at B."
   - "Red and amber: red stays connected exactly as before. Putting the right switch at C also joins amber to the plus terminal, so red and amber shine together."
   - "Green: with both switches at B, green is joined straight across the battery. Both other bulbs have a broken circuit."
   - "Amber: amber is joined directly to the minus terminal, and the right switch at C gives its other end a path to plus."

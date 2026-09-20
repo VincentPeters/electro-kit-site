@@ -5,7 +5,7 @@ steps:
   - "Press the button. The relay makes a purring sound."
   - "Let the button go and the noise stops."
 whatHappens:
-  - "The relay coil is joined to the battery through the button and through the relay own rest contact. Press the button and the relay switches on."
+  - "The relay coil is joined to the battery through the button and through the relay's own rest contact. Press the button and the relay switches on."
   - "But at the very moment it switches, it breaks the circuit to its own coil."
   - "So the contacts fall back to rest. Now current can flow through the rest contact again, and the relay switches once more. That rapid switching, over and over, is the purring sound you hear."
 note: "Old electric doorbells and old car horns worked on very much this principle."

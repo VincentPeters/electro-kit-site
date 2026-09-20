@@ -8,12 +8,12 @@ deepDive:
   - heading: "Series circuits"
     body:
       - "When several things that use current sit one after another in a circuit, that is a series circuit. The same current flows through every one of them."
-      - "The voltage, though, can be different at each one. It depends on that part resistance and on the current flowing through it."
+      - "The voltage, though, can be different at each one. It depends on that part's resistance and on the current flowing through it."
       - "How much current flows through the whole chain depends on the voltage and on the total resistance of everything in it. In a series circuit the total resistance is simply all the separate resistances added together."
   - heading: "Parallel circuits"
     body:
       - "In a parallel circuit every part is connected straight across the voltage source. So each one gets the same voltage, which in these experiments is the full 3 volts from the batteries."
-      - "The current is a different story. How much flows through each part is decided by that part resistance, so different branches can carry very different currents."
+      - "The current is a different story. How much flows through each part is decided by that part's resistance, so different branches can carry very different currents."
       - "The total current is the sum of all the branch currents. And the total resistance of a parallel circuit is always smaller than the smallest single resistance in it."
   - heading: "Why one dead bulb matters"
     body:
