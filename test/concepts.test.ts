@@ -37,7 +37,13 @@ describe('concept content', () => {
   it('keeps the one-liner to a single sentence', () => {
     for (const { id, data } of loadConcepts()) {
       const { oneLiner } = conceptSchema.parse(data);
-      expect(oneLiner.match(/[.!?]/g)?.length ?? 0, `${id} has more than one sentence`).toBe(1);
+      // A sentence break is a terminal mark at the end of the string, or one
+      // followed by a space. Counting breaks rather than punctuation lets a
+      // decimal such as "4.5 volts" through while still catching a genuine
+      // second sentence.
+      const breaks = oneLiner.match(/[.!?](\s|$)/g) ?? [];
+      expect(breaks.length, `${id} should be a single sentence`).toBe(1);
+      expect(oneLiner.trimEnd(), `${id} should end with a full stop`).toMatch(/[.!?]$/);
     }
   });
 });
