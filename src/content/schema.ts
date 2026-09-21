@@ -57,6 +57,12 @@ export const experimentSchema = z.object({
   chapter: z.string().min(1),
   steps: z.array(z.string().min(1)).min(1),
   whatHappens: z.array(z.string().min(1)).min(1),
+  /** Concept ids this experiment is the first to teach. Usually none or one. */
+  introduces: z.array(z.string().min(1)).default([]),
+  /** Concept ids this experiment leans on, all introduced by a lower-numbered experiment. */
+  practises: z.array(z.string().min(1)).default([]),
+  /** The plain-language retelling of `whatHappens`. Optional while the 60 are written. */
+  eli5: z.array(z.string().min(1)).min(1).optional(),
   note: z.string().min(1).optional(),
   sidebar: sidebarSchema.optional(),
   tables: z.array(tableSchema).default([]),
