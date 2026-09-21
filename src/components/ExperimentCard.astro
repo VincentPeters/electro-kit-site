@@ -11,7 +11,7 @@ interface Props {
 const { id, number, title } = Astro.props;
 ---
 
-<a class="tile" href={url(`/experiments/${experimentSlug(id)}/`)}>
+<a class="tile" data-experiment={number} href={url(`/experiments/${experimentSlug(id)}/`)}>
   <span class="hex">{number}</span>
   <span class="title">{title}</span>
 </a>
@@ -49,5 +49,10 @@ const { id, number, title } = Astro.props;
     .tile:hover .hex {
       transform: none;
     }
+  }
+  .tile[data-built='true'] .title::after {
+    content: ' ✓';
+    color: var(--theme);
+    font-weight: 800;
   }
 </style>

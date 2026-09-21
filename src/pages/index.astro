@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ChapterCard from '../components/ChapterCard.astro';
 import Board from '../components/Board.astro';
 import { url } from '../lib/url';
+import { experimentSlug, sortByNumber } from '../lib/experiments';
 import type { PlacedPart } from '../board/describe';
 
 const chapters = (await getCollection('chapters')).sort(
@@ -12,6 +13,10 @@ const chapters = (await getCollection('chapters')).sort(
 const experiments = await getCollection('experiments');
 const countFor = (slug: string) =>
   experiments.filter((e) => e.data.chapter.id === slug).length;
+
+const carryTargets = sortByNumber(experiments).map((e) =>
+  url(`/experiments/${experimentSlug(e.id)}/`),
+);
 
 // The very first circuit in the book, as a taste of what a build plan looks like.
 const firstCircuit: PlacedPart[] = [
@@ -61,6 +66,10 @@ const howItWorks = [
       </div>
     </div>
   </section>
+
+  <p class="carry" data-carry-on={JSON.stringify(carryTargets)} hidden>
+    <a href={url('/experiments/')}>Carry on</a>
+  </p>
 
   <section class="how">
     <h2>Every experiment, three parts</h2>
@@ -216,6 +225,19 @@ const howItWorks = [
   .hero-plate :global(.board) {
     border-color: oklch(1 0 0 / 0.14);
     box-shadow: 0 18px 40px -20px oklch(0 0 0 / 0.8);
+  }
+
+  .carry {
+    margin-bottom: var(--space-l);
+    padding: var(--space) var(--space-m);
+    background: var(--theme-wash);
+    border: 1px solid var(--theme-edge);
+    border-radius: var(--radius-l);
+    font-weight: 700;
+    max-width: none;
+  }
+  .carry a {
+    color: var(--colour-ink-strong);
   }
 
   /* ---- How it works ---- */

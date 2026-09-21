@@ -135,6 +135,8 @@ const practisesRefs = experiment.data.practises.map(toRef).filter((c) => c !== n
     )
   }
 
+  <p data-built-slot={number} class="built"></p>
+
   <nav class="pager" aria-label="Experiments">
     {
       previous ? (
@@ -329,6 +331,43 @@ const practisesRefs = experiment.data.practises.map(toRef).filter((c) => c !== n
     font-size: 1.2em;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.1em;
+  }
+
+  .built {
+    margin-top: var(--space-l);
+  }
+  /*
+    Unscoped: the button itself is created by the client script, so it never
+    carries the astro-cid attribute Astro's normal style scoping relies on.
+  */
+  :global(.built-toggle) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.1rem;
+    background: var(--colour-ink-strong);
+    color: var(--colour-page);
+    border: none;
+    border-radius: var(--radius);
+    font: inherit;
+    font-size: var(--step--1);
+    font-weight: 700;
+    font-variation-settings: 'wdth' 106;
+    cursor: pointer;
+    transition:
+      background var(--fast) var(--ease),
+      transform var(--fast) var(--ease);
+  }
+  :global(.built-toggle:hover) {
+    background: var(--colour-ink);
+    transform: translateY(-2px);
+  }
+  :global(.built-toggle:active) {
+    transform: none;
+  }
+  :global(.built-toggle[aria-pressed='true']) {
+    background: var(--theme);
+    color: var(--colour-ink-strong);
   }
 
   .pager {
