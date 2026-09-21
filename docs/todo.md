@@ -124,6 +124,16 @@ changes, the drawing will silently disagree with the parts page.
 gap, and only experiment 8 (the paper-clip conductivity test) uses it.
 `noBattery` is better earned, with four uses. Not a problem, just thin.
 
+### 3.5 The `resistance` concept's placement is a judgement call
+
+`src/content/concepts/resistance.yaml` is introduced at experiment 11
+(`introduces: ["resistance"]` in `11-swapping-partners-bulb-and-coil.yaml`).
+Chapter 1's deep dive already discusses resistance, but no experiment before
+11 really introduces it as an idea the reader does something with. This is
+the least confident placement in the concept spine; `test/progression.test.ts`
+checks that the spine is internally coherent, not that any one placement is
+the best teaching moment.
+
 ---
 
 ## 4. Not done, on purpose
@@ -132,6 +142,12 @@ These were scoped out. Listed so nobody wonders whether they were forgotten.
 
 - **No search.** Sixty entries and a flat index were judged enough.
 - **No interactive circuit simulation.** Considered during design and cut.
+- **No accounts, so "I built this" progress is per-device and per-browser.**
+  `src/scripts/progress.ts` keeps the tick list in `localStorage` only. A
+  phone and a tablet will not agree with each other, and clearing browser
+  data loses it. There is no backend to sync against. This is the correct
+  trade for a static site with no sign-in, but it is worth stating rather
+  than leaving a reader to discover it by losing their progress.
 - **Diagrams are topologically faithful, not pixel-faithful.** Right parts, right
   series/parallel structure, right switch positions and levels — laid out for
   clarity rather than copying the manual's exact hole coordinates. This is a
@@ -154,6 +170,12 @@ These were scoped out. Listed so nobody wonders whether they were forgotten.
 - **The Astro 7 upgrade was eyeballed on two pages.** Tests, typecheck and build
   all pass and the output is byte-comparable in structure, but only two pages
   were viewed after the upgrade.
+- **The experiment tile's tick is CSS generated content.** `ExperimentCard.astro`
+  paints it with `.tile[data-built='true'] .title::after { content: ' ✓' }`,
+  which most screen readers do not announce, so a built tile is inconsistently
+  exposed on the index. The experiment page's own "I built this" button is
+  the reliable version: it carries `aria-pressed` and its label changes
+  between "I built this" and "Built it".
 
 ---
 

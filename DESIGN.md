@@ -101,6 +101,19 @@ Display ceiling is 4.4rem.
 - **Experiment tile** — hex number marker plus title, flat bordered, colour
   only on the marker.
 - **Pager** — full-width split bar with previous / next titles.
+- **Thread line** — one compact row under the chapter band, "New idea" and
+  "Builds on" pills linking to `/ideas/`. It must never compete with the
+  diagram below it, so it is uppercase-tagged inline text, not a card, and a
+  "new idea" pill borrows the chapter theme colour only because it already
+  sits inside a fully drenched band.
+- **ELI5 expanders** — `<details>` under "What happens?" on an experiment and
+  under a part's description on the parts page. Closed by default: the
+  factual copy above is the primary reading path, and the plainer retelling
+  is a fallback a child reaches for only when that copy does not land.
+- **Ideas section** — an index of the thirteen concepts plus one page per
+  concept, reachable only by following a thread pill or the nav. It is the
+  one place the site explains a big idea at full length, away from the
+  pressure of a build sheet.
 
 ## Motion
 
