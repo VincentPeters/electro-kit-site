@@ -182,8 +182,8 @@ These were scoped out. Listed so nobody wonders whether they were forgotten.
 ## Running the checks
 
 ```bash
-npm test          # 68 tests: 6 board invariants + unit tests
-npm run build     # must emit 69 pages, 60 under dist/experiments
+npm test          # 105 tests: 6 board invariants + unit tests
+npm run build     # must emit 83 pages, 60 under dist/experiments
 npx tsc --noEmit  # use ./node_modules/.bin/tsc if npx grabs the wrong one
 npm audit         # currently zero vulnerabilities
 ```

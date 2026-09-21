@@ -58,7 +58,7 @@ its own place in the story:
 
 ```yaml
 introduces: ["resistance"]
-practises: ["current"]
+practises: ["series", "voltage"]
 ```
 
 `introduces` names a concept the experiment is the first to teach;
