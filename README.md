@@ -65,12 +65,12 @@ practises: ["current"]
 `practises` names one it leans on that an earlier experiment already
 introduced. The "New idea" and "Builds on" thread a reader sees under the
 chapter band (`src/components/ThreadLine.astro`) is derived entirely from
-these tags — nobody writes "you already know about resistance from
-experiment 11" by hand. `test/progression.test.ts` enforces that the result
-stays coherent: every concept is introduced exactly once, nothing is
-practised before it is introduced, and concept order matches teaching order.
-A future edit that breaks the story fails the test, not just the reading
-experience.
+these tags, never written by hand: nobody writes "you already know about
+resistance from experiment 11" themselves. `test/progression.test.ts`
+enforces that the result stays coherent: every concept is introduced exactly
+once, nothing is practised before it is introduced, and concept order
+matches teaching order. A future edit that breaks the story fails the test,
+not just the reading experience.
 
 ## The source manual
 
