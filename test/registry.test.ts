@@ -77,7 +77,7 @@ describe('PARTS', () => {
   it('explains every part in plain language', () => {
     for (const [type, def] of Object.entries(PARTS)) {
       expect(def.eli5, `${type} has no eli5`).toBeTruthy();
-      expect(def.eli5.length, `${type}'s eli5 is too short to say anything`).toBeGreaterThan(20);
+      expect(def.eli5.length, `${type}'s eli5 is too short to say anything`).toBeGreaterThan(80);
     }
   });
 
