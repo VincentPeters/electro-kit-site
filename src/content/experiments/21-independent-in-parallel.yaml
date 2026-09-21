@@ -10,6 +10,9 @@ whatHappens:
   - "When one part of a parallel circuit fails, current can still flow through the other one, so it carries on working."
   - "Unlike the series circuit, the second bulb keeps shining when you unscrew the first."
   - "That is why your bike headlamp still works when the rear light has burnt out."
+eli5:
+  - "These bulbs are not sharing one loop. Each has its own complete lane from the battery and back, side by side. That is a parallel circuit."
+  - "Unscrew one bulb and its lane breaks, but the other lane is still a whole loop, so it carries on shining, unlike experiment 9."
 boards:
   - caption: "Two bulbs side by side"
     parts:

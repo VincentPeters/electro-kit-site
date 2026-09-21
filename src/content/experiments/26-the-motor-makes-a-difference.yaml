@@ -11,6 +11,9 @@ whatHappens:
   - "Here again the total current is the sum of the currents through the bulb and through the motor."
   - "You can work out the motor current by taking the bulb current away from the total."
   - "The answer should come to about 0.21 amperes."
+eli5:
+  - "The same rule holds again, only now one lane carries the motor instead of the coil."
+  - "Take the bulb's own current away from the total and what is left is the motor's, about 0.21 amperes."
 boards:
   - caption: "The meter measures the total current"
     parts:

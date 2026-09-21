@@ -11,6 +11,9 @@ whatHappens:
   - "Here the bulbs are connected one after another with the battery. A circuit like that is called a series circuit, and the same current flows through every bulb in it."
   - "The voltage, though, can be split up differently between them."
   - "Unscrew one bulb and the other goes out too. In a series circuit there is only one path, so breaking it anywhere stops everything. Like soldiers, the bulbs do everything together on your command."
+eli5:
+  - "These two bulbs sit on one single loop, so there is only one lane for the current to run in. The same current goes past both of them, one after the other, like runners passing the first hurdle before they reach the second."
+  - "The battery's shove has to be shared between the two bulbs now, so neither one gets the whole of it. Unscrew either bulb and you open the only lane there is, so both go dark together."
 boards:
   - caption: "Build plan"
     parts:

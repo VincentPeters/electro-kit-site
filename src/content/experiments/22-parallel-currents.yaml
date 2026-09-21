@@ -12,6 +12,9 @@ whatHappens:
   - "In this experiment you measure the current flowing through each bulb in turn. The two values are almost the same."
   - "That is because the two bulbs are electrically identical, so each branch takes an equal share."
   - "Keep your notes. You will want to compare these numbers with the ones from the next few experiments."
+eli5:
+  - "Here you count the runners going past each bulb's own lane. Because the two bulbs are identical, each lane gets about the same count."
+  - "In the series bulbs it was the voltage that split evenly. Here it is the current instead, since each bulb gets the whole voltage."
 boards:
   - caption: "Build plan 1: the current through the first bulb"
     parts:

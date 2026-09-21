@@ -11,6 +11,9 @@ whatHappens:
   - "The motor and the coil are wired one after another, and the on/off switch sits across the coil."
   - "With the switch at OFF and the button pressed, the current has to flow through the coil as well as the motor. That leaves the motor with less voltage, so it turns slowly."
   - "With the switch at ON the coil is short-circuited. Press the button and the current goes straight through the switch contacts to the motor, which now has the full battery voltage and can spin fast."
+eli5:
+  - "With the switch at OFF, the current still has to fight through the coil as well as the motor, the same one-lane sharing as the bulb and coil in experiment 11. That leaves the motor with less shove, so it turns slowly."
+  - "Flick the switch to ON and it shortcuts the coil, a short circuit like the one in experiment 18. With the coil out of the way, the motor gets the full voltage and spins fast."
 boards:
   - caption: "The switch decides whether the coil is in the way"
     parts:

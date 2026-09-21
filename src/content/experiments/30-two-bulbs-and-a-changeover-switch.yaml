@@ -11,6 +11,9 @@ whatHappens:
   - "One connection of each bulb goes to the plus terminal of the battery. The other connection of each bulb goes to one of the switching contacts of the changeover switch, B and C. The middle contact, A, goes to the minus terminal."
   - "So one of the two switching contacts is always joined to the middle contact, and whichever bulb is on that side lights up."
   - "Work the switch and the middle contact joins the other bulb instead. At the very same moment the first bulb circuit is broken."
+eli5:
+  - "A changeover switch is really two switches built as one, with a single middle contact that can only touch one side or the other, never both. Wherever it touches decides which bulb gets its path to the battery."
+  - "Flick it over and the middle contact lets go of the first bulb's path at the very same moment it grabs the second one's, so one bulb always goes dark exactly as the other comes on."
 sidebar:
   heading: "Switches and changeover switches"
   body:

@@ -11,6 +11,9 @@ whatHappens:
   - "This circuit works exactly like the one in experiment 30. The only difference is that the buzzer has taken the place of the second bulb."
   - "The changeover switch closes the circuit either for the bulb or for the buzzer."
   - "It can never close both at once, because the middle contact can only ever be joined to one side."
+eli5:
+  - "This is the very same middle-contact trick as the last experiment, except one of the two paths now leads to the buzzer instead of a second bulb."
+  - "The switch still only ever touches one side, so you always get the bulb or the buzzer, never both together and never neither."
 boards:
   - caption: "The changeover switch picks the bulb or the buzzer"
     parts:

@@ -10,6 +10,9 @@ whatHappens:
   - "In this circuit all three bulbs are connected in parallel across the battery."
   - "They shine much brighter here than they did in the series circuit back in experiment 16."
   - "That is because in a parallel circuit every single bulb has the full voltage available to it."
+eli5:
+  - "Three lanes now, one for each bulb, all running straight from the battery and back. Nobody has to share their shove."
+  - "Each bulb gets the whole 3 volts to itself, which is why all three shine so much brighter than the series bulbs in experiment 16."
 boards:
   - caption: "Three bulbs in parallel"
     parts:

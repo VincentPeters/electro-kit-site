@@ -10,6 +10,9 @@ whatHappens:
   - "Here you are measuring the voltage right at the batteries, and it comes to about 3 volts."
   - "That is exactly the sum of the two voltages you measured across the bulbs in the last two experiments: 1.5 plus 1.5."
   - "So two electrically identical bulbs share the 3 volts of the battery equally between them."
+eli5:
+  - "This time the meter reads right at the battery, and the needle swings the whole way to 3 volts."
+  - "Add the last two readings together, 1.5 and 1.5, and you get that number. The shove was only ever split into two equal shares, now added back together."
 boards:
   - caption: "The meter reads the voltage across the battery"
     parts:

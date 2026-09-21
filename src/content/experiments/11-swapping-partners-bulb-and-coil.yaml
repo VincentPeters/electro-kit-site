@@ -10,6 +10,9 @@ whatHappens:
   - "With the bulb and the coil in series, the bulb only glows weakly."
   - "That is down to the coil, which puts up a large resistance to the current."
   - "So there is less voltage left over for the bulb, and less voltage means a dimmer light."
+eli5:
+  - "The coil is hard work for the current, like the muddy stretch on the running track. That is resistance."
+  - "Taking the biggest share of the fight, the coil leaves only a little shove for the bulb, so it glows faintly."
 boards:
   - caption: "Build plan"
     parts:

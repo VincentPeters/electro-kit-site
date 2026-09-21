@@ -10,6 +10,9 @@ whatHappens:
   - "In experiment 6 you measured the battery voltage and got about 3 volts. Here you are measuring the voltage available to just one bulb in the series circuit."
   - "It is about half the battery voltage."
   - "That is why the bulb cannot shine as brightly as it would if it had the whole voltage to itself."
+eli5:
+  - "The meter now reads the shove just this one bulb gets, not the battery's whole shove. Sharing the loop with an identical bulb, it only gets about half."
+  - "Half a shove cannot light a bulb as brightly as the whole of it would."
 boards:
   - caption: "The meter reads the voltage across the second bulb"
     parts:

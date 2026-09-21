@@ -11,6 +11,9 @@ whatHappens:
   - "The middle contact of one changeover switch goes to the bulb, and the middle contact of the other goes to the battery. The bulb second connection goes straight back to the battery, and the switching contacts of the two switches are wired to each other."
   - "Because the middle contact of each switch is always joined to one of its two switching contacts, there is always a position in which the circuit is closed. When it is, the bulb lights."
   - "Work either switch and the connection breaks. Work the other one afterwards and the circuit is closed again."
+eli5:
+  - "Now there are two middle contacts instead of one, joined together by their outer contacts. The bulb only lights when the two switches happen to be pointing along a path that connects all the way through."
+  - "Flick either switch and you break whatever path currently exists. Flick it again, or flick the other one, and a new complete path appears. That is why you can turn the same bulb on or off from either switch."
 sidebar:
   heading: "Two-way switching"
   body:

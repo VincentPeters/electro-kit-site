@@ -11,6 +11,9 @@ whatHappens:
   - "An AND gate is really just a series circuit."
   - "Current can only flow once both buttons in the chain are closed. One open button anywhere breaks the whole path."
   - "AND gates are used on machines where the worker has to press a button with each hand. That makes sure the machine cannot start by accident, and that both hands are safely out of the dangerous part."
+eli5:
+  - "Two buttons on one loop is a series circuit, the same one lane as the bulbs in experiment 9."
+  - "Both buttons have to be closed at once for current to get round. Leave either one open and the loop breaks, the same as unscrewing a bulb."
 boards:
   - caption: "Two buttons in a row: an AND gate"
     parts:

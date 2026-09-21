@@ -12,6 +12,9 @@ whatHappens:
   - "Red and amber: red stays connected exactly as before. Putting the right switch at C also joins amber to the plus terminal, so red and amber shine together."
   - "Green: with both switches at B, green is joined straight across the battery. Both other bulbs have a broken circuit."
   - "Amber: amber is joined directly to the minus terminal, and the right switch at C gives its other end a path to plus."
+eli5:
+  - "Two changeover switches between them can point at four different combinations, and each combination opens a path to a different bulb, or to two of them together for red and amber."
+  - "It is the same middle-contact idea as the last few experiments, just doing more work: instead of choosing between two bulbs, these two switches together are choosing between three lights, in the order a real traffic light uses."
 tables:
   - heading: "Working the lights"
     columns:

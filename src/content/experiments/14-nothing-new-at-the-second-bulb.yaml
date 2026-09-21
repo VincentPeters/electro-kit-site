@@ -10,6 +10,9 @@ whatHappens:
   - "Just as in the previous experiment, you are measuring the voltage across one bulb in a series circuit. This time it is the other bulb."
   - "The reading is almost exactly the same as in experiment 13, because the two bulbs in your kit are electrically identical."
   - "So the two bulbs share the voltage out fairly between them."
+eli5:
+  - "This time the meter reads the shove at the other bulb, and it lands on almost the same spot as before."
+  - "Two identical bulbs get an almost identical share. The loop is not fussy about which one sits where."
 boards:
   - caption: "The meter reads the voltage across the first bulb"
     parts:

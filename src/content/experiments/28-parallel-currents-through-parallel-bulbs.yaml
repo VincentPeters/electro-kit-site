@@ -12,6 +12,9 @@ whatHappens:
   - "After the experiments you have already done, you probably know what is coming: in a parallel circuit the total current is as big as all the branch currents added together."
   - "You can check it. Add up the three currents you measured for the separate bulbs."
   - "The answer has to match the total current you measured first."
+eli5:
+  - "You have met this rule twice already. Here there are three lanes, and the meter first counts everything leaving the battery for all three together."
+  - "Measure each bulb's own lane and add the three numbers up. They should match the total, the same rule with one more lane."
 boards:
   - caption: "Build plan 1: the total current"
     parts:

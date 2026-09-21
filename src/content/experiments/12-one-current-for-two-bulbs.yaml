@@ -11,6 +11,9 @@ whatHappens:
   - "Compare this current with the one you measured in experiment 7, where it flowed through a single bulb. It is lower now."
   - "That is because two bulbs put up more resistance to the current than one does."
   - "In a series circuit the separate resistances add up into one bigger resistance, and a bigger resistance means a smaller current."
+eli5:
+  - "Two bulbs one after another are two muddy stretches instead of one, so the current has more difficulty to fight through than it did with a single bulb back in experiment 7."
+  - "More difficulty on the one lane means fewer runners get past each second, which is why the needle swings less far here than it did there."
 boards:
   - caption: "Build plan"
     parts:

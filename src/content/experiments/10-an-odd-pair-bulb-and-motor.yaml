@@ -11,6 +11,9 @@ whatHappens:
   - "In this series circuit the current flows out of the battery, through the bulb, and on through the motor."
   - "Because the motor and the bulb have to share the voltage between them, the bulb does not glow as brightly as it would if it were connected straight to the battery."
   - "And if you unscrew the bulb, the motor stops. One path, one break, everything stops."
+eli5:
+  - "The bulb and the motor sit on the same single loop, so they have to share the battery's one shove between them, the same as the two bulbs did last time. That is why this bulb does not glow at full brightness."
+  - "Unscrew the bulb and you open the only lane the current has, so the motor stops dead as well. One loop, one gap, everything halts together."
 boards:
   - caption: "Build plan"
     parts:

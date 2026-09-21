@@ -11,6 +11,9 @@ whatHappens:
   - "In this series circuit three bulbs have to share the 3 volts between them."
   - "How much voltage do you think each one gets? Remember that all three bulbs are electrically almost identical."
   - "You can find out whether you guessed right in the next experiment."
+eli5:
+  - "Three bulbs share the loop now instead of two, so the one shove has to stretch three ways. Guess how much each bulb will get."
+  - "Whatever the shares turn out to be, they will always add back up to the full 3 volts."
 boards:
   - caption: "Build plan"
     parts:

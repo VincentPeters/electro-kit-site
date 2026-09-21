@@ -12,6 +12,9 @@ whatHappens:
   - "This is the same circuit as the last one, except that you measure the coil current first and the bulb current after rebuilding."
   - "Compare the two: a slightly larger current flows through the coil than through the bulb."
   - "That is because the coil has a different, slightly smaller resistance than the bulb."
+eli5:
+  - "The two lanes are not identical here: one has the coil, one has the bulb. The coil is very slightly easier going, so a bit more current takes that lane."
+  - "Each lane still gets the whole 3 volts. Only the current comes out different this time."
 boards:
   - caption: "Build plan 1: the current through the coil"
     parts:

@@ -11,6 +11,9 @@ whatHappens:
   - "Once again you are measuring the total current, and once again it is as large as the two branch currents added together, this time through the bulb and through the coil."
   - "Check it against your notes from experiment 23. Add the bulb current to the coil current."
   - "The answer should match the reading you get here."
+eli5:
+  - "Just as before, the meter counts the total heading out from the battery, now to the bulb and coil pair from experiment 23."
+  - "Add the bulb's current and the coil's from that experiment and you should land on this reading. Two lanes always add back up at the battery."
 boards:
   - caption: "The meter measures the total current"
     parts:

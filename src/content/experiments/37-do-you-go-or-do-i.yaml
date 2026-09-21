@@ -11,6 +11,9 @@ whatHappens:
   - "An OR gate is really just a parallel circuit."
   - "Current can flow whenever one button or the other is closed, because each button has its own complete path."
   - "OR gates are used where a machine has to be startable from one control desk or from another."
+eli5:
+  - "Two buttons side by side, each with its own complete lane back to the battery, are a parallel circuit, like the bulbs in experiment 21."
+  - "Either lane alone is a whole loop, so pressing either button lights the bulb. It never needs both."
 boards:
   - caption: "Two buttons side by side: an OR gate"
     parts:

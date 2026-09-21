@@ -13,6 +13,9 @@ whatHappens:
   - "The meter shows the voltage available to the two bulbs that are wired in parallel."
   - "Press the button underneath the single bulb and you effectively replace that bulb with a plain connector strip. It has almost no resistance, so the parallel bulbs receive the full battery voltage."
   - "Press the button that sits across the parallel pair and you replace both of those bulbs with a connector strip instead. That connection has hardly any resistance, so no voltage can build up across it and the meter reads nothing."
+eli5:
+  - "One button gives the current a shortcut round the single bulb only. With that bulb gone from the loop, the two side-by-side bulbs are left facing the battery together and share the whole 3 volts between them."
+  - "The other button shortcuts the side-by-side pair instead. A shortcut like that needs almost no shove to push current through it, which is why the meter reads next to nothing when you press it."
 note: "Never press both buttons at once. That would join one battery terminal straight to the other through the two buttons, which is a short circuit."
 boards:
   - caption: "One bulb in series with two in parallel, and a button across each"

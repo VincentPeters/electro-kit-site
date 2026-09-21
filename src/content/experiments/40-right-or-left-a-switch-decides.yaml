@@ -11,6 +11,9 @@ whatHappens:
   - "The motor is wired between the middle contacts of the two changeover switches. The switching contacts of the two switches are joined to each other, and each pair also goes to one terminal of the battery."
   - "Depending on where the switches are, the motor is joined through the left switch to plus and through the right switch to minus. Flip both switches and the polarity reverses: now it is minus on the left and plus on the right."
   - "Because the polarity decides which way a motor turns, this circuit lets you change its direction. With the switches in different positions both motor connections end up on the same battery terminal, so it cannot turn at all."
+eli5:
+  - "Same idea as the last few switching experiments: two changeover switches decide which battery terminal each end of the motor is joined to."
+  - "Put the switches one way and the motor spins one direction. Flip both and you swap which end gets plus and which gets minus, so it spins the other way. Put the switches on different sides and both motor wires land on the same terminal, so there is no shove across the motor at all and it cannot turn."
 note: "You could use a circuit like this to drive a model boat or car forwards and backwards."
 boards:
   - caption: "The motor between two changeover switches"

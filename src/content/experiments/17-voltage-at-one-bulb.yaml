@@ -11,6 +11,9 @@ whatHappens:
   - "First you measure the voltage available to one bulb. It is about 1 volt."
   - "Because the three bulbs are electrically almost identical, the 3 volts from the battery splits equally between them."
   - "Across two bulbs you should read about 2 volts, and across all three about 3 volts, which is the full battery voltage."
+eli5:
+  - "With three identical bulbs sharing one loop, each one gets about a third of the shove, roughly 1 volt."
+  - "Across two bulbs you get about 2 volts, across all three about 3 volts. Cut the loop wherever you like, the shares still add up to the same total."
 boards:
   - caption: "Build plan 1: across one bulb"
     parts:

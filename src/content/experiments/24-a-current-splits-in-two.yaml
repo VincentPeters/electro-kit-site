@@ -11,6 +11,9 @@ whatHappens:
   - "Here you are measuring the total current, meaning everything the batteries have to supply so that both bulbs can light."
   - "It is exactly as large as the two branch currents added together."
   - "You can check that for yourself by adding up the two readings you noted in experiment 22."
+eli5:
+  - "The meter now sits where both lanes meet, right by the battery, counting every runner heading to either bulb."
+  - "That total equals the two branch counts from experiment 22 added together. Nothing is lost where the lanes join."
 boards:
   - caption: "The meter measures the total current"
     parts:

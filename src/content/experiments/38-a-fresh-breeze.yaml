@@ -11,6 +11,9 @@ whatHappens:
   - "Inside the motor there are magnets arranged around the metal case. Inside those sits a coil that is free to spin."
   - "When current flows through the coil it starts to turn."
   - "Which way it turns depends on which motor connection you put plus on, and which one you put minus on."
+eli5:
+  - "Send current through the coil inside the motor and it becomes a magnet for as long as the current flows. The fixed magnets around it push and pull it until it spins."
+  - "Which way it spins depends on which way round you connect the two wires."
 note: "Never aim the spinning propeller at faces, people or animals."
 boards:
   - caption: "Motor, propeller and a push button"

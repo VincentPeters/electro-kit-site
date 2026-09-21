@@ -11,6 +11,9 @@ whatHappens:
   - "Give the bulbs a system and they can show numbers, in what is called the binary system."
   - "To do that you agree that the bulb on the far right stands for the figure 1 when it is lit. The middle bulb stands for 2, and the one on the far left stands for 4."
   - "The table shows how the bulbs have to shine to make each number. With three bulbs you can count from 0 all the way to 7."
+eli5:
+  - "These three bulbs are wired side by side, so each switches on or off on its own, like the parallel bulbs in experiment 27."
+  - "Give each bulb a number, 1 or 2 or 4, and add up the ones that are lit. That is binary counting: which lights are on stands for a number."
 tables:
   - heading: "Counting with three bulbs"
     columns:

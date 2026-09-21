@@ -12,6 +12,9 @@ whatHappens:
   - "With all three bulbs lit, the voltage splits into three equal shares of about 1 volt each."
   - "Bridge one bulb with a button and the voltage divides between the two that are left, giving each of them about 1.5 volts."
   - "Press both buttons and the single remaining bulb gets the whole battery voltage of about 3 volts."
+eli5:
+  - "Short-circuit one bulb and the shove does not vanish, it is just shared between fewer bulbs: two left means about 1.5 volts each instead of 1."
+  - "Short-circuit both buttons and the one bulb left takes the whole 3 volts by itself, just as it did last time."
 boards:
   - caption: "Two buttons, each bridging a bulb"
     parts:

@@ -11,6 +11,9 @@ whatHappens:
   - "This circuit works just like the ones in experiments 30 and 31."
   - "The difference is the push button. It opens and closes the circuit no matter where the changeover switch happens to be."
   - "So the changeover switch chooses which one speaks, and the button decides when."
+eli5:
+  - "The changeover switch still just picks which path is open, the bulb's or the buzzer's. What is new is the push button sitting in that path too."
+  - "The button decides the timing, the switch decides the destination."
 note: "The Morse alphabet is in experiment 3, if you need to look up a letter."
 boards:
   - caption: "A changeover switch to choose, and a button to send"

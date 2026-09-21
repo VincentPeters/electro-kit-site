@@ -12,6 +12,9 @@ whatHappens:
   - "While both bulbs are lit, the battery voltage is shared equally between them."
   - "The button lets you build a bridge over one bulb, short-circuiting it. Current takes the easy path through the button instead of through the bulb, so that bulb goes dark."
   - "Now the remaining bulb has the full 3 volts to itself, which is exactly why it glows so much brighter."
+eli5:
+  - "The button gives the current an easy shortcut round this bulb, with almost none of the mud the bulb has. Nearly all the current takes it, leaving too little to light the bulb. That is a short circuit."
+  - "With that bulb taken out of the loop, the other bulb gets the full 3 volts to itself, which is why it shines so much brighter."
 boards:
   - caption: "The button bridges the second bulb"
     parts:

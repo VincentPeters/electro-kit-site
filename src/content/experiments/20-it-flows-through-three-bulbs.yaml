@@ -13,6 +13,9 @@ whatHappens:
   - "While the bulbs are lit the same current flows through all of them. Bridge one or both with a button and the current only rises a little, because its size depends on the resistance of the bulbs."
   - "That resistance depends on how many bulbs there are. In a series circuit the separate resistances add up into one total resistance, and that total decides the current."
   - "Pressing a button takes a bulb out of the chain, which lowers the total resistance, so a larger current flows."
+eli5:
+  - "Three bulbs on one loop is three muddy stretches, so the current struggles more here than it would with fewer bulbs, and the reading is correspondingly lower."
+  - "Short-circuit a bulb and you take one muddy stretch out of the loop altogether. Less total difficulty means more current gets round, which is why the reading rises each time you press a button."
 boards:
   - caption: "The meter measures the current through the chain"
     parts:
