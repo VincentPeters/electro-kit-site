@@ -19,8 +19,7 @@ const { introducedBy, practisedBy } = whereYouMeetIt(concept.id, experiments);
 ---
 
 <BaseLayout title={concept.data.name} description={concept.data.oneLiner}>
-  <p class="chip">Idea {concept.data.order} of 13</p>
-  <h1>{concept.data.name}</h1>
+  <h1><span class="hex">{concept.data.order}</span>{concept.data.name}</h1>
   <p class="lede">{concept.data.oneLiner}</p>
 
   <div class="explain">
@@ -54,6 +53,11 @@ const { introducedBy, practisedBy } = whereYouMeetIt(concept.id, experiments);
 </BaseLayout>
 
 <style>
+  h1 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+  }
   .lede {
     font-size: var(--step-1);
     font-weight: 500;
