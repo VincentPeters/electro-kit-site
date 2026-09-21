@@ -1,6 +1,8 @@
 number: 34
 title: "Directing Traffic by Hand"
 chapter: "switching"
+introduces: []
+practises: ["switching", "circuit", "parallel"]
 steps:
   - "Close the circuit at the minus terminal of the battery compartment. One of the bulbs lights."
   - "The two changeover switches now let you work the bulbs like a set of traffic lights. The top bulb is red, the middle one is amber and the bottom one is green."

@@ -1,6 +1,8 @@
 number: 47
 title: "Which Is Stronger: Electromagnet or Magnet?"
 chapter: "magnetism"
+introduces: []
+practises: ["electromagnet", "magnetism"]
 steps:
   - "Move the bar magnet slowly towards the compass. The needle changes where it points."
   - "Take the bar magnet away again and press the button. The needle changes again."

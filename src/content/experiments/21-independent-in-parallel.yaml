@@ -1,6 +1,8 @@
 number: 21
 title: "Independent in Parallel"
 chapter: "series-parallel-mixed"
+introduces: ["parallel"]
+practises: ["circuit", "series"]
 steps:
   - "Switch on and both bulbs light up."
   - "Now try unscrewing one bulb from its holder while the circuit is still switched on."

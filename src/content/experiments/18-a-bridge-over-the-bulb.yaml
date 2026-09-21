@@ -1,6 +1,8 @@
 number: 18
 title: "A Bridge over the Bulb"
 chapter: "series-parallel-mixed"
+introduces: ["short-circuit"]
+practises: ["series", "voltage"]
 steps:
   - "Set the meter to 3V."
   - "Switch on. Both bulbs light and the needle swings to about 1.5 volts."

@@ -1,6 +1,8 @@
 number: 25
 title: "It Flows through Bulb and Coil"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["parallel", "current"]
 steps:
   - "Set the meter to 1A."
   - "Switch on and the bulb lights."

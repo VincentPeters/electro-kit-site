@@ -1,6 +1,8 @@
 number: 23
 title: "A Divided Current"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["parallel", "current", "resistance"]
 steps:
   - "Set the meter to 1A before you switch on."
   - "Switch on. The bulb lights and the needle swings to about 0.20 amperes. Write it down: that is the current through the coil."

@@ -1,6 +1,8 @@
 number: 40
 title: "Right or Left: a Switch Decides"
 chapter: "switching"
+introduces: []
+practises: ["switching", "voltage", "circuit"]
 steps:
   - "Put both changeover switches at C and press the button. The motor runs."
   - "Now put both changeover switches at B. Press the button and the motor runs the other way."

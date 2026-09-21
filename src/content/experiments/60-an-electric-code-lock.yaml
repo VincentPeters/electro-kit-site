@@ -1,6 +1,8 @@
 number: 60
 title: "An Electric Code Lock"
 chapter: "relay"
+introduces: []
+practises: ["relay", "switching", "series", "parallel"]
 steps:
   - "First set the right code: both changeover switches have to be at B."
   - "Put the on/off switch at ON and press the right-hand button. The bulb lights for as long as you hold it. The lock is open."

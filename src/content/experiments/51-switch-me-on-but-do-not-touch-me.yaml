@@ -1,6 +1,8 @@
 number: 51
 title: "Switch Me On, but Do Not Touch Me"
 chapter: "magnetism"
+introduces: []
+practises: ["magnetism", "switching"]
 steps:
   - "Bring one of the narrow ends of the magnet slowly towards the magnetic switch."
   - "As soon as the magnet is close enough, the electric motor starts to turn."

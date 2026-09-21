@@ -1,6 +1,8 @@
 number: 54
 title: "Work for the Relay"
 chapter: "relay"
+introduces: []
+practises: ["relay", "switching", "circuit"]
 steps:
   - "Press the button. The relay switches with a quiet click and the bulb lights."
   - "Let the button go. The relay drops back to rest and the bulb goes out."

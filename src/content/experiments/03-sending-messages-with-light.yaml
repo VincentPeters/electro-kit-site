@@ -1,6 +1,8 @@
 number: 3
 title: "Sending Messages with Light"
 chapter: "voltage-current-resistance"
+introduces: []
+practises: ["switching", "circuit"]
 steps:
   - "Tap the push button. The bulb flashes in exactly the rhythm you tap."
   - "Every letter and every number has its own pattern of short and long flashes. Sending a message that way is called Morse code."

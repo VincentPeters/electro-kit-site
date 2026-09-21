@@ -1,6 +1,8 @@
 number: 2
 title: "A Torch"
 chapter: "voltage-current-resistance"
+introduces: ["switching"]
+practises: ["circuit"]
 steps:
   - "Build the circuit, then push the switch to ON. The bulb lights up."
   - "Push the switch to OFF and the light goes out, exactly the way a torch works."

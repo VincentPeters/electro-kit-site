@@ -1,6 +1,8 @@
 number: 26
 title: "The Motor Makes a Difference"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["parallel", "current"]
 steps:
   - "Set the meter to 1A, because here too it is measuring a current."
   - "Switch on. The bulb lights and the motor turns."

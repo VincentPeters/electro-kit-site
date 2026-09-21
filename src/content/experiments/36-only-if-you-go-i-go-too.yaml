@@ -1,6 +1,8 @@
 number: 36
 title: "Only If You Go, I Go Too"
 chapter: "switching"
+introduces: []
+practises: ["series", "switching", "circuit"]
 steps:
   - "The bulb only lights when you press the left button AND the right button at the same time."
   - "Try pressing just one of them. Nothing happens."

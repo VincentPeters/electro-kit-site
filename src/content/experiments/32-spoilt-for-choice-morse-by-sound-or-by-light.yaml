@@ -1,6 +1,8 @@
 number: 32
 title: "Spoilt for Choice: Morse by Sound or by Light"
 chapter: "switching"
+introduces: []
+practises: ["switching", "series", "circuit"]
 steps:
   - "Tap the push button. Either the bulb flashes or the buzzer sounds, in exactly the rhythm you tap."
   - "Work the changeover switch to swap between the buzzer and the bulb."

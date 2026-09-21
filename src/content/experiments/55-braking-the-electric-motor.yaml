@@ -1,6 +1,8 @@
 number: 55
 title: "Braking the Electric Motor"
 chapter: "relay"
+introduces: []
+practises: ["relay", "induction", "short-circuit", "switching"]
 steps:
   - "Put the on/off switch at OFF and press the button. The relay pulls in and the motor runs."
   - "Let the button go. The motor takes a little while to coast to a stop."

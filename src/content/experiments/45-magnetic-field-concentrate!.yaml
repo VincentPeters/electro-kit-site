@@ -1,6 +1,8 @@
 number: 45
 title: "Magnetic Field, Concentrate!"
 chapter: "magnetism"
+introduces: []
+practises: ["magnetism", "current"]
 steps:
   - "Slide the iron core into the coil."
   - "Wait until the compass needle has stopped moving, then press the button. The needle swings."

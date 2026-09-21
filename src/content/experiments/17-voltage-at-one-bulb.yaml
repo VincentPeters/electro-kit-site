@@ -1,6 +1,8 @@
 number: 17
 title: "Voltage at One Bulb"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["series", "voltage"]
 steps:
   - "Before you switch on, set the meter to 3V."
   - "Switch on. All three bulbs light and the needle swings to about 1 volt."

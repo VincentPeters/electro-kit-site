@@ -1,6 +1,8 @@
 number: 52
 title: "A Magnet Raises the Alarm"
 chapter: "magnetism"
+introduces: []
+practises: ["magnetism", "switching"]
 steps:
   - "Bring a narrow end of the magnet towards the magnetic switch. As soon as it is close enough, the buzzer sounds."
   - "Take the magnet away from the switch again and the sound stops."

@@ -1,6 +1,8 @@
 number: 5
 title: "Showing the Invisible: Measuring Voltage"
 chapter: "voltage-current-resistance"
+introduces: ["voltage"]
+practises: ["circuit", "switching"]
 steps:
   - "First set the switch on the meter to 3V. That is the setting for measuring a voltage."
   - "Now push the on/off switch to ON. The meter needle swings across and stops at about the figure 3 on the scale, telling you the voltage is 3 volts."

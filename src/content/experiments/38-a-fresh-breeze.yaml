@@ -1,6 +1,8 @@
 number: 38
 title: "A Fresh Breeze"
 chapter: "switching"
+introduces: []
+practises: ["circuit", "switching"]
 steps:
   - "Push the propeller onto the shaft of the electric motor."
   - "Press the button. The motor turns."

@@ -1,6 +1,8 @@
 number: 20
 title: "It Flows through Three Bulbs"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["short-circuit", "series", "resistance", "current"]
 steps:
   - "Set the meter to 1A."
   - "Switch on. All three bulbs light and the meter reads about 0.12 amperes."

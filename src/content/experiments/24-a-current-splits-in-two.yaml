@@ -1,6 +1,8 @@
 number: 24
 title: "A Current Splits in Two"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["parallel", "current"]
 steps:
   - "Set the meter up to measure current, with its switch at 1A."
   - "Switch on. Both bulbs light."

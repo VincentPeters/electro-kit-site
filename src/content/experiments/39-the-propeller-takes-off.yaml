@@ -1,6 +1,8 @@
 number: 39
 title: "The Propeller Takes Off"
 chapter: "switching"
+introduces: []
+practises: ["switching", "circuit"]
 steps:
   - "Push the propeller onto the electric motor."
   - "Hold the button down until the fan has worked up to a good speed."

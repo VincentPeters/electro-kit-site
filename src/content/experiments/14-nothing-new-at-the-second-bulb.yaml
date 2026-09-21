@@ -1,6 +1,8 @@
 number: 14
 title: "Nothing New at the Second Bulb?"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["series", "voltage"]
 steps:
   - "Set the meter to 3V before you switch on."
   - "Switch on. Both bulbs light and the needle swings to about 1.5 volts again, just as it did last time."

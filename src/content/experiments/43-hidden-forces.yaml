@@ -1,6 +1,8 @@
 number: 43
 title: "Hidden Forces"
 chapter: "magnetism"
+introduces: []
+practises: ["magnetism"]
 steps:
   - "Put the compass on the baseplate and wait until the needle settles and stops moving."
   - "Move the magnet slowly towards the compass and watch the needle. It swings away from where it was resting."

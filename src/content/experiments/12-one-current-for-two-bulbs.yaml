@@ -1,6 +1,8 @@
 number: 12
 title: "One Current for Two Bulbs"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["series", "resistance", "current"]
 steps:
   - "Before you switch on, set the meter to 1A."
   - "Push the switch to ON. Both bulbs light and the needle swings to about 0.14 amperes on the lower scale."

@@ -1,6 +1,8 @@
 number: 4
 title: "An Electric Door Buzzer"
 chapter: "voltage-current-resistance"
+introduces: []
+practises: ["switching", "circuit"]
 steps:
   - "Build the circuit and press the push button. The buzzer sounds, exactly like an electric doorbell."
   - "Now try Morse code again, but with sound instead of light."

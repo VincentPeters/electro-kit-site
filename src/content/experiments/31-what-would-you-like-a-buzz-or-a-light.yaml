@@ -1,6 +1,8 @@
 number: 31
 title: "What Would You Like: A Buzz or a Light?"
 chapter: "switching"
+introduces: []
+practises: ["switching", "circuit"]
 steps:
   - "Close the circuit at the minus terminal with the two-contact strip. Either the bulb lights or the buzzer sounds."
   - "Work the changeover switch. Either the bulb goes out and the buzzer starts, or the buzzer stops and the bulb lights."

@@ -1,6 +1,8 @@
 number: 27
 title: "Three Bulbs Side by Side"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["parallel", "voltage", "series"]
 steps:
   - "Push the switch to ON. All three bulbs light up."
   - "Push it to OFF and all three go out."

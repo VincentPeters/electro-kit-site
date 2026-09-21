@@ -1,6 +1,8 @@
 number: 9
 title: "Two in a Row"
 chapter: "series-parallel-mixed"
+introduces: ["series"]
+practises: ["circuit", "current", "voltage"]
 steps:
   - "Push the switch to ON and both bulbs light up."
   - "Push the switch to OFF and both lights go out together."

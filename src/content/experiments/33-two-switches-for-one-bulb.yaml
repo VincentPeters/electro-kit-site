@@ -1,6 +1,8 @@
 number: 33
 title: "Two Switches for One Bulb"
 chapter: "switching"
+introduces: []
+practises: ["switching", "circuit"]
 steps:
   - "Close the circuit at the minus terminal with the two-contact strip. The bulb is either lit or not."
   - "Work either one of the two changeover switches. The bulb goes out if it was lit, and comes on if it was not."

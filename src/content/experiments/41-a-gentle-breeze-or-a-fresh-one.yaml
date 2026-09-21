@@ -1,6 +1,8 @@
 number: 41
 title: "A Gentle Breeze or a Fresh One"
 chapter: "switching"
+introduces: []
+practises: ["short-circuit", "series", "voltage"]
 steps:
   - "Push the propeller onto the motor, put the on/off switch at OFF and press the button. The motor turns slowly."
   - "If your batteries are not quite fresh you may have to help the motor start by giving the fan a flick with your hand."

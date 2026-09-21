@@ -1,6 +1,8 @@
 number: 28
 title: "Parallel Currents through Parallel Bulbs"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["parallel", "current"]
 steps:
   - "Set the meter up to measure current, with its switch at 1A."
   - "Switch on. All three bulbs light and the meter shows the total current, about 0.57 amperes. Write it down."

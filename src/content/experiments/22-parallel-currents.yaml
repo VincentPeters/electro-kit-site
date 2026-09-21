@@ -1,6 +1,8 @@
 number: 22
 title: "Parallel Currents"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["parallel", "current"]
 steps:
   - "Set the meter to 1A before you switch on."
   - "Switch on. Both bulbs light and the needle swings to about 0.19 amperes. Write the reading down."

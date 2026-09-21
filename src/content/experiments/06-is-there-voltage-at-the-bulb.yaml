@@ -1,6 +1,8 @@
 number: 6
 title: "Is There Voltage at the Bulb?"
 chapter: "voltage-current-resistance"
+introduces: []
+practises: ["voltage", "circuit"]
 steps:
   - "Before you close the circuit at the battery compartment, set the switch on the meter to 3V."
   - "With the circuit complete the bulb lights and the meter needle swings up to about 3 volts."

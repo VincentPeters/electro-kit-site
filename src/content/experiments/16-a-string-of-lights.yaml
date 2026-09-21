@@ -1,6 +1,8 @@
 number: 16
 title: "A String of Lights"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["series", "voltage"]
 steps:
   - "Switch on and all three bulbs light up."
   - "Switch off and all three go out together."

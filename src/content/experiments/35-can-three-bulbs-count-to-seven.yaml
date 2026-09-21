@@ -1,6 +1,8 @@
 number: 35
 title: "Can Three Bulbs Count to Seven?"
 chapter: "switching"
+introduces: []
+practises: ["parallel", "switching"]
 steps:
   - "The three bulbs are wired side by side, and you can switch each one on and off on its own."
   - "Put the right-hand changeover switch at C and the bulb above it comes on."

@@ -1,6 +1,8 @@
 number: 48
 title: "Current out of the Coil"
 chapter: "magnetism"
+introduces: ["induction"]
+practises: ["magnetism", "voltage"]
 steps:
   - "Set the switch on the meter to 3V."
   - "Push the bar magnet north pole first into the coil, far enough that you can still just grip the other end."

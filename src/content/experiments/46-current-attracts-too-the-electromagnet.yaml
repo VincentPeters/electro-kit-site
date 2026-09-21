@@ -1,6 +1,8 @@
 number: 46
 title: "Current Attracts Too: the Electromagnet"
 chapter: "magnetism"
+introduces: ["electromagnet"]
+practises: ["magnetism", "current", "switching"]
 steps:
   - "Hold a metal paper clip against the iron core and let go. It falls onto the baseplate."
   - "Now press the button and hold the paper clip against the iron core again."

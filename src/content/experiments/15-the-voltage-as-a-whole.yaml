@@ -1,6 +1,8 @@
 number: 15
 title: "The Voltage as a Whole"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["series", "voltage"]
 steps:
   - "Set the meter to 3V so that it measures a voltage."
   - "Switch on. Both bulbs light and the needle swings up to about 3 volts."

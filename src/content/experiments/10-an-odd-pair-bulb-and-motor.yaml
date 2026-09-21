@@ -1,6 +1,8 @@
 number: 10
 title: "An Odd Pair: Bulb and Motor"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["series", "voltage", "circuit"]
 steps:
   - "Push the switch to ON. The bulb lights up and the motor turns."
   - "Switch off and the bulb goes out and the motor stops."

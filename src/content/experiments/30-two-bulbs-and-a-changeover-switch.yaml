@@ -1,6 +1,8 @@
 number: 30
 title: "Two Bulbs and a Changeover Switch"
 chapter: "switching"
+introduces: []
+practises: ["switching", "circuit"]
 steps:
   - "Close the circuit at the minus terminal of the battery compartment with the two-contact strip. One of the bulbs lights up."
   - "Now work the changeover switch. The other bulb lights and the one that was shining goes out."

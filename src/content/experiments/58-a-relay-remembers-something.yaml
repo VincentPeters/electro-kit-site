@@ -1,6 +1,8 @@
 number: 58
 title: "A Relay Remembers Something"
 chapter: "relay"
+introduces: []
+practises: ["relay", "parallel", "switching", "circuit"]
 steps:
   - "Put the on/off switch at OFF and press the button. The relay clacks and the bulb lights for exactly as long as you hold the button down."
   - "Now put the on/off switch at ON and tap the button once, briefly. The relay clacks and the bulb lights, and it stays lit whether you press the button again or not."

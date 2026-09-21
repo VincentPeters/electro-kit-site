@@ -1,6 +1,8 @@
 number: 59
 title: "I Do Not Forget the Alarm"
 chapter: "relay"
+introduces: []
+practises: ["relay", "magnetism", "switching", "series"]
 steps:
   - "Close the circuit at the plus terminal of the battery compartment. The buzzer sounds straight away."
   - "Bring the magnet close enough to the magnetic switch for it to close, then tap the button briefly. The relay pulls in and the buzzer goes quiet."

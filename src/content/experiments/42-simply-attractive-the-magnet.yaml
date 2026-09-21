@@ -1,6 +1,8 @@
 number: 42
 title: "Simply Attractive: the Magnet"
 chapter: "magnetism"
+introduces: ["magnetism"]
+practises: []
 steps:
   - "Bring the magnet slowly towards a metal paper clip. Before the magnet even touches it, the clip jumps across and sticks."
   - "Check whether the iron core from the kit is pulled towards the magnet too."

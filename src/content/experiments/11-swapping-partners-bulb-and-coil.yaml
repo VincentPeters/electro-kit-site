@@ -1,6 +1,8 @@
 number: 11
 title: "Swapping Partners: Bulb and Coil"
 chapter: "series-parallel-mixed"
+introduces: ["resistance"]
+practises: ["series", "voltage"]
 steps:
   - "Push the switch to ON. The bulb lights, but only faintly."
   - "Push the switch to OFF and it goes out again."

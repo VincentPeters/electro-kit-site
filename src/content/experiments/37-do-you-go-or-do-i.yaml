@@ -1,6 +1,8 @@
 number: 37
 title: "Do You Go, or Do I?"
 chapter: "switching"
+introduces: []
+practises: ["parallel", "switching", "circuit"]
 steps:
   - "The bulb lights when you press the top button, OR the bottom button, OR both together."
   - "Try each one on its own, then both at once."

@@ -1,6 +1,8 @@
 number: 7
 title: "Hidden Current"
 chapter: "voltage-current-resistance"
+introduces: ["current"]
+practises: ["circuit"]
 steps:
   - "Before you close the circuit, set the switch on the meter to 1A so that it measures current."
   - "With the circuit complete the needle settles at about 0.19 on the scale. That means a current of roughly 0.19 amperes is flowing."

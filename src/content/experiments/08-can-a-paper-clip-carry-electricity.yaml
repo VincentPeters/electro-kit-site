@@ -1,6 +1,8 @@
 number: 8
 title: "Can a Paper Clip Carry Electricity?"
 chapter: "voltage-current-resistance"
+introduces: ["conductor"]
+practises: ["circuit", "current"]
 steps:
   - "Set the switch on the meter to 1A so that it measures current."
   - "Build the circuit, but leave a gap. Nothing joins the plus terminal of the battery compartment to the open end of the connector strip beside it."

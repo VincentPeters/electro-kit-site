@@ -1,6 +1,8 @@
 number: 53
 title: "A Switch Switches an Electrical Switch"
 chapter: "relay"
+introduces: ["relay"]
+practises: ["electromagnet", "switching", "circuit"]
 steps:
   - "Close the circuit at the minus terminal of the battery compartment. The bulb lights."
   - "Press the button. The relay switches over with a quiet click and the light goes out."

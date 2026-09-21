@@ -1,6 +1,8 @@
 number: 29
 title: "Short Circuits at the Push of a Button"
 chapter: "series-parallel-mixed"
+introduces: []
+practises: ["short-circuit", "switching", "parallel"]
 steps:
   - "Set the meter to 3V."
   - "Close the circuit at the battery compartment. The single bulb lights and the meter reads about 0.5 volts."

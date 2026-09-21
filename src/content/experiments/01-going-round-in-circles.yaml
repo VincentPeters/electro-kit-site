@@ -1,6 +1,8 @@
 number: 1
 title: "Going Round in Circles"
 chapter: "voltage-current-resistance"
+introduces: ["circuit"]
+practises: []
 steps:
   - "Connect the bulb to both terminals of the battery compartment, so that the current has a complete loop to travel round."
   - "Look carefully at what you have built. Can you trace the path the current takes?"

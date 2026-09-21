@@ -1,6 +1,8 @@
 number: 49
 title: "A Motor That Makes Electricity"
 chapter: "magnetism"
+introduces: []
+practises: ["induction", "magnetism", "voltage"]
 steps:
   - "Set the switch on the meter to 3V."
   - "Spin the motor shaft quickly between your fingers, always the same way. The meter needle moves a little."

@@ -1,6 +1,8 @@
 number: 57
 title: "The Purring Relay"
 chapter: "relay"
+introduces: []
+practises: ["relay", "circuit", "switching"]
 steps:
   - "Press the button. The relay makes a purring sound."
   - "Let the button go and the noise stops."

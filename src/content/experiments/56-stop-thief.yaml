@@ -1,6 +1,8 @@
 number: 56
 title: "Stop, Thief!"
 chapter: "relay"
+introduces: []
+practises: ["relay", "magnetism", "switching"]
 steps:
   - "Close the circuit at the minus terminal of the battery compartment. The buzzer raises the alarm straight away."
   - "The sound only stops when you bring the magnet close enough to the magnetic switch."
