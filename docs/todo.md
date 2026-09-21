@@ -34,15 +34,7 @@ obvious:
 
 ### 1.2 CI builds but never runs the tests
 
-`.github/workflows/deploy.yml` runs `withastro/action`, which builds and
-deploys. It does **not** run `npm test`.
-
-So a board that violates an invariant would still deploy, as long as it builds.
-The Zod schemas fail the build on malformed data, but the six board invariants —
-hole counts, span order, part availability, closed loop, no short circuit — are
-Vitest-only and are currently advisory in CI.
-
-Fix: add a test step to the build job before `withastro/action`.
+Fixed: the deploy workflow now runs `npm test` before building, so an incoherent progression cannot deploy.
 
 ### 1.3 Roughly fifty boards have never been looked at
 
