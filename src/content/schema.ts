@@ -78,5 +78,21 @@ export const chapterSchema = z.object({
     .default([]),
 });
 
+/**
+ * One big idea, explained once in plain language. Experiments tag themselves
+ * against these, and the "builds on" thread between experiments is derived
+ * from those tags rather than written out by hand.
+ */
+export const conceptSchema = z.object({
+  name: z.string().min(1),
+  /** Teaching order: unique, contiguous from 1, matching the order the experiments introduce them. */
+  order: z.number().int().min(1),
+  /** One sentence, used on thread chips and the ideas index. */
+  oneLiner: z.string().min(1),
+  /** The plain-language explanation, one string per paragraph. */
+  eli5: z.array(z.string().min(1)).min(1),
+});
+
 export type Experiment = z.infer<typeof experimentSchema>;
 export type Chapter = z.infer<typeof chapterSchema>;
+export type Concept = z.infer<typeof conceptSchema>;

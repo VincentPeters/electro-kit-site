@@ -1,0 +1,7 @@
+name: "A circuit"
+order: 1
+oneLiner: "Electricity only moves if it can go all the way round and back again."
+eli5:
+  - "Electricity is fussy. It will not go anywhere unless it can get all the way back to where it started."
+  - "Think of a running track. A runner can go round and round for as long as you like. Now put a gap in the track. The runner stops at the gap, and no amount of shouting will get them across it."
+  - "That is why every circuit you build is a loop that starts at one battery terminal and finishes at the other. Take out any one piece and the loop has a gap in it, so everything stops at once, not just the part you took out."

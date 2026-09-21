@@ -1,0 +1,7 @@
+name: "Switching"
+order: 2
+oneLiner: "A switch is a gap in the loop that you can open and close on purpose."
+eli5:
+  - "Once you know that a gap stops everything, a switch is easy: it is a gap you are allowed to make whenever you want."
+  - "Push the switch one way and the two pieces of metal inside touch, so the loop is joined up and the current goes round. Push it the other way and they come apart, leaving a gap the current cannot cross."
+  - "Every light switch in your house is doing exactly this. Nothing clever is happening inside the wall. Someone is just opening and closing a gap."

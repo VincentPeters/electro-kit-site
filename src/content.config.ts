@@ -1,6 +1,6 @@
 import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { chapterSchema, experimentSchema } from './content/schema';
+import { chapterSchema, conceptSchema, experimentSchema } from './content/schema';
 
 const chapters = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/chapters' }),
@@ -14,4 +14,9 @@ const experiments = defineCollection({
   schema: experimentSchema.extend({ chapter: reference('chapters') }),
 });
 
-export const collections = { chapters, experiments };
+const concepts = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/concepts' }),
+  schema: conceptSchema,
+});
+
+export const collections = { chapters, experiments, concepts };
