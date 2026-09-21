@@ -11,6 +11,9 @@ whatHappens:
   - "The meter makes an invisible voltage visible. It is wired to the battery in the same way a bulb would be, and the swing of its needle shows you the voltage."
   - "Inside the meter there is a scale with numbers on it. Because this meter measures both voltage and current, the scale is split into two rows. The upper row, 0 to 3 V, is for voltage. The lower row, 0 to 1 A, is for current."
   - "Whichever you are measuring, the answer is the number the needle is pointing at."
+eli5:
+  - "The battery has one job: it shoves, and that shove is called voltage. You cannot see a shove happening any more than you can see a push."
+  - "The meter turns that invisible shove into a number you can read. Wire it up like a bulb and its needle swings across to show you how hard the battery is pushing."
 note: "Always fit the meter exactly as the build plan shows, and set its switch before you build it in. Wiring it the wrong way round can ruin it."
 sidebar:
   heading: "How electrons really move"

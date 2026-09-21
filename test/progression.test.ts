@@ -127,6 +127,6 @@ describe('the learning progression', () => {
     console.log(`ELI5 coverage: ${covered.length}/${all.length} experiments`);
 
     // Raised as each chapter lands in tasks 9 to 11. Final value is all.length.
-    expect(covered.length).toBeGreaterThanOrEqual(0);
+    expect(covered.length).toBeGreaterThanOrEqual(8);
   });
 });

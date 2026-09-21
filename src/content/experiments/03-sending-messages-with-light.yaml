@@ -11,6 +11,9 @@ whatHappens:
   - "A push button closes and breaks a circuit, just as the switch did."
   - "It has two contacts that are only pressed together while you are holding the button down."
   - "Let go and the contacts spring apart again. That is why the current can only flow for exactly as long as you keep pressing."
+eli5:
+  - "A push button is a switch you have to hold shut yourself. Press it and two contacts touch, closing the loop."
+  - "Let go and a spring pulls them apart again straight away, so the bulb only flashes for as long as your thumb is pressing."
 tables:
   - heading: "The Morse alphabet"
     columns:

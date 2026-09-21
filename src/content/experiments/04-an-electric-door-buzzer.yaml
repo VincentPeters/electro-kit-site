@@ -10,6 +10,9 @@ whatHappens:
   - "You are closing and breaking a circuit with the push button, just as you did before."
   - "This time the current runs through the buzzer instead of the bulb."
   - "Whenever the buzzer is properly connected to both terminals of the battery compartment, it makes its tone."
+eli5:
+  - "It is the very same loop as before. The only change is that the buzzer now sits where the bulb used to be."
+  - "Press the button to close the loop and the buzzer sounds. Let go, the gap opens, and it stops."
 note: "Watch the plus sign on the buzzer. Fit it the way the build plan shows, or it will stay silent."
 sidebar:
   heading: "Electrons"

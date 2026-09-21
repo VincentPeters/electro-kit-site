@@ -10,6 +10,9 @@ whatHappens:
   - "A switch lets you break a circuit or close it again without taking anything apart."
   - "There are two contacts inside the switch. At OFF they are held apart, which is just the same as pulling out a connector strip: the circuit is broken."
   - "At ON the two contacts are pressed together, the loop is complete again, and current can flow."
+eli5:
+  - "A switch is a gap you can open and close on purpose. OFF pulls two pieces of metal apart inside it, the same kind of gap as pulling out a connector strip."
+  - "ON pushes them back together, closing the loop so current can flow again."
 sidebar:
   heading: "Electric current"
   body:

@@ -9,6 +9,9 @@ steps:
 whatHappens:
   - "As soon as every contact is closed the bulb lights up. You have built a closed circuit: current flows out of the battery, through the bulb, and straight back into the battery."
   - "Now take one of the connector strips away. The current cannot flow any more and the bulb goes out. You have broken the circuit."
+eli5:
+  - "The bulb lights because you have made a complete ring, all the way from one end of the battery, through the bulb, and back to the other end."
+  - "Take any piece out and there is a gap in the ring. Nothing gets round, so the bulb goes dark. It is not the bulb that stopped working. It is the ring that stopped being a ring."
 sidebar:
   heading: "Electrical voltage"
   body:

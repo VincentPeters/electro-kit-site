@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
 const { experiment, previous, next } = Astro.props;
 const chapter = await getEntry(experiment.data.chapter);
-const { number, title, steps, whatHappens, note, sidebar, tables, boards } = experiment.data;
+const { number, title, steps, whatHappens, eli5, note, sidebar, tables, boards } = experiment.data;
 
 const concepts = await getCollection('concepts');
 const allExperiments = await getCollection('experiments');
@@ -83,6 +83,14 @@ const practisesRefs = experiment.data.practises.map(toRef).filter((c) => c !== n
     <section class="explain">
       <h2>What happens?</h2>
       {whatHappens.map((para) => <p>{para}</p>)}
+      {
+        eli5 && (
+          <details class="simpler">
+            <summary>Say that in simpler words</summary>
+            {eli5.map((para) => <p>{para}</p>)}
+          </details>
+        )
+      }
     </section>
 
     {
@@ -253,6 +261,22 @@ const practisesRefs = experiment.data.practises.map(toRef).filter((c) => c !== n
     border-radius: var(--radius-l);
   }
   .explain p:last-child {
+    margin-bottom: 0;
+  }
+  .simpler {
+    margin-top: var(--space-m);
+    padding-top: var(--space);
+    border-top: 1px solid var(--colour-line);
+  }
+  .simpler summary {
+    font-weight: 700;
+    color: var(--colour-ink-strong);
+    cursor: pointer;
+  }
+  .simpler p {
+    margin-bottom: var(--space-xs);
+  }
+  .simpler p:last-child {
     margin-bottom: 0;
   }
   .sidebar {
