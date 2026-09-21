@@ -13,7 +13,7 @@ whatHappens:
   - "The experiment only really works with fresh batteries."
 eli5:
   - "This is the same motor, just with its two connections swapped, so the magnet inside points the other way and it spins in the opposite direction."
-  - "Spinning that way is what lets the propeller grab the air and lift, rather than just spin in place."
+  - "Spinning that way is what lets the propeller fly."
 note: "Careful! Never let the propeller fly towards people or animals. It can climb five metres."
 boards:
   - caption: "The same circuit, with the motor turned round"
