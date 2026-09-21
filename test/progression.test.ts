@@ -126,6 +126,10 @@ describe('the learning progression', () => {
     const covered = all.filter((exp) => exp.eli5 !== undefined);
     console.log(`ELI5 coverage: ${covered.length}/${all.length} experiments`);
 
+    // Asserted first, so an empty load fails here rather than letting the
+    // coverage check below pass on no data at all.
+    expect(all.length).toBe(60);
+
     // Every experiment now has one, and every new experiment must arrive with one.
     expect(covered.length).toBe(all.length);
   });

@@ -15,7 +15,7 @@ whatHappens:
   - "Only when the right changeover is at B and you press the right button does the voltage reach the bulb. It lights, because its other connection goes straight to the minus terminal."
 eli5:
   - "The buzzer and the relay's electromagnet are side by side, so whatever feeds the coil sets the alarm off as well. Switching on sends the battery's voltage to the middle contact of the left changeover switch."
-  - "A wrong setting sends it the wrong way. With that switch at C the voltage reaches the coil straight away, the relay pulls in and the buzzer sounds, and the relay then feeds itself through its own work contact, so the noise stays until you switch off. The left-hand button does the same thing, and so does the right changeover at C."
+  - "A wrong setting sends it the wrong way. With that switch at C the voltage reaches the coil straight away, the relay pulls in and the buzzer sounds, and the relay then feeds itself through its own work contact, so the noise stays until you switch off. The left-hand button does the same thing, and so does the right changeover at C with its own button pressed."
   - "Only the right code lets the voltage through: both changeover switches at B, and the right-hand button pressed. Then it reaches the bulb, whose other end goes straight to the battery, and the lock is open."
 note: "This is the biggest build in the book. Work through it one level at a time and check each part before you switch on."
 boards:
