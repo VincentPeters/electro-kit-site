@@ -34,9 +34,17 @@ const hasAnything = introduces.length > 0 || practises.length > 0;
         <span class="group">
           <span class="label">Builds on</span>
           {practises.map((c) => (
-            <a class="idea" href={url(`/ideas/${c.id}/`)}>
+            <a
+              class="idea"
+              href={url(`/ideas/${c.id}/`)}
+              aria-label={
+                c.introducedIn !== null
+                  ? `${c.name}, first met in experiment ${c.introducedIn}`
+                  : undefined
+              }
+            >
               {c.name}
-              {c.introducedIn !== null && <span class="from"> {c.introducedIn}</span>}
+              {c.introducedIn !== null && <span class="from"> #{c.introducedIn}</span>}
             </a>
           ))}
         </span>
