@@ -138,11 +138,6 @@ interface Request {
 }
 
 /*
-  Overlap is weighted far above drift: a label that has moved a centimetre
-  is still readable, and one sitting on another is not. These numbers were
-  tuned against every plan in the book, which the tests re-check.
-*/
-/*
   Overlap costs far more than distance: a label that has shifted a few
   millimetres is still beside its part, and one sitting on another is
   unreadable. Placing greedily is not enough on a plan like experiment 60,
