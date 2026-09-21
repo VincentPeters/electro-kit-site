@@ -14,7 +14,7 @@ whatHappens:
   - "If the object carries current badly or not at all, the bulb stays dark and the meter shows very little or nothing."
 eli5:
   - "Whatever bridges the gap becomes part of the loop, just like a connector strip. Metal, like your paper clip, carries electricity easily, so the loop is complete and the bulb lights."
-  - "Things that are not metal will not carry it, so the gap stays a gap in every way that matters, and the bulb stays dark."
+  - "Most things that are not metal carry it badly or not at all, so the bulb stays dim or dark instead of lighting brightly."
 note: "The gap is between the battery plus terminal at F2 and the open end of the strip at F3. That is where you hold the object you are testing."
 sidebar:
   heading: "Conductors and insulators"

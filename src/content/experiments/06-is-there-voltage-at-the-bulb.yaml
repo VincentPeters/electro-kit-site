@@ -13,7 +13,7 @@ whatHappens:
   - "That is because the voltage the battery supplies is not used up by the bulb. The full voltage is available to it."
 eli5:
   - "The battery's shove does not get smaller just because a bulb is now part of the loop too. It is exactly the same size it always was."
-  - "That is why the needle swings to exactly the same spot as before. A bulb does not use up any of the shove; it just gives it something to push through."
+  - "That is why the needle swings to exactly the same spot as before. The whole of the battery's shove lands on this bulb, with nothing missing along the way."
 sidebar:
   heading: "Electrical resistance"
   body:
