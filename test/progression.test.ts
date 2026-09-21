@@ -126,7 +126,7 @@ describe('the learning progression', () => {
     const covered = all.filter((exp) => exp.eli5 !== undefined);
     console.log(`ELI5 coverage: ${covered.length}/${all.length} experiments`);
 
-    // Raised as each chapter lands in tasks 9 to 11. Final value is all.length.
-    expect(covered.length).toBeGreaterThanOrEqual(41);
+    // Every experiment now has one, and every new experiment must arrive with one.
+    expect(covered.length).toBe(all.length);
   });
 });

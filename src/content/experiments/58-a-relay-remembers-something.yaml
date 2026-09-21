@@ -13,6 +13,10 @@ whatHappens:
   - "With the switch at OFF and the button pressed, the coil and the bulb are joined to the battery for as long as you hold it."
   - "With the switch at ON, letting the button go does not stop the current. It keeps flowing through the middle contact and the work contact of the relay, and on through the on/off switch back to the battery. The bulb stays lit and the relay stays pulled in."
   - "Only putting the switch to OFF breaks that path. A circuit like this is called a self-holding relay, because once it has pulled in it makes its own path to stay that way."
+eli5:
+  - "The bulb and the relay's electromagnet sit side by side on the same pair of connections. Tap the button and both get current, so the relay clacks in and the bulb lights."
+  - "Pulling in swings the middle contact across onto the work contact, and that opens a second way for the current to arrive: from the battery, through the on/off switch, across the two contacts the relay has just closed, and on to the coil and the bulb. So the relay is now keeping its own electromagnet fed, and letting the button go changes nothing."
+  - "Put the on/off switch to OFF and you cut that second way. The relay drops out, the bulb goes dark, and it has forgotten."
 note: "This is why the first computer memories were built from relays. Each one could hold on to a single yes or no."
 boards:
   - caption: "The relay holds itself in through its own work contact"

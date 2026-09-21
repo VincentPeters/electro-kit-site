@@ -13,6 +13,10 @@ whatHappens:
   - "The relay coil has one connection to the battery and the other through the button. Press the button and the relay pulls in. That joins the battery, through the middle contact and the work contact, to the magnetic switch."
   - "If the magnetic switch is open, nothing further happens and the relay only stays in while you hold the button. But if a magnet is holding the magnetic switch closed, current can reach the relay coil through it, so the relay stays pulled in and the buzzer stays quiet."
   - "Take the magnet away and the magnetic switch opens, the coil loses its voltage and the relay drops out. From then on it can only pull in again when the magnetic switch is closed and the button is tapped at the same moment. The alarm does not forget."
+eli5:
+  - "With the relay at rest, the buzzer's loop runs through the rest contact, so the alarm sounds as soon as you switch on."
+  - "Tap the button and the relay's electromagnet gets current and pulls in. That takes the buzzer off the rest contact and quietens it, and it also joins the battery, through the middle contact and the work contact, to the magnetic switch. If a magnet is holding that switch shut, current keeps reaching the coil by this second way, so the relay holds itself in once you let the button go."
+  - "Move the magnet away and the magnetic switch opens, the coil loses its current and the relay drops back, so the buzzer sounds. Bringing the magnet back is not enough now: only a tap on the button at the same moment can pull the relay in again. The alarm does not forget."
 boards:
   - caption: "The alarm latches: the magnet alone will not reset it"
     parts:

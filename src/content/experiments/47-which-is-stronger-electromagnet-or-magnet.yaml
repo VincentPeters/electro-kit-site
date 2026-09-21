@@ -11,6 +11,9 @@ whatHappens:
   - "Hold the bar magnet close enough to the compass and its magnetic field moves the needle."
   - "Press the button and you switch the electromagnet on, which puts a magnetic field around the coil."
   - "That field pulls on the needle too. Whichever of the two fields is stronger is the one that moves the needle furthest."
+eli5:
+  - "Now two magnets are pulling at the same needle: the bar magnet in your hand and the electromagnet you switch on with the button."
+  - "Bring both up at once and the needle goes the way of whichever is pulling harder. That tells you which of the two is stronger here."
 boards:
   - caption: "The electromagnet and the bar magnet, competing for the compass"
     parts:

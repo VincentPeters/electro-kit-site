@@ -11,6 +11,9 @@ whatHappens:
   - "A magnetic field forms all around a coil with current flowing in it. Push the iron core inside and the field lines itself up along the core."
   - "The tiny magnets inside the iron core are pulled into line as well, so the core becomes a magnet itself."
   - "That is why the magnetic field is especially strong at the ends of the iron core."
+eli5:
+  - "Slide the iron core into the coil and the same current pulls far harder. You can take the compass further away than in experiment 44 and still swing the needle."
+  - "The core gathers the coil's magnetic field together along itself. The tiny magnets inside the iron line up too, so the core becomes a magnet, strongest at its two ends."
 boards:
   - caption: "The same coil, with the iron core pushed inside"
     parts:

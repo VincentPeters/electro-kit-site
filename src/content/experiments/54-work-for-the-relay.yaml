@@ -10,6 +10,9 @@ whatHappens:
   - "Unlike experiment 53, the bulb here is joined to what is called the work contact of the relay. One end of the bulb still goes straight to the battery, and the other goes to the changeover inside the relay."
   - "While the relay is at rest, its middle contact is joined to the rest contact. No current can flow through the bulb."
   - "Press the button and the relay switches. Now the middle contact is joined to the bulb through the work contact, so the bulb lights: current can flow through the changeover to the battery."
+eli5:
+  - "Same relay, but the bulb now hangs on the other contact of the changeover, the one the middle contact swings across to when the electromagnet pulls."
+  - "So everything happens the other way round from experiment 53. At rest the bulb's loop is open and it stays dark. Press the button, the middle contact snaps over onto the bulb's contact, the loop is whole and the bulb lights."
 boards:
   - caption: "The bulb hangs on the work contact"
     parts:

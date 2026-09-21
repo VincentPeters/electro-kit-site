@@ -12,6 +12,9 @@ whatHappens:
   - "Round the outside of the motor are magnets, forming a sort of tube. Inside that sits a coil that can turn, called the armature, and its shaft comes out of the case, which is the bit you are twisting."
   - "Turn the armature inside the magnetic field and a voltage is produced, exactly as it was in experiment 48."
   - "Which way you turn the motor by hand decides which way round that voltage comes out."
+eli5:
+  - "Inside the motor are magnets round the outside and a coil that can spin between them. The shaft you are twisting belongs to that coil, so turning it sweeps the coil past the magnets."
+  - "That is experiment 48 again, with your fingers doing the moving. The coil's ends run out to the meter, so there is a whole ring for current to go round, and the needle shifts. Turn the shaft the other way and it shifts the other way."
 boards:
   - caption: "The motor and the meter, with no battery at all"
     noBattery: true

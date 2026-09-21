@@ -11,6 +11,9 @@ whatHappens:
   - "Once again you are switching something on with the magnet rather than with your finger."
   - "Plenty of everyday things work this way. Bicycle speedometers, for example, use a magnetic switch and a magnet on a spoke."
   - "Every time the wheel goes round, the magnet passes the switch and the speedometer counts one turn."
+eli5:
+  - "The same magnetic switch, with the motor on the loop this time. Bring the magnet close, the contacts snap together and the motor runs until you take it away."
+  - "A bicycle speedometer works like this: a magnet on a spoke sweeps past a magnetic switch once every turn of the wheel."
 boards:
   - caption: "A magnetic switch driving the motor"
     parts:

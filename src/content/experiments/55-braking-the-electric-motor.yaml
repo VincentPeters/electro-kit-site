@@ -12,6 +12,10 @@ whatHappens:
   - "With the switch at OFF and the button pressed, the relay coil gets current through the button and the relay switches. The motor runs, because one of its connections goes straight to the battery and the other reaches the battery through the work contact. Let go and the relay drops out, so the motor is simply disconnected and coasts to a halt."
   - "With the switch at ON the same thing happens at first. But when you let the button go, the two motor connections are now joined to each other through the on/off switch and the rest contact of the relay."
   - "A motor that is still spinning makes electricity, as you saw in experiment 49. Here that electricity has a short circuit across it, so the motor is braked hard. The more current a generator has to supply, the more effort it takes to turn it."
+eli5:
+  - "Press the button and the relay pulls in, so the motor runs. Let go with the on/off switch at OFF and the motor is simply cut off from the battery, so it coasts to a stop."
+  - "With the switch at ON, letting go does something else. The relay falls back to its rest contact, and that joins the motor's two connections to each other through the on/off switch."
+  - "The motor is still spinning, and a spinning motor makes electricity, as in experiment 49. That electricity now has an easy ring to run round with nothing in the way, a short circuit, so a large current flows. Making all that current is hard work, and the effort stops the motor almost at once."
 note: "Braking a motor electrically, with no parts rubbing together, matters in real machines. Trams and locomotives do it."
 boards:
   - caption: "The relay switches the motor, and brakes it on the way down"

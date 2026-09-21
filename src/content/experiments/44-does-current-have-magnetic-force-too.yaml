@@ -12,6 +12,9 @@ whatHappens:
   - "A coil with current flowing through it makes a magnetic field. That field appears all around the coil."
   - "By switching the current on and off, you are switching a magnetic field on and off."
   - "And it is not only coils. A magnetic field forms around any conductor that has current flowing through it."
+eli5:
+  - "Press the button and the needle swings, then falls back when you let go. The current running round the coil is making a magnetic field."
+  - "So the button is switching a magnetic field on and off. Any wire with current in it does this, not just a coiled one."
 boards:
   - caption: "A coil, a button, and the compass beside it"
     parts:

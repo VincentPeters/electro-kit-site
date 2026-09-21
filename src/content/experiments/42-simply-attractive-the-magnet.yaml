@@ -12,6 +12,9 @@ whatHappens:
   - "A magnet attracts things made of iron, nickel or cobalt. Other metals such as copper, aluminium and brass are not attracted at all, and nor are plastics."
   - "The magnetic force works across a gap, before anything touches."
   - "It also passes straight through things that are not magnetic, like a sheet of paper, thin plastic or cloth."
+eli5:
+  - "Everything so far has needed a complete loop. This one does not: no battery, no wires, and the clip still jumps the gap."
+  - "The magnet is fussy about what it pulls: iron, nickel and cobalt, but not copper, aluminium, brass or plastic. The pull goes straight through paper or cloth held in the way."
 note: "Keep your magnets away from bank cards, tapes, computers and mechanical watches. A magnet can wipe what is stored on them for good."
 boards:
   - caption: "No circuit needed: just the magnet and the iron core"

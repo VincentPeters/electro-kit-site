@@ -11,6 +11,9 @@ whatHappens:
   - "Here you are switching something on with the magnet once more, this time the buzzer."
   - "Magnetic switches are built into a great many real alarm systems."
   - "One can be fitted into a window frame with the magnet on the window itself, and wired to an alarm. Open the window, the magnet moves away, and the alarm goes off."
+eli5:
+  - "Same switch again, with the buzzer on the loop. The magnet closes the contacts through the glass and the buzzer sounds until you take it away."
+  - "Real burglar alarms use this. The switch goes in the window frame and the magnet on the window, so opening the window takes the magnet away and sets the alarm off."
 boards:
   - caption: "A magnetic switch and the buzzer"
     parts:

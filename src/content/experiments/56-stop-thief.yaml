@@ -12,6 +12,9 @@ whatHappens:
   - "One connection of the buzzer reaches the battery through the rest contact of the relay. The other goes straight to the battery, so the buzzer has the full battery voltage across it and sounds."
   - "Bring the magnet close and the magnetic switch closes, which switches on the relay coil."
   - "The relay switches over, the buzzer connection leaves the rest contact, and the sound stops."
+eli5:
+  - "With the relay at rest, the buzzer's loop runs through the rest contact and is whole, so the alarm sounds."
+  - "Hold the magnet at the magnetic switch and the relay's electromagnet gets current. The middle contact swings off the rest contact, the buzzer's loop is broken and the noise stops. Take the magnet away and it starts again."
 boards:
   - caption: "A magnet holds the alarm off"
     parts:

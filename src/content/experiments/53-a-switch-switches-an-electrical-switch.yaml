@@ -12,6 +12,9 @@ whatHappens:
   - "The electromagnet inside the relay is joined to the battery through the button. The bulb has one connection straight to the battery, and its other connection goes through the changeover inside the relay, so the bulb lights."
   - "That switch position is called the rest contact, because it is the one that is closed while no current is flowing through the relay coil."
   - "Press the button and the relay switches. The middle contact leaves the rest contact, the bulb is no longer joined to the battery, and it goes out because the circuit is broken."
+eli5:
+  - "A relay is a switch pressed by electricity instead of by your finger. Inside it a small electromagnet sits beside a springy contact, and the button decides whether that electromagnet gets any current."
+  - "With the button up, the middle contact rests against the one the bulb hangs on, so the bulb's loop is whole and it lights. Press the button and the electromagnet drags the middle contact away, breaking that loop. The click you hear is the relay switching."
 sidebar:
   heading: "The relay"
   body:

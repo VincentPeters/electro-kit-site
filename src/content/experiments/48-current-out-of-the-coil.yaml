@@ -12,6 +12,9 @@ whatHappens:
   - "The magnet sets the electrons inside the coil moving, because they sit in its field."
   - "When the magnetic field changes quickly, a voltage appears at the ends of the coil. It is called an induced voltage."
   - "Something very similar happens in the dynamo on a bicycle."
+eli5:
+  - "The coil's ends are joined to the meter, so the current has a complete ring."
+  - "Move the magnet in or out and the needle flicks. It is the moving that makes it: hold the magnet still and nothing happens, however strong it is."
 note: "The voltage you make is very small. You will probably have to try a few times to see the flick, and it matters that the meter does not wobble."
 boards:
   - caption: "The coil and the meter, with no battery at all"

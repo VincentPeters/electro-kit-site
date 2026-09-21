@@ -14,6 +14,9 @@ whatHappens:
   - "The bar magnet from your kit is far stronger than the field of the Earth, which is why you can pull the needle away from north with it."
   - "The paper clip is iron, and the tiny magnets inside it point in all directions at random, so it has no effect on the needle."
   - "But stroke the magnet over the clip in one direction several times and you force those tiny magnets to line up together. Now the clip is a weak magnet in its own right."
+eli5:
+  - "The compass needle is a tiny magnet balanced so that it can spin. Left alone, the Earth pulls it round, which is why it settles the same way every time. Your bar magnet is far stronger close up, so it wins and drags the needle over."
+  - "The paper clip is iron, and the tiny magnets inside it point every which way, so the needle ignores it. Stroke the bar magnet along the clip the same way a few times and those tiny magnets line up together. Now the clip is a weak magnet itself."
 note: "You can also find out which end of the bar magnet is which. Hold it close to the compass: the end the red half of the needle points at is the magnet south pole."
 boards:
   - caption: "No circuit needed: the compass and the magnet"

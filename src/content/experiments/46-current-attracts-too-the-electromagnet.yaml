@@ -11,6 +11,9 @@ whatHappens:
   - "The coil with the iron core inside it makes an electromagnet. While current is flowing through the coil, that electromagnet behaves exactly like the bar magnet."
   - "Stop the current and the magnetic force disappears with it."
   - "That is the difference between the two. A bar magnet is called a permanent magnet, because its magnetic force is always there."
+eli5:
+  - "The coil with the iron core inside it is an electromagnet. While you hold the button down it grips the paper clip just as the bar magnet does."
+  - "Let go and the pull vanishes at once. That is the difference: the bar magnet is always magnetic, this one only while current goes round the coil."
 boards:
   - caption: "An electromagnet you can switch on and off"
     parts:

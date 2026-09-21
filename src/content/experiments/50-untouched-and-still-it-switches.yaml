@@ -12,6 +12,9 @@ whatHappens:
   - "The magnetic switch, also called a reed switch, is a little glass tube with two metal contacts inside it. Normally those contacts are held apart, so no current can flow."
   - "The contacts are very thin and made of magnetic material, so the pull of a magnet is enough to move them. They touch, and the circuit is closed."
   - "Take the magnetic force away and the contacts spring back to where they started, breaking the circuit again."
+eli5:
+  - "Inside the little glass tube sit two thin strips of magnetic metal, close together but not touching. That gap in the loop is why the bulb is dark."
+  - "Bring the magnet near and its pull bends the strips together. The gap closes, the ring is whole and the bulb lights. Take the magnet away and they spring apart again. It is an ordinary switch, worked by a magnet instead of your finger."
 boards:
   - caption: "A magnetic switch and a bulb"
     parts:

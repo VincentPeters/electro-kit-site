@@ -10,6 +10,9 @@ whatHappens:
   - "The relay coil is joined to the battery through the button and through the relay's own rest contact. Press the button and the relay switches on."
   - "But at the very moment it switches, it breaks the circuit to its own coil."
   - "So the contacts fall back to rest. Now current can flow through the rest contact again, and the relay switches once more. That rapid switching, over and over, is the purring sound you hear."
+eli5:
+  - "The relay's coil gets its current through the button and then through the relay's own rest contact."
+  - "So the moment it pulls in, the middle contact leaves the rest contact and cuts its own coil off. With no current it drops straight back, which joins the rest contact again and pulls it in once more. It switches itself on and off many times a second, and that is the purr."
 note: "Old electric doorbells and old car horns worked on very much this principle."
 boards:
   - caption: "The relay switches itself off, over and over"
