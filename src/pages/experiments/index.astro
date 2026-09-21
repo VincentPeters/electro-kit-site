@@ -39,7 +39,12 @@ const inChapter = (slug: string) =>
           </div>
           <div class="cards">
             {list.map((exp) => (
-              <ExperimentCard id={exp.id} number={exp.data.number} title={exp.data.title} />
+              <ExperimentCard
+                id={exp.id}
+                number={exp.data.number}
+                title={exp.data.title}
+                introducesIdea={exp.data.introduces.length > 0}
+              />
             ))}
           </div>
         </section>

@@ -6,6 +6,14 @@ import { sortByOrder, whereYouMeetIt } from '../../lib/concepts';
 
 const concepts = sortByOrder(await getCollection('concepts'));
 const experiments = await getCollection('experiments');
+
+// Small enough range that a word list is simpler than a number-to-words library.
+const countWords = [
+  'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
+  'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
+  'seventeen', 'eighteen', 'nineteen', 'twenty',
+];
+const conceptCountWord = countWords[concepts.length] ?? String(concepts.length);
 ---
 
 <BaseLayout
@@ -14,7 +22,7 @@ const experiments = await getCollection('experiments');
 >
   <h1>The big ideas</h1>
   <p class="lede">
-    Sixty experiments, but only thirteen ideas underneath them. Each one turns
+    Sixty experiments, but only {conceptCountWord} ideas underneath them. Each one turns
     up for the first time in a particular experiment, then keeps coming back.
   </p>
 

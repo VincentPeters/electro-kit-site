@@ -12,8 +12,8 @@ whatHappens:
   - "The further the needle swings, the bigger the current. Read it off the lower row of the scale, the one marked 0 to 1 A."
   - "The current is the number the needle is pointing at."
 eli5:
-  - "Voltage is the shove. Current is something different: how much is actually going past a point, counted in amps. It is like standing beside a running track and counting the runners going by."
-  - "The meter counts for you here. The further the needle swings, the more current is flowing, and the number it points to is the answer."
+  - "Voltage is the shove. Current is different: how much goes past a point each second, counted in amps, not how fast it moves, that slow shuffle from experiment 5. Picture standing by a running track and counting runners going by."
+  - "The meter counts for you here. The further the needle swings, the more current is flowing."
 note: "The meter has to be built in exactly as the plan shows for current measurements too, or it can be damaged."
 sidebar:
   heading: "Short circuits"

@@ -47,7 +47,12 @@ const [opening, ...rest] = chapter.data.intro;
   <div class="cards">
     {
       experiments.map((exp) => (
-        <ExperimentCard id={exp.id} number={exp.data.number} title={exp.data.title} />
+        <ExperimentCard
+          id={exp.id}
+          number={exp.data.number}
+          title={exp.data.title}
+          introducesIdea={exp.data.introduces.length > 0}
+        />
       ))
     }
   </div>

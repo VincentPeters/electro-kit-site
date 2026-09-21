@@ -2,7 +2,7 @@ name: "Side by side"
 order: 9
 oneLiner: "Two loops can share one battery, and each of them gets the whole of its shove."
 eli5:
-  - "Instead of one long loop with everything strung along it, you can build two loops that both leave the same battery and both come back to it. That is side by side."
+  - "Instead of one long loop with everything strung along it, you can build two loops that both leave the same battery and both come back to it. That is side by side, and wiring it that way is called a parallel circuit."
   - "The running track now splits into two lanes and joins up again at the far end. Each lane is a complete way round in its own right."
   - "So each bulb gets the full 3 volt shove rather than half of it, and two bulbs side by side are both as bright as a single bulb on its own. The battery pays for that. It has to supply two lots of current instead of one, so it goes flat sooner."
   - "The other difference matters more. Break one lane and the other lane is still a finished loop, so one bulb can go out while the other stays lit. That is why the lights in a house are wired side by side and not one after another."

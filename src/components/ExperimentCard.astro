@@ -6,14 +6,22 @@ interface Props {
   id: string;
   number: number;
   title: string;
+  /** True when this experiment is the first to teach one of the thirteen ideas. */
+  introducesIdea?: boolean;
 }
 
-const { id, number, title } = Astro.props;
+const { id, number, title, introducesIdea = false } = Astro.props;
 ---
 
-<a class="tile" data-experiment={number} href={url(`/experiments/${experimentSlug(id)}/`)}>
+<a
+  class="tile"
+  data-experiment={number}
+  data-introduces={introducesIdea ? 'true' : undefined}
+  href={url(`/experiments/${experimentSlug(id)}/`)}
+>
   <span class="hex">{number}</span>
   <span class="title">{title}</span>
+  {introducesIdea && <span class="visually-hidden">, introduces a new idea</span>}
 </a>
 
 <style>
@@ -39,6 +47,7 @@ const { id, number, title } = Astro.props;
     background: var(--theme-wash);
   }
   .hex {
+    position: relative;
     background: var(--theme);
     transition: transform var(--fast) var(--ease);
   }
@@ -54,5 +63,30 @@ const { id, number, title } = Astro.props;
     content: ' ✓';
     color: var(--theme);
     font-weight: 800;
+  }
+  /*
+    A quiet scanning aid, not a badge: the number's own hexagon gets a thin
+    hex-shaped halo in the introduces case, using the hexagon motif rather
+    than adding a separate icon. It lives on the hex, not the title, so it
+    can never collide with the progress tick on .title::after.
+  */
+  .tile[data-introduces='true'] .hex::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    background: var(--colour-ink-strong);
+    z-index: -1;
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>

@@ -24,7 +24,7 @@ const hasAnything = introduces.length > 0 || practises.length > 0;
         <span class="group">
           <span class="label">New idea</span>
           {introduces.map((c) => (
-            <a class="idea idea-new" href={url(`/ideas/${c.id}/`)}>
+            <a class="idea idea-new" href={url(`/ideas/${c.id}/`)} aria-label={`${c.name}, the new idea in this experiment`}>
               {c.name}
             </a>
           ))}
