@@ -95,16 +95,30 @@ describe('the learning progression', () => {
 
   it('orders the concepts the way the experiments introduce them', () => {
     const points = introductionPoints();
-    const byTeachingOrder = loadConcepts()
+    const inTeachingOrder = loadConcepts()
       .slice()
-      .sort((a, b) => a.order - b.order)
-      .map((c) => c.id);
-    const byIntroduction = loadConcepts()
-      .slice()
-      .sort((a, b) => (points.get(a.id) ?? Infinity) - (points.get(b.id) ?? Infinity))
-      .map((c) => c.id);
+      .sort((a, b) => a.order - b.order);
 
-    expect(byTeachingOrder).toEqual(byIntroduction);
+    // Walk the concepts in teaching order: the experiment introducing each
+    // one must never come before the previous concept's. Comparing adjacent
+    // pairs rather than two sorted id lists keeps this correct when a single
+    // experiment introduces two concepts at once, where any tie-break
+    // between them would be arbitrary.
+    const outOfOrder: string[] = [];
+    for (let i = 1; i < inTeachingOrder.length; i++) {
+      const previous = inTeachingOrder[i - 1];
+      const current = inTeachingOrder[i];
+      const previousAt = points.get(previous.id) ?? Infinity;
+      const currentAt = points.get(current.id) ?? Infinity;
+
+      if (currentAt < previousAt) {
+        outOfOrder.push(
+          `${current.id} (order ${current.order}) is introduced at ${currentAt}, before ${previous.id} (order ${previous.order}) at ${previousAt}`,
+        );
+      }
+    }
+
+    expect(outOfOrder).toEqual([]);
   });
 
   it('reports how many experiments have a plain-language version', () => {
