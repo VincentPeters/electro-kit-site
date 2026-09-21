@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../lib/url';
+import { sortByOrder, whereYouMeetIt } from '../../lib/concepts';
+
+const concepts = sortByOrder(await getCollection('concepts'));
+const experiments = await getCollection('experiments');
+---
+
+<BaseLayout
+  title="The big ideas"
+  description="The handful of ideas the whole kit is built on, each explained in plain language."
+>
+  <h1>The big ideas</h1>
+  <p class="lede">
+    Sixty experiments, but only thirteen ideas underneath them. Each one turns
+    up for the first time in a particular experiment, then keeps coming back.
+  </p>
+
+  <ol class="ideas">
+    {
+      concepts.map((concept) => {
+        const { introducedBy } = whereYouMeetIt(concept.id, experiments);
+        return (
+          <li>
+            <a href={url(`/ideas/${concept.id}/`)}>
+              <span class="hex">{concept.data.order}</span>
+              <span class="body">
+                <span class="name">{concept.data.name}</span>
+                <span class="one-liner">{concept.data.oneLiner}</span>
+                {introducedBy && (
+                  <span class="first">First met in experiment {introducedBy.data.number}</span>
+                )}
+              </span>
+              <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+                <path d="M4 12h15m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.5" />
+              </svg>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+</BaseLayout>
+
+<style>
+  .lede {
+    font-size: var(--step-1);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 32ch;
+    text-wrap: balance;
+    margin-bottom: var(--space-xl);
+  }
+  .ideas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .ideas a {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--space);
+    padding: var(--space) var(--space-m) var(--space) var(--space);
+    border: 1px solid var(--colour-line);
+    border-radius: var(--radius-l);
+    background: var(--colour-page);
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color var(--fast) var(--ease),
+      background var(--fast) var(--ease);
+  }
+  .ideas a:hover {
+    border-color: var(--colour-line-strong);
+    background: var(--colour-surface);
+  }
+  .ideas .hex {
+    background: var(--colour-ink-strong);
+  }
+  .body {
+    display: grid;
+    gap: 0.15rem;
+  }
+  .name {
+    font-variation-settings: 'wdth' 110;
+    font-weight: 800;
+    font-size: var(--step-1);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--colour-ink-strong);
+    text-wrap: balance;
+  }
+  .one-liner {
+    color: var(--colour-ink);
+    line-height: 1.5;
+  }
+  .first {
+    font-size: var(--step--1);
+    color: var(--colour-muted);
+  }
+  .arrow {
+    width: 1.4rem;
+    height: 1.4rem;
+    color: var(--colour-muted);
+    transition: transform var(--slow) var(--ease);
+  }
+  .ideas a:hover .arrow {
+    transform: translateX(4px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ideas a:hover .arrow {
+      transform: none;
+    }
+  }
+  @media (max-width: 34rem) {
+    .arrow {
+      display: none;
+    }
+    .ideas a {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+  }
+</style>

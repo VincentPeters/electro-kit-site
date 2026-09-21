@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../lib/url';
+import { experimentSlug } from '../../lib/experiments';
+import { whereYouMeetIt } from '../../lib/concepts';
+
+export async function getStaticPaths() {
+  const concepts = await getCollection('concepts');
+  return concepts.map((concept) => ({
+    params: { slug: concept.id },
+    props: { concept },
+  }));
+}
+
+const { concept } = Astro.props;
+const experiments = await getCollection('experiments');
+const { introducedBy, practisedBy } = whereYouMeetIt(concept.id, experiments);
+---
+
+<BaseLayout title={concept.data.name} description={concept.data.oneLiner}>
+  <p class="chip">Idea {concept.data.order} of 13</p>
+  <h1>{concept.data.name}</h1>
+  <p class="lede">{concept.data.oneLiner}</p>
+
+  <div class="explain">
+    {concept.data.eli5.map((para) => <p>{para}</p>)}
+  </div>
+
+  <h2>Where you meet it</h2>
+  {
+    introducedBy && (
+      <p class="first">
+        First in{' '}
+        <a href={url(`/experiments/${experimentSlug(introducedBy.id)}/`)}>
+          {introducedBy.data.number}. {introducedBy.data.title}
+        </a>
+      </p>
+    )
+  }
+  {
+    practisedBy.length > 0 && (
+      <ul class="again">
+        {practisedBy.map((exp) => (
+          <li>
+            <a href={url(`/experiments/${experimentSlug(exp.id)}/`)}>
+              {exp.data.number}. {exp.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .lede {
+    font-size: var(--step-1);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 34ch;
+    text-wrap: balance;
+  }
+  .explain {
+    margin-top: var(--space-m);
+    padding: var(--space-m) var(--space-l);
+    background: var(--colour-surface);
+    border-radius: var(--radius-l);
+    max-width: 44rem;
+  }
+  .explain p:last-child {
+    margin-bottom: 0;
+  }
+  .first {
+    font-weight: 600;
+  }
+  .again {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  }
+  .again a {
+    display: block;
+    padding: var(--space-s) var(--space);
+    border: 1px solid var(--colour-line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--colour-ink-strong);
+  }
+  .again a:hover {
+    border-color: var(--colour-line-strong);
+    background: var(--colour-surface);
+  }
+</style>
