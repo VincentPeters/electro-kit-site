@@ -2,8 +2,10 @@
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Board from '../../components/Board.astro';
+import ThreadLine, { type ConceptRef } from '../../components/ThreadLine.astro';
 import { url } from '../../lib/url';
 import { experimentSlug, sortByNumber } from '../../lib/experiments';
+import { whereYouMeetIt } from '../../lib/concepts';
 
 export async function getStaticPaths() {
   const all = sortByNumber(await getCollection('experiments'));
@@ -21,6 +23,24 @@ export async function getStaticPaths() {
 const { experiment, previous, next } = Astro.props;
 const chapter = await getEntry(experiment.data.chapter);
 const { number, title, steps, whatHappens, note, sidebar, tables, boards } = experiment.data;
+
+const concepts = await getCollection('concepts');
+const allExperiments = await getCollection('experiments');
+const byId = new Map(concepts.map((c) => [c.id, c]));
+
+const toRef = (id: string): ConceptRef | null => {
+  const concept = byId.get(id);
+  if (!concept) return null;
+  const { introducedBy } = whereYouMeetIt(id, allExperiments);
+  return {
+    id,
+    name: concept.data.name,
+    introducedIn: introducedBy?.data.number ?? null,
+  };
+};
+
+const introducesRefs = experiment.data.introduces.map(toRef).filter((c) => c !== null);
+const practisesRefs = experiment.data.practises.map(toRef).filter((c) => c !== null);
 ---
 
 <BaseLayout title={title} description={whatHappens[0]} theme={chapter!.data.colour}>
@@ -35,6 +55,8 @@ const { number, title, steps, whatHappens, note, sidebar, tables, boards } = exp
       </div>
     </div>
   </div>
+
+  <ThreadLine introduces={introducesRefs} practises={practisesRefs} />
 
   <div class="sheet">
     <div class="plates">

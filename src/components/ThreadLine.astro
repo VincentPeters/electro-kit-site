@@ -1,0 +1,107 @@
+---
+import { url } from '../lib/url';
+
+export interface ConceptRef {
+  id: string;
+  name: string;
+  /** The experiment that first taught it, for the "you met this in N" hint. */
+  introducedIn: number | null;
+}
+
+interface Props {
+  introduces: ConceptRef[];
+  practises: ConceptRef[];
+}
+
+const { introduces, practises } = Astro.props;
+const hasAnything = introduces.length > 0 || practises.length > 0;
+---
+
+{
+  hasAnything && (
+    <nav class="thread" aria-label="How this fits together">
+      {introduces.length > 0 && (
+        <span class="group">
+          <span class="label">New idea</span>
+          {introduces.map((c) => (
+            <a class="idea idea-new" href={url(`/ideas/${c.id}/`)}>
+              {c.name}
+            </a>
+          ))}
+        </span>
+      )}
+      {practises.length > 0 && (
+        <span class="group">
+          <span class="label">Builds on</span>
+          {practises.map((c) => (
+            <a class="idea" href={url(`/ideas/${c.id}/`)}>
+              {c.name}
+              {c.introducedIn !== null && <span class="from"> {c.introducedIn}</span>}
+            </a>
+          ))}
+        </span>
+      )}
+    </nav>
+  )
+}
+
+<style>
+  /*
+    One compact line under the chapter band. A child at a table wants the
+    circuit and the steps first, so this must never grow past a wrap or two
+    of small text, even with four "builds on" pills on a phone.
+  */
+  .thread {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs) var(--space);
+    margin-block: var(--space) var(--space-l);
+  }
+  .group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+  /*
+    Uppercase and tracked, same as the pager's "Previous"/"Next" label below
+    and the table headers above: an inline tag beside its own content, not a
+    standalone eyebrow line sitting alone over a heading.
+  */
+  .label {
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--colour-muted);
+  }
+  .idea {
+    display: inline-block;
+    border: 1px solid var(--colour-line);
+    border-radius: var(--radius-l);
+    padding: var(--space-2xs) var(--space-s);
+    font-size: var(--step--1);
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    color: var(--colour-ink-strong);
+  }
+  .idea:hover {
+    border-color: var(--colour-line-strong);
+    background: var(--colour-surface);
+  }
+  /*
+    The chapter theme is legitimate here: this line sits directly beneath the
+    fully theme-coloured band above and reads as part of its identity, not as
+    chrome competing with the circuit diagram further down the page.
+  */
+  .idea-new {
+    border-color: var(--theme);
+    font-weight: 700;
+  }
+  .from {
+    color: var(--colour-muted);
+    font-variant-numeric: tabular-nums;
+  }
+</style>
