@@ -1,0 +1,8 @@
+name: "The relay"
+order: 13
+oneLiner: "A relay is a switch pressed by an electromagnet instead of by a finger, so one loop can work another one without the two ever touching."
+eli5:
+  - "Every switch so far has needed your hand. A relay does not. Inside it sits a small electromagnet next to a springy strip of metal, and when current goes through the electromagnet the pull drags the strip across and closes a gap."
+  - "So the switch is pressed by electricity. Stop the current and the spring pulls the strip back where it was, and the gap opens again."
+  - "The clever bit is that two separate loops meet here and never touch. One loop, the one with your switch in it, feeds the electromagnet. The other loop runs through the metal strip and can be carrying something else entirely. A small loop gets to work a bigger one from a little way off, and the only thing crossing between them is a pull through the air."
+  - "You can even wire it so that pulling the strip across breaks the very loop that feeds its own electromagnet. Then it lets go, snaps back, switches itself on again, and chatters away by itself. That is what keeps an electric bell ringing."

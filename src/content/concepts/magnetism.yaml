@@ -1,0 +1,8 @@
+name: "Magnetism"
+order: 10
+oneLiner: "A magnet pushes and pulls on certain metals across a gap, with no loop, no wires and no battery anywhere."
+eli5:
+  - "Everything so far has needed a complete loop. This does not. A bar magnet works sitting in your hand, on its own, with nothing connected to it."
+  - "It pulls on iron and steel: pins, paper clips, a screwdriver, the door of the fridge. It does nothing you can feel to copper, aluminium, plastic or wood. So it is not metal in general that a magnet cares about, only a few particular ones."
+  - "Every magnet has two ends, a north pole and a south pole. Two ends that are the same shove each other away, and two ends that are different pull together. A compass needle is a tiny magnet balanced on a pivot so that it is free to spin, which is why it always swings round and settles pointing the same way."
+  - "The pull reaches across empty space and straight through things. Hold the magnet under a sheet of paper, or under the table, and you can still drag a paper clip about on the other side."

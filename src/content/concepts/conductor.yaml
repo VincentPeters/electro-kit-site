@@ -1,0 +1,8 @@
+name: "Conductors and insulators"
+order: 5
+oneLiner: "A few materials will carry electricity and most will not, which is why wires are metal and everything around them is not."
+eli5:
+  - "Metal carries electricity: copper, steel, the springs and the snap studs on your baseplate. That is why there is metal running down the middle of every connector strip. Anything that will carry it is called a conductor."
+  - "Plastic, wood, glass, paper, rubber and dry cloth will not carry it at all. Those are insulators. The coloured plastic wrapped round a wire is there so the metal inside cannot touch anything you did not mean it to touch."
+  - "Air is an insulator too, and that is the quiet trick behind the switch. When a switch is open, the two pieces of metal inside have come apart and there is nothing but air between them. Air will not carry the current across, so everything stops. The gap does not need anything in it. It only needs the metal not to be touching."
+  - "You can test anything you like. Leave a gap in a loop, hold the thing across the gap, and watch the bulb. A spoon lights it and a pencil does not."

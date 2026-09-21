@@ -1,0 +1,8 @@
+name: "One after another"
+order: 6
+oneLiner: "When everything sits on one single loop, the same current goes through every part in turn and the shove is shared out between them."
+eli5:
+  - "The simplest way to build is to put everything on one loop, one part after the next, so the current has no choice at all about where to go."
+  - "On the running track there is only one lane. Every runner has to get past the first thing, then the second, then the third, before arriving back at the start."
+  - "Two things follow from that. The same current goes through all of them, so two bulbs on one loop are always exactly as bright as each other. And the battery's shove has to be split between them, so each bulb gets less of it than it would have had on its own. Two bulbs on one loop are dimmer than one bulb alone."
+  - "It also makes the whole thing fragile. One gap anywhere, a part not clipped down or a switch left open, and the single loop is broken, so everything goes out together."

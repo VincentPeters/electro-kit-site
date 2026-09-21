@@ -1,0 +1,8 @@
+name: "Resistance"
+order: 7
+oneLiner: "Some parts are hard work to get through, and the harder the work, the less current goes round."
+eli5:
+  - "A connector strip is easy to travel along. Other things are not. A part that is hard to get through lets less current past it, and that difficulty is what resistance means."
+  - "Imagine one stretch of the running track is deep mud. Everyone still has to cross it, so fewer runners come past you each minute. One bad stretch holds up the whole loop, and deeper mud means a smaller count."
+  - "Here is the bit that is easy to get wrong. The mud is not a fault. The wire inside the bulb is a deliberately thin, difficult scrap of metal, and shoving current through something that difficult is exactly what heats it until it glows white. Take the difficulty away and you take the light away with it."
+  - "You can watch this happening. Add a second bulb to a single loop and you have added a second muddy stretch, so less current gets round than before and both bulbs come out dim."

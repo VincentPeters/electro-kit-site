@@ -1,0 +1,8 @@
+name: "Induction"
+order: 12
+oneLiner: "Moving a magnet near a coil of wire makes current appear in the coil, with no battery involved at all."
+eli5:
+  - "Current through a coil makes a magnet. It turns out the whole thing runs backwards as well: bring a magnet to a coil and current appears in the wire on its own."
+  - "The word to hold onto is moving. Push the magnet into the coil and current goes one way. Pull it back out and the current goes the other way. Leave it lying there, however strong it is, and absolutely nothing happens. It is the movement that makes the current, not the magnet."
+  - "That is why the motor can be run backwards too. Spin its shaft with your fingers instead of feeding it current, and the magnets inside are sweeping past its coils, so the motor hands you a little current instead of taking some."
+  - "Nearly all the electricity in the world is made this way. A power station is very large magnets being turned past very large coils, and wind, water, steam or burning fuel is only what does the turning."

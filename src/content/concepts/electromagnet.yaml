@@ -1,0 +1,7 @@
+name: "Electromagnets"
+order: 11
+oneLiner: "Current running round and round a coil of wire turns that coil into a magnet, and stopping the current takes the magnetism away again."
+eli5:
+  - "Wind a wire into a tight spiral and send current round the loop it sits in. While the current is flowing, the coil behaves like a bar magnet. It has a north end and a south end, it pulls on iron, and it swings a compass needle round, exactly as the magnet in your hand does."
+  - "Slide the iron core down the middle of the coil and the pull gets much stronger, because the iron gathers the magnetism together. More turns of wire, or a harder shove behind the current, make it stronger again."
+  - "The useful part is not that it is a magnet. It is that you can switch it off. Open the switch, the current stops, and the pull is gone that same instant. No ordinary magnet will ever do that, and electric bells, motors and the cranes that lift cars about in a scrapyard all depend on it."

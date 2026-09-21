@@ -1,0 +1,8 @@
+name: "Short circuits"
+order: 8
+oneLiner: "Offered an easy way round and a hard way round, the current takes almost all of the easy one and abandons the hard one."
+eli5:
+  - "Lay a plain connector strip straight across a lit bulb and the bulb goes out, even though nothing is broken and the loop is still whole."
+  - "The current now has two ways to get round: through that difficult thin wire inside the bulb, or along the easy strip you have just put there. Nearly all of it goes the easy way. What is left going through the bulb is far too little to heat it, so it sits there dark. The easy way round is called a short circuit."
+  - "Usually this is just a good trick. Once it is genuinely dangerous, and it is one of the safety rules at the front of this site: never join the two battery terminals to each other with nothing in between. That is an easy way round with no hard part anywhere on it, so an enormous current moves all at once. The wires get hot and the batteries can burst."
+  - "A short circuit is also the answer when a build stops working for no reason you can see. Two bare pieces of metal are touching somewhere on the board and offering a way round that you never meant to build."

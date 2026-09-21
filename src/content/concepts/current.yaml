@@ -1,0 +1,8 @@
+name: "Current"
+order: 4
+oneLiner: "Current is how much electricity actually goes past a point each second."
+eli5:
+  - "Voltage is the shove. Current is what happens because of the shove: the stuff that really moves."
+  - "Stand at the edge of the running track and count the runners going past your feet. That count is the current. It is not how fast any one of them is going, and it is not how hard they were pushed off the line. It is simply how many go by."
+  - "On a single loop the count comes out the same wherever you stand. Nothing piles up and nothing is used up along the way, so exactly as much goes through the battery as goes through the connector strips and through the bulb."
+  - "Current is measured in amps. The bulb in your kit runs on about a fifth of an amp, which is a very small one."
